@@ -1,0 +1,5498 @@
+<!doctype html>
+<html lang="zh-CN" data-style="lime">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>用户手册</title>
+  <style>:root {
+  color-scheme: light;
+  --paper: #fffcf0;
+  --panel: #ffffff;
+  --panel-soft: #fefffe;
+  --ink: #24352c;
+  --muted: #82998a;
+  --line: #d6ecd9;
+  --accent: #0c841f;
+  --accent-2: #33523b;
+  --accent-3: #11ba2c;
+  --code: #0c7a1f;
+  --shadow: 0 14px 40px rgba(17, 120, 44, 0.12);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: auto; }
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #f8fef9 0%, #effaf3 46%, #e8f9ec 100%);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", sans-serif;
+  line-height: 1.8;
+}
+.page {
+  width: min(100%, 1060px);
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+.hero {
+  padding: 28px 0 10px;
+}
+.kicker {
+  padding-left: 18px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: left;
+}
+h1 {
+  max-width: 900px;
+  margin: 14px 0 16px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 8px;
+  font-size: clamp(28px, 5vw, 52px);
+  line-height: 1.12;
+  font-weight: 700;
+  color: #223226;
+  text-align: center;
+}
+.toc {
+  margin: 4px 0 26px 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow);
+}
+.toc-group + .toc-group {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.toc-one .toc-h1 {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.toc-h1 {
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 18px;
+}
+.toc-h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+.toc-h1 a:hover {
+  color: inherit;
+}
+.toc-items {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+  gap: 8px 14px;
+}
+.toc-items a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.toc-items a::before {
+  content: "✦";
+  margin-right: 6px;
+}
+.toc-items a:hover {
+  color: var(--accent-2);
+}
+.toc-items a.toc-l3::before {
+  content: "✧";
+}
+.content > :first-child { margin-top: 0; }
+.content h1 {
+  margin: 46px 0 24px;
+  max-width: none;
+  text-align: left;
+  position: relative;
+  padding: 16px 20px 16px calc(28px + 1.2em);
+  border: 1.5px solid #bfe3da;
+  border-radius: 12px;
+  background: var(--panel-soft);
+  box-shadow: -4px 4px 0 #007a14;
+  margin-left: 4px;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 31px;
+  line-height: 1.25;
+}
+.content h1::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.2em;
+  height: 1.2em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%23fce100' d='M61.15 149.2c14.88 14.77 34.62 21.17 52.37 18.85 0 0 16.09-2.1 23.48.66 6.51 3.85 12.35 1.76 16.65-2.43 4.3-4.3 6.29-10.04 2.43-16.54-2.75-7.38-.66-23.37-.66-23.37 2.43-17.75-3.97-37.27-18.85-52.15-14.88-14.77-34.62-21.17-52.37-18.74 0 0-16.09 2.1-23.48-.66-6.51-3.85-12.35-1.76-16.65 2.43-4.3 4.3-6.29 10.04-2.43 16.54 2.75 7.38.66 23.37.66 23.37-2.43 17.64 3.97 37.27 18.85 52.04'/%3E%3Cpath fill='%23f7c939' d='M42.71 97.29h0c-2.43 17.64 3.97 37.27 19.07 52.04 14.88 14.77 34.62 21.17 52.37 18.74 0 0 14.33-1.87 22.16.22-2.53-2.31-4.41-4.19-5.62-5.29-20.51 1.55-46.53-6.83-63.07-23.26-17.53-17.42-25.14-40.57-22.27-61.41-.44 3.19-1.1 4.96-1.87 5.84.11 6.62-.77 13.12-.77 13.12h0Z'/%3E%3Cpath fill='%23fefefe' fill-opacity='.5' d='M139.19 111.32c-1.11.11-1.77-3.75-2.21-4.74-3.31-6.83-7.61-13.01-13.01-18.3-4.3-4.3-9.26-7.94-14.55-10.92-.66-.44-1.21-.98-1.43-1.76s-.11-1.55.22-2.21c.77-1.32 2.54-1.87 3.97-1.1 5.85 3.2 11.14 7.17 15.88 11.91 5.84 5.74 10.58 12.57 14.11 19.96.33.88 2.31 6.29 1.65 3.2-.77-3.31 1.22 3.53-1.54 4.41M99.06 68.11c1.65-1.32 4.08-1.1 5.4.33.66.78.99 1.77.88 2.76-.11 1.11-.55 1.99-1.32 2.65-1.65 1.32-4.08 1.21-5.4-.44-.66-.78-.99-1.76-.88-2.76s.55-1.88 1.32-2.54'/%3E%3Cpath fill='%2320a139' d='M81.93 19.11c3.64-1.08 10.46-2.29 15.64-2.09 3.62.14 7.61.63 4.98 3.51-4.95 5.43-4.16 12.88-7.93 18.66-5.05 7.76-15.25 5.74-25.11 14.86 3.48-11.35 13.91-24.69 21.95-29.7-9.54 4.2-18.73 16.14-21.73 24.34 1.9-8.91-3.31-11.85 1.09-20.48 2.29-4.51 6.26-7.66 11.11-9.09h0Z'/%3E%3C/svg%3E");
+}
+.content h2 {
+  margin: 24px 0 18px;
+  padding: 16px 20px;
+  border: 1.5px solid #bfe3da;
+  border-radius: 12px;
+  background: var(--panel-soft);
+  box-shadow: -3px 3px 0 var(--accent-3);
+  margin-left: 3px;
+  font-size: 27px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+.content h3 {
+  margin: 32px 0 12px;
+  padding-left: 11px;
+  position: relative;
+  color: var(--accent-2);
+  font-size: 20px;
+  line-height: 1.35;
+}
+.content h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-45%);
+  width: 3px;
+  height: 1em;
+  background: var(--accent-3);
+}
+.content h4 {
+  margin: 26px 0 10px;
+  color: #6b8473;
+  font-size: 17px;
+}
+p {
+  margin: 0 0 18px;
+}
+a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+strong {
+  color: #1f2c24;
+}
+mark {
+  border-radius: 4px;
+  padding: 1px 5px;
+  background: rgba(17, 186, 44, 0.2);
+  color: inherit;
+}
+.list-panel {
+  margin: 20px 0;
+  padding: 18px 22px 18px 34px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel-soft);
+}
+li { margin: 6px 0; }
+blockquote {
+  margin: 26px 0;
+  padding: 12px 18px;
+  border-left: 3px solid #11ba2c;
+  border-radius: 10px;
+  background: var(--panel-soft);
+  color: #11ba2c;
+}
+blockquote::before {
+  content: "❝";
+  float: left;
+  margin-right: 6px;
+  line-height: 1;
+  color: var(--accent-3);
+  font-size: 1.15em;
+}
+blockquote > :first-child { margin-top: 0; }
+blockquote > :last-child { margin-bottom: 0; }
+blockquote > * { padding-left: 0.75em; }
+.pull-quote {
+  color: #33523b;
+  font-size: 17px;
+}
+.callout {
+  border-left-color: var(--accent-2);
+  background: var(--panel-soft);
+}
+.callout-title {
+  color: var(--accent-2);
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.table-wrap {
+  overflow-x: auto;
+  margin: 24px 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+  background: #ffffff;
+}
+th, td {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  background: var(--panel-soft);
+  color: #244030;
+  font-weight: 800;
+  text-align: center;
+  vertical-align: middle;
+}
+td {
+  vertical-align: middle;
+}
+tr:last-child td { border-bottom: 0; }
+th:last-child, td:last-child { border-right: 0; }
+code {
+  border-radius: 5px;
+  padding: 2px 6px;
+  background: rgba(17, 186, 44, 0.12);
+  color: var(--code);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.9em;
+}
+pre {
+  position: relative;
+  margin: 24px 0;
+  padding: 18px;
+  border-radius: 10px;
+  background: #0a2413;
+  color: #d5efdd;
+  overflow-x: auto;
+}
+pre code {
+  padding: 0;
+  background: transparent;
+  color: inherit;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 28px auto;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+hr {
+  margin: 36px 0;
+  border: 0;
+  border-top: 1px dashed #b9ddc5;
+}
+.task-list-item-checkbox { margin-right: 8px; }
+.ai-polished {
+  --accent: #0e9a8c;
+  --accent-2: #0c841f;
+  background: linear-gradient(180deg, #f6fef9 0%, #edfbf1 50%, #e5f9eb 100%);
+}
+.ai-polished .page {
+  width: min(100%, 1120px);
+}
+.ai-polished .hero {
+  border-bottom-color: rgba(14, 154, 140, 0.35);
+}
+.ai-polished .kicker {
+  display: inline-flex;
+  width: fit-content;
+  border: 1px solid rgba(14, 154, 140, 0.25);
+  border-radius: 999px;
+  padding: 5px 11px;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--accent);
+}
+.ai-polished .summary {
+  border-left-color: var(--accent-3);
+  color: #4d6a5c;
+}
+.ai-polished .content h2 {
+  margin: 44px 0 18px;
+  border: 1.5px solid #bfe3da;
+  border-radius: 12px;
+  background: var(--panel-soft);
+  box-shadow: -3px 3px 0 var(--accent-3);
+  font-size: 26px;
+}
+.ai-polished .content h3 {
+  color: var(--accent-2);
+}
+.ai-polished .list-panel {
+  border-color: rgba(14, 154, 140, 0.18);
+  background: var(--panel-soft);
+}
+.ai-polished blockquote {
+  border-left: 5px solid #a8d89c;
+  border-radius: 10px;
+  padding: 12px 18px;
+  background: var(--panel-soft);
+}
+.ai-polished .pull-quote {
+  font-size: 17px;
+}
+.ai-polished .summary {
+  display: inline-block;
+  max-width: min(100%, 760px);
+  margin: 12px 0 0;
+  padding: 3px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: none;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: left;
+}
+@media (max-width: 720px) {
+  .page { padding: 28px 14px 48px; }
+  .toc-items { grid-template-columns: 1fr; }
+  h1 { font-size: 30px; }
+}
+</style>
+  <style>
+  .toc-items { grid-auto-flow: row dense; }
+  .toc-items a.toc-span-2 { grid-column: span 2; }
+  .toc-items a.toc-span-3 { grid-column: span 3; }
+  .toc-items a.toc-span-4 { grid-column: span 4; }
+  .toc-items a.toc-span-5 { grid-column: span 5; }
+  .toc-items a.toc-span-6 { grid-column: span 6; }
+</style>
+  <style>
+.back-to-top {
+  position: fixed;
+  right: 26px;
+  bottom: 26px;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--panel) 72%, transparent);
+  backdrop-filter: blur(8px);
+  color: var(--accent);
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.15s ease;
+}
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.back-to-top:hover {
+  background: color-mix(in srgb, var(--panel) 92%, transparent);
+}
+@media (max-width: 720px) {
+  .back-to-top { right: 16px; bottom: 16px; }
+}
+</style>
+  <style>pre { position: relative; }
+.copy-code-button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  margin: 0;
+  padding: 6px 8px;
+  height: auto;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--muted);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+pre:hover > .copy-code-button {
+  opacity: 1;
+}
+.copy-code-button:hover {
+  color: var(--accent);
+}
+.copy-code-button.copied {
+  color: var(--accent);
+}</style>
+  <style>.page code:not(pre code) { color: var(--ink); background: transparent; }</style>
+</head>
+<body class="quick-preview">
+  <main class="page page-quick">
+    <header class="hero">
+      <div class="kicker">非常柠檬节点 · Lemon Nodes</div>
+      <h1>用户手册</h1>
+      
+    </header>
+    <nav class="toc" aria-label="目录"><div class="toc-group"><div class="toc-h1"><a href="#section-1">非常柠檬节点：</a></div><div class="toc-items"><a class="toc-l2" href="#section-2">节点通用操作</a><a class="toc-l2" href="#section-3">全屏浏览（💠）</a><a class="toc-l3" href="#section-4">功能亮点</a><a class="toc-l3" href="#section-5">全屏快捷键</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-6">单图加载器：</a></div><div class="toc-items"><a class="toc-l2" href="#section-7">节点亮点</a><a class="toc-l2" href="#section-8">怎么接线</a><a class="toc-l2" href="#section-9">参数设置</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-10">单图加载器(裁切缩放)：</a></div><div class="toc-items"><a class="toc-l2" href="#section-11">节点亮点</a><a class="toc-l2" href="#section-12">怎么接线</a><a class="toc-l2" href="#section-13">参数设置</a><a class="toc-l2" href="#section-14">画布操作</a><a class="toc-l2" href="#section-15">快捷键与右键菜单</a><a class="toc-l2" href="#section-16">使用提示</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-17">单图加载器(遮罩绘制)：</a></div><div class="toc-items"><a class="toc-l2" href="#section-18">节点亮点</a><a class="toc-l2" href="#section-19">怎么接线</a><a class="toc-l2" href="#section-20">参数设置</a><a class="toc-l2" href="#section-21">绘制操作</a><a class="toc-l3" href="#section-22">工具栏</a><a class="toc-l3" href="#section-23">画布操作</a><a class="toc-l2" href="#section-24">快捷键</a><a class="toc-l2" href="#section-25">遮罩的存取</a><a class="toc-l2" href="#section-26">使用提示</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-27">多图加载器：</a></div><div class="toc-items"><a class="toc-l2" href="#section-28">节点亮点</a><a class="toc-l2" href="#section-29">怎么接线</a><a class="toc-l2" href="#section-30">参数设置</a><a class="toc-l2" href="#section-31">画廊操作</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-32">柠檬图像尺寸：</a></div><div class="toc-items"><a class="toc-l2" href="#section-33">节点亮点</a><a class="toc-l2" href="#section-34">怎么接线</a><a class="toc-l2" href="#section-35">参数设置</a><a class="toc-l2" href="#section-36">收藏与按钮</a><a class="toc-l2" href="#section-37">使用提示</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-38">柠檬加载器：</a></div><div class="toc-items"><a class="toc-l2" href="#section-39">节点亮点</a><a class="toc-l2" href="#section-40">怎么接线</a><a class="toc-l2" href="#section-41">参数设置</a><a class="toc-l2" href="#section-42">按钮与快捷键</a><a class="toc-l2" href="#section-43">使用提示</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-44">柠檬采样器：</a></div><div class="toc-items"><a class="toc-l2" href="#section-45">节点亮点</a><a class="toc-l2" href="#section-46">怎么接线</a><a class="toc-l2" href="#section-47">参数设置</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-48">柠檬采样器(多阶段)：</a></div><div class="toc-items"><a class="toc-l2" href="#section-49">节点亮点</a><a class="toc-l2" href="#section-50">怎么接线</a><a class="toc-l2" href="#section-51">参数设置</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-52">柠檬图像保存：</a></div><div class="toc-items"><a class="toc-l2" href="#section-53">节点亮点</a><a class="toc-l2" href="#section-54">怎么接线</a><a class="toc-l2" href="#section-55">参数设置</a><a class="toc-l2" href="#section-56">节点属性（右键 Configure 面板）</a><a class="toc-l2" href="#section-57">操作与快捷键</a><a class="toc-l2" href="#section-58">使用提示</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-59">柠檬忽略多框：</a></div><div class="toc-items"><a class="toc-l2" href="#section-60">节点亮点</a><a class="toc-l2" href="#section-61">面板行内操作</a><a class="toc-l2" href="#section-62">参数设置</a><a class="toc-l2" href="#section-63">底部按钮</a><a class="toc-l2" href="#section-64">全局快捷键</a><a class="toc-l2" href="#section-65">分组标题栏（画布内）</a><a class="toc-l2" href="#section-66">概念速查</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-67">柠檬随机种子：</a></div><div class="toc-items"><a class="toc-l2" href="#section-68">节点亮点</a><a class="toc-l2" href="#section-69">参数设置</a><a class="toc-l2" href="#section-70">操作与状态</a><a class="toc-l2" href="#section-71">一键广播（📡）</a><a class="toc-l2" href="#section-72">使用提示</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-73">LoRA 分组：</a></div><div class="toc-items"><a class="toc-l2" href="#section-74">分组速览</a><a class="toc-l2" href="#section-75">柠檬LoRA加载器</a><a class="toc-l3" href="#section-76">节点亮点</a><a class="toc-l3" href="#section-77">怎么接线</a><a class="toc-l3" href="#section-78">参数设置</a><a class="toc-l2" href="#section-79">柠檬LoRA管理器</a><a class="toc-l3" href="#section-80">节点亮点</a><a class="toc-l3" href="#section-81">怎么接线</a><a class="toc-l3" href="#section-82">参数设置</a><a class="toc-l3" href="#section-83">按钮</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-84">柠檬箭头标签：</a></div><div class="toc-items"><a class="toc-l2" href="#section-85">节点亮点</a><a class="toc-l2" href="#section-86">参数设置（双击节点打开属性面板）</a><a class="toc-l2" href="#section-87">使用提示</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-88">工作流提取：</a></div><div class="toc-items"><a class="toc-l2" href="#section-89">节点亮点</a><a class="toc-l2" href="#section-90">怎么接线</a><a class="toc-l2" href="#section-91">参数设置</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-92">节点路由器分组：</a></div><div class="toc-items"><a class="toc-l2" href="#section-93">分组速览</a><a class="toc-l2" href="#section-94">节点路由器A(上游总控)</a><a class="toc-l3" href="#section-95">节点亮点</a><a class="toc-l3" href="#section-96">怎么接线</a><a class="toc-l3" href="#section-97">参数设置</a><a class="toc-l2" href="#section-98">节点路由器B(下游汇总)</a><a class="toc-l2" href="#section-99">节点路由器C(上游分发)</a><a class="toc-l2" href="#section-100">节点路由器D(下游总控)</a><a class="toc-l3" href="#section-101">节点亮点</a><a class="toc-l3" href="#section-102">怎么接线</a><a class="toc-l3" href="#section-103">参数设置</a><a class="toc-l3" href="#section-104">使用提示（路由器家族通用）</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-105">功能补全分组：</a></div><div class="toc-items"><a class="toc-l2" href="#section-106">控制节点怎么用</a><a class="toc-l2" href="#section-107">多图批量任务(图片加载器)</a><a class="toc-l3" href="#section-108">节点亮点</a><a class="toc-l3" href="#section-109">怎么接线</a><a class="toc-l3" href="#section-110">参数设置</a><a class="toc-l2" href="#section-111">反向/零化/内补(加载器)</a><a class="toc-l3" href="#section-112">参数设置</a><a class="toc-l2" href="#section-113">Image2.1选项(加载器)</a><a class="toc-l3" href="#section-114">参数设置</a><a class="toc-l2" href="#section-115">Krea2Edit(加载器)</a><a class="toc-l3" href="#section-116">参数设置</a><a class="toc-l2" href="#section-117">SeedVR2放大(加载器)</a><a class="toc-l3" href="#section-118">参数设置</a><a class="toc-l2" href="#section-119">步数控制(多阶采样器)</a><a class="toc-l3" href="#section-120">参数设置</a><a class="toc-l2" href="#section-121">批量快速抽卡(采样器)</a><a class="toc-l3" href="#section-122">参数设置</a><a class="toc-l2" href="#section-123">FLS采样增强(采样器)</a><a class="toc-l3" href="#section-124">参数设置</a><a class="toc-l2" href="#section-125">精确裁切控制(裁切器)</a><a class="toc-l3" href="#section-126">参数设置</a><a class="toc-l2" href="#section-127">图像后期(图像保存)</a><a class="toc-l3" href="#section-128">怎么接线</a><a class="toc-l3" href="#section-129">参数设置</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-130">文本推理分组：</a></div><div class="toc-items"><a class="toc-l2" href="#section-131">分组速览</a><a class="toc-l2" href="#section-132">文本推理(TASK)</a><a class="toc-l3" href="#section-133">节点亮点</a><a class="toc-l3" href="#section-134">参数设置</a><a class="toc-l3" href="#section-135">内置专家类型</a><a class="toc-l2" href="#section-136">文本推理(LLM)</a><a class="toc-l3" href="#section-137">节点亮点</a><a class="toc-l3" href="#section-138">参数设置</a><a class="toc-l2" href="#section-139">文本推理(CLIP)</a><a class="toc-l3" href="#section-140">参数设置</a><a class="toc-l2" href="#section-141">文本推理(RAW)</a><a class="toc-l3" href="#section-142">参数设置</a><a class="toc-l2" href="#section-143">文本推理(HTTP)</a><a class="toc-l3" href="#section-144">参数设置</a><a class="toc-l2" href="#section-145">文本推理(高级参数)</a><a class="toc-l3" href="#section-146">参数设置</a><a class="toc-l2" href="#section-147">文本推理(专家管理)</a><a class="toc-l3" href="#section-148">按钮与参数</a><a class="toc-l3" href="#section-149">使用提示（文本推理系列通用）</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-150">提示词批量/多轮任务：</a></div><div class="toc-items"><a class="toc-l2" href="#section-151">节点亮点</a><a class="toc-l2" href="#section-152">怎么接线</a><a class="toc-l2" href="#section-153">参数设置</a><a class="toc-l2" href="#section-154">使用提示</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-155">提示词路由器：</a></div><div class="toc-items"><a class="toc-l2" href="#section-156">怎么接线</a><a class="toc-l2" href="#section-157">参数设置</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-158">多视角分组：</a></div><div class="toc-items"><a class="toc-l2" href="#section-159">分组速览</a><a class="toc-l2" href="#section-160">多视角提示词</a><a class="toc-l3" href="#section-161">怎么接线</a><a class="toc-l3" href="#section-162">参数设置</a><a class="toc-l2" href="#section-163">多视角批量组合</a><a class="toc-l3" href="#section-164">节点亮点</a><a class="toc-l3" href="#section-165">参数设置</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-166">抠图汇总&amp;对比热力图：</a></div><div class="toc-items"><a class="toc-l2" href="#section-167">节点亮点</a><a class="toc-l2" href="#section-168">怎么接线</a><a class="toc-l2" href="#section-169">参数设置</a><a class="toc-l2" href="#section-170">热力图说明</a><a class="toc-l2" href="#section-171">使用提示</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-172">TTP 分组：</a></div><div class="toc-items"><a class="toc-l2" href="#section-173">分组速览</a><a class="toc-l2" href="#section-174">TTP分割</a><a class="toc-l3" href="#section-175">节点亮点</a><a class="toc-l3" href="#section-176">怎么接线</a><a class="toc-l3" href="#section-177">参数设置</a><a class="toc-l2" href="#section-178">TTP合并</a><a class="toc-l3" href="#section-179">节点亮点</a><a class="toc-l3" href="#section-180">怎么接线</a><a class="toc-l3" href="#section-181">参数设置</a><a class="toc-l2" href="#section-182">TTP解码</a><a class="toc-l3" href="#section-183">节点亮点</a><a class="toc-l3" href="#section-184">怎么接线</a><a class="toc-l3" href="#section-185">参数设置</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-186">最小边长：</a></div><div class="toc-items"><a class="toc-l2" href="#section-187">参数设置</a><a class="toc-l2" href="#section-188">使用提示（TTP 系列通用）</a></div></div><div class="toc-group"><div class="toc-h1"><a href="#section-189">列表工具分组：</a></div><div class="toc-items"><a class="toc-l2" href="#section-190">分组速览</a><a class="toc-l2" href="#section-191">图像转入列表</a><a class="toc-l3" href="#section-192">参数设置</a><a class="toc-l2" href="#section-193">列表提取图像</a><a class="toc-l3" href="#section-194">参数设置</a><a class="toc-l2" href="#section-195">原生多图转列表</a><a class="toc-l2" href="#section-196">图片列表参考器</a><a class="toc-l3" href="#section-197">节点亮点</a><a class="toc-l3" href="#section-198">怎么接线</a><a class="toc-l3" href="#section-199">参数设置</a><a class="toc-l3" href="#section-200">使用提示</a><a class="toc-l2" href="#section-201">列表转原生多图</a></div></div></nav>
+    <article class="content"><h1 data-heading="非常柠檬节点" dir="auto" data-anchor="section-1" id="section-1">非常柠檬节点</h1>
+<p dir="auto">一套面向普通用户的完整节点指南：涵盖图片输入、模型与 LoRA、尺寸、采样、保存、分组开关、抠图、路由器、文本推理与列表工具等全部非常使用的节点。</p>
+<h2 data-heading="节点通用操作" dir="auto" data-anchor="section-2" id="section-2">节点通用操作</h2>
+<ul class="list-panel">
+<li dir="auto"><strong>F1 快捷键</strong>：5大常用节点快捷入口。</li>
+<li dir="auto"><strong>F2 快捷键</strong>：对所选的节点进行对齐排列(会员功能)。</li>
+<li dir="auto"><strong>单击 Gorup 组标题</strong>：Gorup组启停切换 。</li>
+<li dir="auto"><strong>Shift + 单击 Gorup 组标题</strong>：Solo独占启用该Gorup组(会员功能) 。</li>
+<li dir="auto"><strong>双击节点标题</strong>：打开节点属性面板。</li>
+<li dir="auto"><strong>多行文本框联动</strong>：为减少节点占用的空间位置，两个以上相邻的多行文本框以弹性高度的方式联动。</li>
+<li dir="auto"><strong>外挂节点任意接入</strong>：为减少工作流的搭建复杂度，功能补全分组内的节点可以就近连入任意节点的空置接入口，即可生效。</li>
+</ul>
+<h2 data-heading="全屏浏览（💠）" dir="auto" data-anchor="section-3" id="section-3">全屏浏览（💠）</h2>
+<p dir="auto">进入全屏后，一张图自动拆成<strong>左右两个视图</strong>：左侧是<strong>总览视图</strong>（整图缩放在框内，看全貌），右侧是<strong>细节视图</strong>（1:1 原像素，看细节颗粒）；总览图上的<strong>红色取景框</strong>就是细节图当前的查看区域——拖动或拉伸取景框，细节视图会同步跟随，所见即所得。(图片加载节点免费，图片生成对比全屏为会员)</p>
+<h3 data-heading="功能亮点" dir="auto" data-anchor="section-4" id="section-4">功能亮点</h3>
+<ul class="list-panel">
+<li dir="auto"><strong>全屏双图对比</strong>：A/B 双图并排对照，支持「滑动跟随」与「点击切换」两种对比方式，也能只看单图。</li>
+<li dir="auto"><strong>总览 ⇄ 细节联动</strong>：左边看全貌、右边看 1:1 原像素，红色取景框即细节图的「镜头」，指哪看哪。</li>
+<li dir="auto"><strong>自由缩放与平移</strong>：细节视图支持滚轮缩放（50% – 300%）、按住拖拽平移，一键回到 1:1 原像素。</li>
+<li dir="auto"><strong>五种对比模式</strong>：总览图+细节图都对比 / 仅总览对比 / 仅细节对比 / 仅覆盖层 / 都不对比。</li>
+<li dir="auto"><strong>覆盖层切换</strong>：A 图覆盖 ⇄ B 图覆盖，适合遮罩、蒙版类的前后效果对比。</li>
+<li dir="auto"><strong>多图翻页</strong>：多张结果时可左右翻页，A/B 两组图同步翻页对照。</li>
+<li dir="auto"><strong>布局自由调</strong>：左右面板位置可互换、总览视图可隐藏，中间分割线可拖拽调整宽度。</li>
+<li dir="auto"><strong>属性回写</strong>：在全屏里切换的对比方式与覆盖层选择，会自动同步回保存节点的对应属性，下次打开保持一致。</li>
+</ul>
+<h3 data-heading="全屏快捷键" dir="auto" data-anchor="section-5" id="section-5">全屏快捷键</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">按键</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>←</code> / <code>A</code></td>
+<td align="left">上一页（A/B 同步）</td>
+</tr>
+<tr>
+<td align="left"><code>→</code> / <code>D</code></td>
+<td align="left">下一页</td>
+</tr>
+<tr>
+<td align="left"><code>Space</code></td>
+<td align="left">下一页（已是最后一页时退出全屏）</td>
+</tr>
+<tr>
+<td align="left"><code>F</code></td>
+<td align="left">细节视图回到 1:1 原像素大小</td>
+</tr>
+<tr>
+<td align="left"><code>R</code></td>
+<td align="left">左右互换（总览 / 细节位置对调）</td>
+</tr>
+<tr>
+<td align="left"><code>E</code></td>
+<td align="left">总览视图显示 / 隐藏</td>
+</tr>
+<tr>
+<td align="left"><code>M</code></td>
+<td align="left">循环切换五种对比模式</td>
+</tr>
+<tr>
+<td align="left"><code>1</code> – <code>5</code>（含小键盘）</td>
+<td align="left">直达对应对比模式</td>
+</tr>
+<tr>
+<td align="left"><code>V</code></td>
+<td align="left">切换覆盖层（A ⇄ B）</td>
+</tr>
+<tr>
+<td align="left"><code>C</code></td>
+<td align="left">切换对比方式（滑动跟随 ⇄ 点击切换）</td>
+</tr>
+<tr>
+<td align="left"><code>Esc</code>/ 鼠标右键</td>
+<td align="left">退出全屏</td>
+</tr>
+</tbody>
+</table></div>
+<h1 data-heading="单图加载器" dir="auto" data-anchor="section-6" id="section-6">单图加载器</h1>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：非常节点，免费节点。<br>
+加载一张图片并转成可用的图像数据：自动转正拍照方向、支持多帧动图、兼容 16 位灰度与透明通道，可选按数值对齐尺寸。</p>
+</blockquote>
+<h2 data-heading="节点亮点" dir="auto" data-anchor="section-7" id="section-7">节点亮点</h2>
+<ul class="list-panel">
+<li dir="auto"><strong>拍照方向自动转正</strong>：EXIF 方向信息自动校正，手机竖拍图不再躺倒。</li>
+<li dir="auto"><strong>多帧与灰度兼容</strong>：动图逐帧读取；16 位 / 32 位灰度图自动归一化为标准 8 位灰度。</li>
+<li dir="auto"><strong>透明通道保留</strong>：带透明信息的图片按 RGBA 处理，透明区域不丢失。</li>
+<li dir="auto"><strong>尺寸对齐</strong>：<code>size_align</code> 可把输出尺寸对齐到指定数值，方便后续节点拼接。</li>
+<li dir="auto"><strong>图片列表追加</strong>：把本次加载结果追加到输入的 <code>image_list</code> 末尾，逐张累积。</li>
+</ul>
+<h2 data-heading="怎么接线" dir="auto" data-anchor="section-8" id="section-8">怎么接线</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>img</code> 图片文件（下拉选择 / 点击预览区上传）</td>
+<td align="left">加载图片并自动处理（EXIF 转正、灰度归一化、通道归一）</td>
+<td align="left"><code>image</code> 处理后的图片</td>
+</tr>
+<tr>
+<td align="left"><code>image</code> 可选，外部图像输入</td>
+<td align="left">多帧逐帧读取，尺寸不一致的帧自动跳过</td>
+<td align="left"><code>image_list</code> 追加后的图片列表</td>
+</tr>
+<tr>
+<td align="left"><code>image_list</code> 可选，已有图片列表</td>
+<td align="left">按 <code>size_align</code> 对齐尺寸</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="参数设置" dir="auto" data-anchor="section-9" id="section-9">参数设置</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>img</code></td>
+<td align="left">图片文件</td>
+<td align="left">文件</td>
+<td align="left"><code>/</code></td>
+<td align="left">选择要加载的图片；<code>/</code> 为占位（配合外部 image 输入使用）</td>
+</tr>
+<tr>
+<td align="left"><code>size_align</code></td>
+<td align="left">尺寸对齐值</td>
+<td align="left">INT</td>
+<td align="left"><code>16</code></td>
+<td align="left">输出尺寸对齐值，范围 0 ~ 128、步进 8；<code>0</code> 为关闭对齐</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h1 data-heading="单图加载器(裁切缩放)" dir="auto" data-anchor="section-10" id="section-10">单图加载器(裁切缩放)</h1>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：非常节点，付费节点。<br>
+在节点画布上直接拖拽裁切框，所见即所得地完成图片加载、裁切、旋转与缩放，并支持批量列表与蒙版同步处理。</p>
+</blockquote>
+<h2 data-heading="节点亮点" dir="auto" data-anchor="section-11" id="section-11">节点亮点</h2>
+<ul class="list-panel">
+<li dir="auto"><strong>画布内直接裁切</strong>：8 个手柄拖拽缩放、框内拖动定位，带三分构图参考线，调整效果即时可见，不需要手写坐标。</li>
+<li dir="auto"><strong>旋转 + 背景填充</strong>：绕裁切框中心自由旋转，按住 Shift 可 45° 吸附；框外露出的区域自动用填充色补边。</li>
+<li dir="auto"><strong>四种缩放模式</strong>：按百万像素、倍率、长边、短边缩放，输出尺寸自动对齐常用像素值。</li>
+<li dir="auto"><strong>批量与蒙版同步</strong>：支持图片列表批量处理，mask 与图片执行同一套裁切、旋转与缩放。</li>
+<li dir="auto"><strong>快捷操作全套</strong>：快捷键、右键菜单、裁切模板导入导出、30 步撤销重做，图片 EXIF 方向自动转正。</li>
+</ul>
+<h2 data-heading="怎么接线" dir="auto" data-anchor="section-12" id="section-12">怎么接线</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>img</code> 图片文件（点空白处、拖入或粘贴加载）</td>
+<td align="left">加载图片（EXIF 自动转正）</td>
+<td align="left"><code>image</code> 处理后的图片</td>
+</tr>
+<tr>
+<td align="left"><code>image</code> 可选，外部图像输入</td>
+<td align="left">按画布裁切框设定裁切</td>
+<td align="left"><code>image_list</code> 处理后的图片列表</td>
+</tr>
+<tr>
+<td align="left"><code>image_list</code> 可选，批量列表</td>
+<td align="left">旋转并填充框外区域</td>
+<td align="left"><code>mask</code> 处理后的蒙版</td>
+</tr>
+<tr>
+<td align="left"><code>mask</code> 可选，蒙版输入</td>
+<td align="left">按所选模式缩放输出</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="参数设置" dir="auto" data-anchor="section-13" id="section-13">参数设置</h2>
+<p dir="auto">常用参数就这几个，其余（裁切坐标、填充色、是否应用裁切）由画布操作自动管理：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>aspect_ratio</code></td>
+<td align="left">宽高比约束</td>
+<td align="left">COMBO</td>
+<td align="left"><code>🔓</code></td>
+<td align="left">宽高比约束：<code>🔓</code> 自由 / <code>🔒</code> 锁定原图比例 / <code>🧪</code> 自定义；或选预设 1:1、1:2、2:3、3:4、9:16、9:21、9:19.5、10:16</td>
+</tr>
+<tr>
+<td align="left"><code>scale_mode</code></td>
+<td align="left">缩放方式</td>
+<td align="left">INT</td>
+<td align="left"><code>0</code></td>
+<td align="left">缩放方式：0 关 / 1 百万像素 / 2 倍率 / 3 长边像素 / 4 短边像素（点图标循环切换）</td>
+</tr>
+<tr>
+<td align="left"><code>scale_value</code></td>
+<td align="left">放大目标值</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>1.0</code></td>
+<td align="left">缩放目标值（0.01 ~ 6400），配合上面的缩放方式使用</td>
+</tr>
+<tr>
+<td align="left"><code>crop_type</code></td>
+<td align="left">裁切框适配方式</td>
+<td align="left">COMBO</td>
+<td align="left"><code>relative_edge</code></td>
+<td align="left">换图后裁切框的适配方式：relative_edge 边距比例 / relative_center 中心锁定 / absolute_px 固定像素</td>
+</tr>
+<tr>
+<td align="left"><code>resample</code></td>
+<td align="left">重采样算法</td>
+<td align="left">COMBO</td>
+<td align="left"><code>lanczos</code></td>
+<td align="left">缩放重采样算法：lanczos / bilinear / bicubic / nearest-exact / area，一般保持默认</td>
+</tr>
+<tr>
+<td align="left"><code>auto_save</code></td>
+<td align="left">自动保存格式</td>
+<td align="left">COMBO</td>
+<td align="left"><code>none</code></td>
+<td align="left">自动保存处理结果：none / png / jpg / webp</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="画布操作" dir="auto" data-anchor="section-14" id="section-14">画布操作</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">操作</th>
+<th align="left">效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">点击空白处 / 快捷键 O / 拖入 / 粘贴</td>
+<td align="left">加载图片</td>
+</tr>
+<tr>
+<td align="left">拖动裁切框 8 个白色手柄</td>
+<td align="left">缩放裁切框</td>
+</tr>
+<tr>
+<td align="left">拖动裁切框内部</td>
+<td align="left">移动裁切框位置</td>
+</tr>
+<tr>
+<td align="left">拖动四角 / 四边外侧的旋转热点</td>
+<td align="left">绕框中心旋转；按住 Shift 45° 吸附</td>
+</tr>
+<tr>
+<td align="left">拖拽时按住 Shift / Alt</td>
+<td align="left">按比例缩放或轴向锁定 / 以框中心为锚点</td>
+</tr>
+<tr>
+<td align="left">点击右上角 Cutting 标签</td>
+<td align="left">切换「应用裁切」与「仅预览」</td>
+</tr>
+<tr>
+<td align="left">点击缩放图标 / 取色器 / 比例交换图标</td>
+<td align="left">切换缩放模式 / 选填充色 / 交换宽高比</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="快捷键与右键菜单" dir="auto" data-anchor="section-15" id="section-15">快捷键与右键菜单</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">按键</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>O</code></td>
+<td align="left">加载图片</td>
+</tr>
+<tr>
+<td align="left"><code>X</code></td>
+<td align="left">交换宽高比</td>
+</tr>
+<tr>
+<td align="left"><code>C</code></td>
+<td align="left">重置裁剪</td>
+</tr>
+<tr>
+<td align="left"><code>F</code></td>
+<td align="left">全屏浏览图片</td>
+</tr>
+<tr>
+<td align="left"><code>Ctrl+Z</code> / <code>Ctrl+Shift+Z</code></td>
+<td align="left">撤销 / 重做（30 步历史）</td>
+</tr>
+<tr>
+<td align="left"><code>6</code> / <code>7</code> / <code>8</code></td>
+<td align="left">填充色红绿蓝切换 / 填充色撤销 / 重做</td>
+</tr>
+</tbody>
+</table></div>
+<p dir="auto">在图像区域<strong>右键</strong>可弹出菜单：撤销、重做、重置、交换比例、自定义宽高比、颜色切换、加载图片、全屏浏览、导入 / 导出裁切模板。</p>
+<h2 data-heading="使用提示" dir="auto" data-anchor="section-16" id="section-16">使用提示</h2>
+<ol class="list-panel">
+<li dir="auto">固定像素模式下，图片小于裁切框时会自动跳过裁切、仅保留旋转。</li>
+<li dir="auto">旋转后框外露出的区域是填充色（不透明底）；需要透明底时，可结合输出的 mask 处理。</li>
+<li dir="auto">批量列表内各图分辨率可能不同，需要拼接成一张图时请自行对齐尺寸。</li>
+<li dir="auto">同一批图片保持尺寸一致时，裁切方式用默认的边距比例即可。</li>
+</ol>
+<hr>
+<h1 data-heading="单图加载器(遮罩绘制)" dir="auto" data-anchor="section-17" id="section-17">单图加载器(遮罩绘制)</h1>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：非常节点，付费节点。<br>
+加载一张图片并直接在节点内手绘遮罩：画笔、擦除、填充随手涂，遮罩以矢量动作记录（可无损撤销、导入导出），并可与原图透明通道合并、外扩后输出，适合局部重绘 / Outpainting / 抠图等场景。</p>
+</blockquote>
+<h2 data-heading="节点亮点" dir="auto" data-anchor="section-18" id="section-18">节点亮点</h2>
+<ul class="list-panel">
+<li dir="auto"><strong>所见即所得手绘</strong>：画笔、擦除、洪水填充直接在节点画布上操作，笔刷大小、透明度、边缘羽化实时可调，圆形光标预览笔触。</li>
+<li dir="auto"><strong>遮罩是矢量不是位图</strong>：涂抹记录为矢量操作栈，30 步撤销 / 重做无损可逆，工作流保存后重开也能恢复。</li>
+<li dir="auto"><strong>智能合并原图 Alpha</strong>：自动读取源图透明通道，可与手绘遮罩取并集（<code>merge_alpha</code>）或完全覆盖。</li>
+<li dir="auto"><strong>遮罩外扩</strong>：<code>mask_expand</code> 按像素向外扩张遮罩，方便扩散（Inpaint/Expand）预留余量。</li>
+<li dir="auto"><strong>一键预览遮罩效果</strong>：<code>mask_overlay</code> 用画笔颜色填充遮罩区域、其余保持原图，涂完即可预览合成效果。</li>
+<li dir="auto"><strong>遮罩随身走</strong>：可导出 / 导入遮罩元数据 JSON，换图换尺寸自动换算；开启 <code>auto_save</code> 后同一张图重开工作流自动恢复遮罩。</li>
+<li dir="auto"><strong>多输入优先</strong>：支持 image / image_list / mask 外部输入，源图优先级 批量任务 &gt; image &gt; image_list 首图 &gt; 节点加载图像。</li>
+</ul>
+<h2 data-heading="怎么接线" dir="auto" data-anchor="section-19" id="section-19">怎么接线</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>img</code> 节点加载图像（点击 / 拖入 / 粘贴 / O 键）</td>
+<td align="left">加载源图，自动提取透明通道作初始遮罩</td>
+<td align="left"><code>image</code> 处理后的图片（遮罩叠加预览或原图）</td>
+</tr>
+<tr>
+<td align="left"><code>image</code> 可选，外部图像输入</td>
+<td align="left">手绘 / 填充遮罩，可外扩</td>
+<td align="left"><code>image_list</code> 处理后的图片列表</td>
+</tr>
+<tr>
+<td align="left"><code>image_list</code> 可选，批量列表</td>
+<td align="left">外部 <code>mask</code> 接入时优先于手绘数据</td>
+<td align="left"><code>mask</code> 生成的遮罩</td>
+</tr>
+<tr>
+<td align="left"><code>mask</code> 可选，外部遮罩输入</td>
+<td align="left">按 <code>merge_alpha</code> 决定与源图 Alpha 并集 / 覆盖</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote dir="auto" class="pull-quote">
+<p>同时接入 <code>image</code> + <code>image_list</code> 时，处理结果插入列表首位；仅接入 <code>image_list</code> 时替换首元素。</p>
+</blockquote>
+<h2 data-heading="参数设置" dir="auto" data-anchor="section-20" id="section-20">参数设置</h2>
+<p dir="auto">多数参数已隐藏到<strong>属性面板</strong>，节点上只保留 <code>img</code>、<code>mask_overlay</code>、<code>mask_expand</code> 三个可见项。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>mask_overlay</code>（节点 / 属性）</td>
+<td align="left">遮罩叠加预览</td>
+<td align="left">COMBO</td>
+<td align="left"><code>rgb_original</code></td>
+<td align="left">遮罩叠加预览：<code>rgb_overlay</code> 遮罩区域填充画笔颜色；<code>rgb_original</code> 原图直出；<code>rgba_standard</code> 输出原图+遮罩合成的标准 RGBA（4通道）</td>
+</tr>
+<tr>
+<td align="left"><code>mask_expand</code>（节点）</td>
+<td align="left">遮罩外扩像素</td>
+<td align="left">INT</td>
+<td align="left"><code>0</code></td>
+<td align="left">遮罩外扩像素（0 ~ 100），向外扩张遮罩边缘</td>
+</tr>
+<tr>
+<td align="left"><code>merge_alpha</code>（属性）</td>
+<td align="left">遮罩合并方式</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">遮罩合并：开 = 手绘遮罩与原图透明通道取<strong>并集</strong>；关 = 手绘遮罩<strong>完全取代</strong>原图 Alpha</td>
+</tr>
+<tr>
+<td align="left"><code>resize_mode</code>（属性）</td>
+<td align="left">尺寸适配方式</td>
+<td align="left">COMBO</td>
+<td align="left"><code>fit_long_side</code></td>
+<td align="left">外部 mask 尺寸适配：<code>no_scalc</code> 居中裁 / 填 / <code>fit_short_side</code> 短边等比缩放居中补 0 / <code>fit_long_side</code> 长边等比缩放居中裁剪</td>
+</tr>
+<tr>
+<td align="left"><code>size_align</code>（属性）</td>
+<td align="left">尺寸对齐值</td>
+<td align="left">COMBO</td>
+<td align="left"><code>16</code></td>
+<td align="left">输出尺寸对齐：<code>0</code> / <code>4</code> / <code>8</code> / <code>16</code> / <code>32</code> / <code>64</code> / <code>128</code></td>
+</tr>
+<tr>
+<td align="left"><code>brush_color</code>（属性）</td>
+<td align="left">画笔颜色</td>
+<td align="left">STRING</td>
+<td align="left"><code>blue</code></td>
+<td align="left">画笔颜色；设为 <code>同步选色</code>（SyncColor）时跟随画布当前取色</td>
+</tr>
+<tr>
+<td align="left"><code>auto_save</code>（属性）</td>
+<td align="left">自动保存格式</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">自动保存遮罩元数据到 input 目录（<code>图片名_mask.json</code>），重新加载同一张图时自动恢复</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="绘制操作" dir="auto" data-anchor="section-21" id="section-21">绘制操作</h2>
+<h3 data-heading="工具栏" dir="auto" data-anchor="section-22" id="section-22">工具栏</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">控件</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>画笔</code> / <code>擦除</code> / <code>填充</code></td>
+<td align="left">三种工具：画笔描边、擦除（还原）、填充（点击区域洪水填充）</td>
+</tr>
+<tr>
+<td align="left"><code>清空</code> / <code>撤销</code> / <code>重做</code></td>
+<td align="left">清空全部遮罩、撤销 / 重做（30 步历史）</td>
+</tr>
+<tr>
+<td align="left"><code>BS</code> 滑块</td>
+<td align="left">笔刷大小（1 ~ 300）</td>
+</tr>
+<tr>
+<td align="left"><code>OP</code> 滑块</td>
+<td align="left">笔刷透明度（1 ~ 100）</td>
+</tr>
+<tr>
+<td align="left"><code>FT</code> 滑块</td>
+<td align="left">边缘羽化（0 ~ 100）</td>
+</tr>
+<tr>
+<td align="left"><code>CL</code> 取色器</td>
+<td align="left">画笔颜色</td>
+</tr>
+<tr>
+<td align="left"><code>👁️ / 🙈 / 🧻</code> 图标</td>
+<td align="left">按住显示 / 隐藏遮罩（无遮罩时显示为 🧻）</td>
+</tr>
+<tr>
+<td align="left"><code>📂</code> / <code>💠</code> / <code>↙️</code> / <code>↗️</code> 图标</td>
+<td align="left">加载图片 / 全屏浏览 / 导入遮罩元数据 / 导出遮罩元数据</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-heading="画布操作" dir="auto" data-anchor="section-23" id="section-23">画布操作</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">操作</th>
+<th align="left">效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">点击占位图 / 拖入图片 / 粘贴</td>
+<td align="left">加载图片（占位图点击弹文件选择器）</td>
+</tr>
+<tr>
+<td align="left">在画布上拖动</td>
+<td align="left">画笔 / 擦除描边（需先激活工具）</td>
+</tr>
+<tr>
+<td align="left">点击画布</td>
+<td align="left">填充（填充工具）</td>
+</tr>
+<tr>
+<td align="left">滚轮</td>
+<td align="left">笔刷大小 ±5</td>
+</tr>
+<tr>
+<td align="left">Ctrl + 滚轮</td>
+<td align="left">透明度 ±5</td>
+</tr>
+<tr>
+<td align="left">Alt + 滚轮</td>
+<td align="left">羽化 ±5</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="快捷键" dir="auto" data-anchor="section-24" id="section-24">快捷键</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">按键</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>O</code></td>
+<td align="left">加载图片</td>
+</tr>
+<tr>
+<td align="left"><code>X</code></td>
+<td align="left">画笔 ↔ 擦除 切换</td>
+</tr>
+<tr>
+<td align="left"><code>C</code></td>
+<td align="left">切换到填充工具</td>
+</tr>
+<tr>
+<td align="left"><code>F</code></td>
+<td align="left">全屏浏览图片</td>
+</tr>
+<tr>
+<td align="left"><code>`</code>（反引号）</td>
+<td align="left">按住显示 / 隐藏遮罩（松开还原）</td>
+</tr>
+<tr>
+<td align="left"><code>Ctrl+Z</code> / <code>Ctrl+Shift+Z</code></td>
+<td align="left">撤销 / 重做（30 步）</td>
+</tr>
+<tr>
+<td align="left"><code>[</code> / <code>]</code></td>
+<td align="left">笔刷大小 -5 / +5</td>
+</tr>
+<tr>
+<td align="left"><code>-</code> / <code>=</code></td>
+<td align="left">羽化 -5 / +5</td>
+</tr>
+<tr>
+<td align="left"><code>9</code> / <code>0</code></td>
+<td align="left">透明度 -5 / +5</td>
+</tr>
+<tr>
+<td align="left"><code>3</code></td>
+<td align="left">笔刷大小档位循环（10 → 100 → 200）</td>
+</tr>
+<tr>
+<td align="left"><code>4</code></td>
+<td align="left">透明度 50 ↔ 100</td>
+</tr>
+<tr>
+<td align="left"><code>5</code></td>
+<td align="left">羽化 0 ↔ 25</td>
+</tr>
+<tr>
+<td align="left"><code>6</code></td>
+<td align="left">画笔颜色循环（红 → 绿 → 蓝 → 黑 → 白 → 灰）</td>
+</tr>
+<tr>
+<td align="left"><code>7</code> / <code>8</code></td>
+<td align="left">画笔颜色撤销 / 重做</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="遮罩的存取" dir="auto" data-anchor="section-25" id="section-25">遮罩的存取</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">方式</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">矢量持久化</td>
+<td align="left">涂抹记录为矢量动作随工作流保存，重开工作流自动恢复（无需位图）</td>
+</tr>
+<tr>
+<td align="left">导出 / 导入元数据</td>
+<td align="left">JSON 文件含源图、画布尺寸与全部动作；导入时若尺寸不同，按 <code>resize_mode</code> 自动换算坐标</td>
+</tr>
+<tr>
+<td align="left">自动保存 / 载入</td>
+<td align="left"><code>auto_save</code> 开启后，提交时自动保存为 <code>图片名_mask.json</code> 到 input 目录；同一图片再次加载时自动恢复</td>
+</tr>
+<tr>
+<td align="left">删除遮罩文件</td>
+<td align="left">右键「从 input 删除遮罩文件」，删除后画布涂抹同步清空</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="使用提示" dir="auto" data-anchor="section-26" id="section-26">使用提示</h2>
+<ol class="list-panel">
+<li dir="auto">外部接入 <code>mask</code> 端口时，<strong>优先使用外部遮罩</strong>，手绘涂抹数据（mask_data）会被忽略；此时 <code>merge_alpha</code> 仍决定它与原图 Alpha 的并集 / 覆盖关系。</li>
+<li dir="auto"><code>mask_overlay</code> 只是预览合成效果，输出 <code>image</code> 默认即叠加后画面；需要原始画面时关闭 <code>mask_overlay</code>。</li>
+<li dir="auto">遮罩输出为全零（无任何遮罩）时会输出 <code>None</code>，后续节点需能接受空遮罩。</li>
+<li dir="auto">多帧动图（GIF / WebP / MPO）逐帧读取并各自提取 Alpha，MPO 只取首帧。</li>
+</ol>
+<hr>
+<h1 data-heading="多图加载器" dir="auto" data-anchor="section-27" id="section-27">多图加载器</h1>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：非常节点，免费节点。<br>
+画廊式加载多张图片：有主图模式最多 5 张（1 张主图 + 4 张副图），无主图模式最多 6 张。支持副图缩放、合并为拼接图，并选择导出其中任意一张。</p>
+</blockquote>
+<h2 data-heading="节点亮点" dir="auto" data-anchor="section-28" id="section-28">节点亮点</h2>
+<ul class="list-panel">
+<li dir="auto"><strong>画廊即看</strong>：节点内直接预览全部图片，每格标注真实分辨率，加载失败会显示 <code>missing</code>。</li>
+<li dir="auto"><strong>拖拽排序</strong>：图片可拖拽重排——拖到格子左/右 25% 边缘插入前后，拖到中央与目标格互换。</li>
+<li dir="auto"><strong>主图 / 无主图模式</strong>：右键菜单一键切换，主图模式第一格为主图、横跨两列。</li>
+<li dir="auto"><strong>副图合并</strong>：副图可缩放为正方形后拼成横向、竖向、两宫或三宫网格图。</li>
+<li dir="auto"><strong>多路输入</strong>：点按钮上传、拖入文件、剪贴板粘贴、双击替换、空白格插入都支持。</li>
+</ul>
+<h2 data-heading="怎么接线" dir="auto" data-anchor="section-29" id="section-29">怎么接线</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>img</code> 首图文件</td>
+<td align="left">按画廊逐张加载（副图按 <code>img_scalc_sub_px</code> 缩放）</td>
+<td align="left"><code>image</code> 导出选项指定的那张图</td>
+</tr>
+<tr>
+<td align="left"><code>image</code> 可选</td>
+<td align="left">副图按 <code>img_merge_sub</code> 合并或逐张保留</td>
+<td align="left"><code>image_list</code> 全部结果追加到输入列表末尾</td>
+</tr>
+<tr>
+<td align="left"><code>image_list</code> 可选</td>
+<td align="left">按 <code>img_index_out</code> 选择输出哪一张</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="参数设置" dir="auto" data-anchor="section-30" id="section-30">参数设置</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>main_image</code></td>
+<td align="left">主图模式</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>True</code></td>
+<td align="left">是否使用主图模式：开 = 1 主图 + 最多 4 副图；关 = 最多 6 张副图（右键菜单切换）</td>
+</tr>
+<tr>
+<td align="left"><code>img_scalc_sub_px</code></td>
+<td align="left">副图缩放边长</td>
+<td align="left">COMBO</td>
+<td align="left"><code>768</code></td>
+<td align="left">副图缩放边长：<code>pass_scalc</code> 不缩放 / <code>512</code> / <code>768</code> / <code>1024</code> / <code>1440</code></td>
+</tr>
+<tr>
+<td align="left"><code>img_merge_sub</code></td>
+<td align="left">副图合并方式</td>
+<td align="left">COMBO</td>
+<td align="left"><code>pass</code></td>
+<td align="left">副图合并方式：<code>pass</code> 逐张输出 / <code>横向</code> / <code>竖向</code> / <code>两宫</code> / <code>三宫</code> 拼接</td>
+</tr>
+<tr>
+<td align="left"><code>img_index_out</code></td>
+<td align="left">导出项</td>
+<td align="left">COMBO</td>
+<td align="left"><code>/</code></td>
+<td align="left">输出哪一项：<code>图1</code> / <code>图2</code>… / <code>拼接图</code>（随画廊内容自动更新选项）</td>
+</tr>
+<tr>
+<td align="left"><code>size_align</code></td>
+<td align="left">尺寸对齐值</td>
+<td align="left">INT</td>
+<td align="left"><code>16</code></td>
+<td align="left">输出尺寸对齐值，范围 0 ~ 128、步进 8；<code>0</code> 为关闭</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="画廊操作" dir="auto" data-anchor="section-31" id="section-31">画廊操作</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">操作</th>
+<th align="left">效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">点「添加图片」</td>
+<td align="left">批量上传，满员后按钮自动禁用</td>
+</tr>
+<tr>
+<td align="left">单击格子</td>
+<td align="left">选中该图位（联动下方文件名）</td>
+</tr>
+<tr>
+<td align="left">双击格子</td>
+<td align="left">打开文件选择器替换该图位</td>
+</tr>
+<tr>
+<td align="left">点击空白格</td>
+<td align="left">可一次多选插入多张图</td>
+</tr>
+<tr>
+<td align="left">拖拽格子到左右边缘</td>
+<td align="left">插入到目标图前 / 后</td>
+</tr>
+<tr>
+<td align="left">拖拽格子到中央</td>
+<td align="left">与目标格互换位置</td>
+</tr>
+<tr>
+<td align="left">直接拖入 / 粘贴图片</td>
+<td align="left">外部图片上传；满员时从选中槽位开始依次替换</td>
+</tr>
+<tr>
+<td align="left">点「视图」</td>
+<td align="left">切换 裁切铺满（cover）/ 等比留白（contain）预览</td>
+</tr>
+<tr>
+<td align="left">点「清空」</td>
+<td align="left">移除全部图片</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h1 data-heading="柠檬图像尺寸" dir="auto" data-anchor="section-32" id="section-32">柠檬图像尺寸</h1>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：非常节点，免费节点（尺寸收藏限存 3 条，Pro 用户不限量）。<br>
+选定「比例 + 总像素」或「长边 / 短边」，节点自动计算宽高并生成对应尺寸的空 Latent，直接接加载器 / 采样器即可出图。</p>
+</blockquote>
+<h2 data-heading="节点亮点" dir="auto" data-anchor="section-33" id="section-33">节点亮点</h2>
+<ul class="list-panel">
+<li dir="auto"><strong>比例 + 像素双锁定</strong>：改了宽自动算高（反之亦然），永远不破比例；也可切到「长边 / 短边」或自由输入。</li>
+<li dir="auto"><strong>智能对齐</strong>：宽高自动按 <code>size_align</code>（默认 16）对齐；单边超过 <code>max_edge</code>（默认 8192）或总像素超 <code>max_megepixels</code>（默认 8MP）会自动缩回并提示，限制可在系统设置调整。</li>
+<li dir="auto"><strong>横竖一键切换</strong>：构图切换按钮在竖屏 / 横屏间互换宽高，比例小于 1 自动判定竖屏、大于 1 判定横屏。</li>
+<li dir="auto"><strong>常用尺寸收藏</strong>：把当前比例 / 像素 / 尺寸一键收藏，按「尺寸 &gt; / 长边 &gt; / 短边 &gt; / 像素 &gt; / 比例 &gt;」分类排序，选中即应用。</li>
+<li dir="auto"><strong>模型感知的 Latent</strong>：接入模型后按模型的下采样倍率与通道数生成 Latent（不接模型也能输出宽高与占位 Latent）。</li>
+</ul>
+<h2 data-heading="怎么接线" dir="auto" data-anchor="section-34" id="section-34">怎么接线</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>megapixel</code> 总像素 + <code>ratio</code> 比例</td>
+<td align="left">按比例与像素计算宽高</td>
+<td align="left"><code>latent</code> / 空 Latent</td>
+</tr>
+<tr>
+<td align="left"><code>width</code> / <code>height</code> / <code>length</code>（长边模式）</td>
+<td align="left">按模型倍率生成空 Latent</td>
+<td align="left"><code>width</code> / <code>height</code> 最终尺寸</td>
+</tr>
+<tr>
+<td align="left"><code>size_type</code> 降采样档位</td>
+<td align="left">接 <code>model</code> 时自动取模型倍率与通道数</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>model</code>（可选）</td>
+<td align="left"><code>model</code> 的接入可提升 latent 尺寸的命中率</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>prompt_prefix</code>（可选）</td>
+<td align="left">和 <code>prompt</code> 或 <code>Prompt</code> 进行拼接</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>prompt</code>（可选）</td>
+<td align="left"><code>prompt</code> 优先与 <code>Prompt</code> 文本框</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="参数设置" dir="auto" data-anchor="section-35" id="section-35">参数设置</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>megapixel</code></td>
+<td align="left">总像素档</td>
+<td align="left">COMBO</td>
+<td align="left"><code>0.8</code></td>
+<td align="left">总像素档：<code>🔓</code> 自由 / <code>🤙</code> 长边 / <code>🤏</code> 短边 / <code>🧪</code> 自定义 MP / <code>0.25</code> ~ <code>6.0</code> 档位</td>
+</tr>
+<tr>
+<td align="left"><code>ratio</code></td>
+<td align="left">混合比例</td>
+<td align="left">COMBO</td>
+<td align="left"><code>3:4</code></td>
+<td align="left">比例档：<code>🔓</code> 自由 / <code>🧪</code> 自定义 / <code>1:1</code> <code>1:2</code> <code>2:3</code> <code>3:4</code> <code>9:16</code> <code>9:21</code> <code>9:19.5</code> <code>10:16</code></td>
+</tr>
+<tr>
+<td align="left"><code>width</code></td>
+<td align="left">宽度</td>
+<td align="left">INT</td>
+<td align="left"><code>880</code></td>
+<td align="left">宽度（32 ~ 32768，自动对齐 16）</td>
+</tr>
+<tr>
+<td align="left"><code>height</code></td>
+<td align="left">高度</td>
+<td align="left">INT</td>
+<td align="left"><code>1184</code></td>
+<td align="left">高度（同上）</td>
+</tr>
+<tr>
+<td align="left"><code>length</code></td>
+<td align="left">目标边长</td>
+<td align="left">INT</td>
+<td align="left"><code>1184</code></td>
+<td align="left">长边 / 短边模式的目标边长（面板中隐藏）</td>
+</tr>
+<tr>
+<td align="left"><code>batch</code></td>
+<td align="left">批量张数</td>
+<td align="left">INT</td>
+<td align="left"><code>1</code></td>
+<td align="left">批量张数（1 ~ 64）</td>
+</tr>
+<tr>
+<td align="left"><code>size_type</code></td>
+<td align="left">Latent降采样</td>
+<td align="left">COMBO</td>
+<td align="left"><code>auto</code></td>
+<td align="left">Latent 降采样：<code>auto</code> 按模型倍率，<code>1/2/3/4</code> 对应 32/16/8/4 倍</td>
+</tr>
+<tr>
+<td align="left"><code>dir_xy</code></td>
+<td align="left">构图方向</td>
+<td align="left">COMBO</td>
+<td align="left"><code>y(ver)</code></td>
+<td align="left">构图方向：<code>x(hor)</code> 横屏 / <code>y(ver)</code> 竖屏（面板中隐藏）</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="收藏与按钮" dir="auto" data-anchor="section-36" id="section-36">收藏与按钮</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">操作</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>⭐当前比例</code></td>
+<td align="left">收藏当前比例（如 <code>比例 &gt; 3:4</code>）</td>
+</tr>
+<tr>
+<td align="left"><code>⭐当前像素</code></td>
+<td align="left">收藏当前总像素（如 <code>像素 &gt; 1.0</code>）</td>
+</tr>
+<tr>
+<td align="left"><code>⭐当前尺寸</code></td>
+<td align="left">收藏当前宽高（<code>尺寸 &gt; 880×1184</code>）或长边 / 短边</td>
+</tr>
+<tr>
+<td align="left"><code>📐比例优先</code> / <code>📏像素优先</code></td>
+<td align="left">手动改宽高时，优先联动比例还是像素（两锁同时开启时）</td>
+</tr>
+<tr>
+<td align="left">「我的收藏」下拉</td>
+<td align="left">选中即应用收藏；行内 <code>🗑️</code> 删除、<code>↕️↔️</code> 切换构图</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote dir="auto" class="pull-quote">
+<p>应用「尺寸 &gt; W×H」收藏时会智能反推总像素与比例，误差 5% / 3% 内自动匹配到对应档位。</p>
+</blockquote>
+<h2 data-heading="使用提示" dir="auto" data-anchor="section-37" id="section-37">使用提示</h2>
+<ol>
+<li dir="auto">节点默认总像素 <code>0.8</code>（<code>🧪</code> 自定义取消时的回退值），实际档位从 <code>0.25</code> 起，常用出图 1.0 ~ 2.0 MP 足够。</li>
+<li dir="auto">改了宽高总被拉回？检查 <code>megapixel</code> / <code>ratio</code> 是否处于锁定档位（非 <code>🔓</code>）；想自由输入请先切到 <code>🔓</code>。</li>
+</ol>
+<hr>
+<h1 data-heading="柠檬加载器" dir="auto" data-anchor="section-38" id="section-38">柠檬加载器</h1>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：非常节点，免费节点（模型收藏限存 3 条，Pro 用户不限量）。<br>
+一个节点替代「模型 + CLIP + VAE + 正向提示词 + 空 Latent」整条链路：加载模型与文本编码器、挂载 LoRA、编码提示词、生成 Latent，并内置模型缓存（参数不变不重复加载）。</p>
+</blockquote>
+<h2 data-heading="节点亮点" dir="auto" data-anchor="section-39" id="section-39">节点亮点</h2>
+<ul class="list-panel">
+<li dir="auto"><strong>全家桶式加载</strong>：模型（UNet / checkpoint / GGUF）、CLIP、VAE、多组 LoRA 一次配齐，输出 <code>model / positive / vae / latent / clip</code>（负面提示词不再从加载器出，交给「柠檬采样器」自给）。</li>
+<li dir="auto"><strong>智能模型缓存</strong>：按模型、提示词、Latent 分别做指纹缓存，参数不变时直接命中，不重复加载与编码。</li>
+<li dir="auto"><strong>模型家族组织</strong>：<code>ckpt_family</code> 按目录家族管理模型，支持「收藏」带参数预设的模型组合，下拉即加载。</li>
+<li dir="auto"><strong>AuraFlow / 差分扩散</strong>：<code>aura_flow</code> 开启 AuraFlow 采样位移；差分扩散（differential diffusion）按去噪进度自适应遮罩强度，配合内补使用。</li>
+<li dir="auto"><strong>编辑模式</strong>：配合参考图自动选择 千问（Qwen）视觉编码或 Krea2Edit 语义编码，适配图片编辑 / 重绘工作流。</li>
+<li dir="auto"><strong>局部重绘内建</strong>：接入 <code>mask</code> 自动注入噪声遮罩；配合「反向/零化/内补」控制节点可做图内补全。</li>
+<li dir="auto"><strong>SeedVR2 支持</strong>：模型名含 <code>seedvr2</code> 时自动切换 SeedVR2 预处理与分块 VAE 编码（需 ComfyUI ≥ 0.28.0）。</li>
+</ul>
+<h2 data-heading="怎么接线" dir="auto" data-anchor="section-40" id="section-40">怎么接线</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>Prompt</code> 正向提示词</td>
+<td align="left">加载模型 / CLIP / VAE，挂载 LoRA</td>
+<td align="left"><code>model</code> 模型</td>
+</tr>
+<tr>
+<td align="left"><code>ckpt_family</code> / <code>ckpt_name</code> 模型选择</td>
+<td align="left">编码正向提示词为 Conditioning（负面交给采样器）</td>
+<td align="left"><code>positive</code></td>
+</tr>
+<tr>
+<td align="left"><code>clip_name</code> / <code>clip_type</code> / <code>vae_name</code></td>
+<td align="left">按尺寸预设或输入图生成 Latent</td>
+<td align="left"><code>vae</code> / <code>latent</code></td>
+</tr>
+<tr>
+<td align="left"><code>lora_options</code> / <code>lora_data</code> 多组 LoRA</td>
+<td align="left"><code>mask</code> 接入时注入噪声遮罩</td>
+<td align="left"><code>clip</code></td>
+</tr>
+<tr>
+<td align="left"><code>image</code> / <code>image_list</code> / <code>latent</code> 可选</td>
+<td align="left">参考图模式下走 千问 / Krea2 编码</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote dir="auto" class="pull-quote">
+<p>无图片与自定义 Latent 输入时，尺寸取自「柠檬图像尺寸」节点，未接入时默认 512×512。<br>
+加载器不再有 <code>negative</code> 输出口：负面条件全部由「柠檬采样器」按「外接条件 → 外挂控制节点 → 全局默认负面提示词 → 零化」的次序自己决定，加载器也不再为此多跑一次文本编码。</p>
+</blockquote>
+<h2 data-heading="参数设置" dir="auto" data-anchor="section-41" id="section-41">参数设置</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>Prompt</code></td>
+<td align="left">正向提示词</td>
+<td align="left">STRING（多行）</td>
+<td align="left">—</td>
+<td align="left">正向提示词</td>
+</tr>
+<tr>
+<td align="left"><code>ckpt_family</code></td>
+<td align="left">模型家族</td>
+<td align="left">COMBO</td>
+<td align="left">—</td>
+<td align="left">模型家族：<code>All</code> / 目录家族 / 收藏项（收藏显示为 <code>家族/模型名</code>，选中即加载预设）</td>
+</tr>
+<tr>
+<td align="left"><code>ckpt_name</code></td>
+<td align="left">模型文件</td>
+<td align="left">COMBO</td>
+<td align="left"><code>/</code></td>
+<td align="left">模型文件（支持 .safetensors / .gguf / .ckpt / .pt / .bin，显示为 .stsr）</td>
+</tr>
+<tr>
+<td align="left"><code>clip_name</code></td>
+<td align="left">文本编码器文件</td>
+<td align="left">COMBO</td>
+<td align="left"><code>/</code></td>
+<td align="left">文本编码器文件</td>
+</tr>
+<tr>
+<td align="left"><code>clip_type</code></td>
+<td align="left">CLIP 类型</td>
+<td align="left">COMBO</td>
+<td align="left">—</td>
+<td align="left">CLIP 类型（stable_diffusion / sd3 / flux / krea2 等 30 余种）</td>
+</tr>
+<tr>
+<td align="left"><code>vae_name</code></td>
+<td align="left">VAE 文件</td>
+<td align="left">COMBO</td>
+<td align="left"><code>/</code></td>
+<td align="left">VAE 文件（缺省时随模型自动带出）</td>
+</tr>
+<tr>
+<td align="left"><code>aura_flow</code></td>
+<td align="left">AuraFlow 位移</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>0</code></td>
+<td align="left">AuraFlow 采样位移（0 ~ 100，&gt;0 启用）</td>
+</tr>
+<tr>
+<td align="left"><code>lora_options</code> / <code>lora_count</code></td>
+<td align="left">LoRA 文件 / 数量</td>
+<td align="left">下拉 / INT</td>
+<td align="left"><code>/</code> / <code>0</code></td>
+<td align="left">LoRA 文件与挂载数量</td>
+</tr>
+<tr>
+<td align="left"><code>lora_clip</code></td>
+<td align="left">LoRA 注入方式</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">开 = LoRA 注入模型与 CLIP（控制语义与风格）；关 = 仅注入模型（控制构图与画风）</td>
+</tr>
+<tr>
+<td align="left"><code>lora_data</code></td>
+<td align="left">LoRA 列表</td>
+<td align="left">自定义</td>
+<td align="left"><code>[]</code></td>
+<td align="left">多组 LoRA 列表：启用开关 / 选择 / 强度</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="按钮与快捷键" dir="auto" data-anchor="section-42" id="section-42">按钮与快捷键</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">操作</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>⭐收藏修改</code></td>
+<td align="left">把当前模型 + 参数（含下游采样器、尺寸设置）保存为收藏预设</td>
+</tr>
+<tr>
+<td align="left"><code>🗑️取消收藏</code></td>
+<td align="left">移除当前收藏项</td>
+</tr>
+<tr>
+<td align="left"><code>❌移除配置</code></td>
+<td align="left">彻底删除该模型的关联预设参数</td>
+</tr>
+<tr>
+<td align="left"><code>🔄刷新列表</code> / 按 <code>R</code></td>
+<td align="left">重新扫描模型 / CLIP / VAE / LoRA 列表</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="使用提示" dir="auto" data-anchor="section-43" id="section-43">使用提示</h2>
+<ol class="list-panel">
+<li dir="auto"><code>ckpt_family</code> 收藏项显示为 <code>家族/模型名</code>，选中即自动应用该模型的全部预设参数；预设保存在 <code>lemon-model.json</code>。</li>
+<li dir="auto">LoRA 强度范围通常 0 ~ 1，超出范围的值（如 -1 ~ 2）可用于风格反相或加强。</li>
+<li dir="auto">模型名含 <code>seedvr2</code> 时会切换 SeedVR2 模式，此时必须接入参考图，提示词不参与 Conditioning 编码。</li>
+</ol>
+<hr>
+<h1 data-heading="柠檬采样器" dir="auto" data-anchor="section-44" id="section-44">柠檬采样器</h1>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：非常节点，免费节点。<br>
+内置采样增强与分步预览的采样节点，与「柠檬加载器」搭配完成去噪出图；支持矩阵预览、FLS 采样增强与 SeedVR2 多轮放大。</p>
+</blockquote>
+<h2 data-heading="节点亮点" dir="auto" data-anchor="section-45" id="section-45">节点亮点</h2>
+<ul class="list-panel">
+<li dir="auto"><strong>采样一条龙</strong>：接上 模型 + 条件 + VAE + Latent 即可去噪出图，seed / steps / cfg / 采样器 / 调度器 / denoise 全部面板可调。</li>
+<li dir="auto"><strong>分步预览</strong>：额外输出 <code>steps_chart</code>（分步预览图）与 <code>sigma_chart</code>（σ 曲线图）两个端口，未接线时自动不生成，不浪费算力。</li>
+<li dir="auto"><strong>矩阵预览</strong>：配合「生图矩阵预览(采样器)」控制节点，可在一次运行里铺开行×列的多参数预览矩阵。</li>
+<li dir="auto"><strong>FLS 采样增强</strong>：配合「FLS采样增强(采样器)」控制节点，一键套用 写实人物 / 动漫二次元 / 硬朗金属 等增强预设。</li>
+<li dir="auto"><strong>SeedVR2 放大内建</strong>：接到 SeedVR2 加载链路后自动进入多轮放大模式，每轮以上一轮输出为输入继续处理。</li>
+<li dir="auto"><strong>负面条件自给</strong>：<code>negative</code> 口可以留空，采样器按次序自己决定 —— ① 外挂「反向/零化/内补(加载器)」控制节点的 <code>Negative</code>（它开着 <code>negative_zero_out</code> 时表示明确不要负面，直接零化）；② 外接的非零负面条件；③ 全局设置「默认负面提示词」（借上游柠檬加载器的 CLIP 现编，带 (CLIP, 文本) 缓存）；④ 都没有 → 零化兜底。cfg = 1 时另由全局开关「cfg=1 自动零化」决定是清零还是完全沿用接入值。自造的负面会自动继承正向条件上的内补 <code>concat_*</code> 与视频 <code>frame_rate</code>，不会缺参数。</li>
+</ul>
+<h2 data-heading="怎么接线" dir="auto" data-anchor="section-46" id="section-46">怎么接线</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>model</code> 模型（必接）</td>
+<td align="left">按 steps / cfg / sampler / scheduler 去噪</td>
+<td align="left"><code>images</code> 出图</td>
+</tr>
+<tr>
+<td align="left"><code>positive</code> 条件（必接）+ <code>negative</code>（可留空，见上「负面条件自给」）</td>
+<td align="left">生成分步预览图与 σ 曲线（端口未接线则跳过）</td>
+<td align="left"><code>steps_chart</code> 分步预览图</td>
+</tr>
+<tr>
+<td align="left"><code>vae</code>（必接）+ <code>latent</code>（必接）</td>
+<td align="left">SeedVR2 链路时多轮放大 + 颜色匹配</td>
+<td align="left"><code>sigma_chart</code> σ 曲线图</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="参数设置" dir="auto" data-anchor="section-47" id="section-47">参数设置</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>seed</code></td>
+<td align="left">随机种子</td>
+<td align="left">INT</td>
+<td align="left"><code>100</code></td>
+<td align="left">随机种子</td>
+</tr>
+<tr>
+<td align="left"><code>steps</code></td>
+<td align="left">去噪步数</td>
+<td align="left">INT</td>
+<td align="left"><code>4</code></td>
+<td align="left">去噪步数（1 ~ 10000）</td>
+</tr>
+<tr>
+<td align="left"><code>cfg</code></td>
+<td align="left">CFG 引导比例</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>1.0</code></td>
+<td align="left">CFG 引导比例（0 ~ 100）</td>
+</tr>
+<tr>
+<td align="left"><code>sampler_name</code></td>
+<td align="left">采样算法</td>
+<td align="left">COMBO</td>
+<td align="left">—</td>
+<td align="left">采样算法</td>
+</tr>
+<tr>
+<td align="left"><code>scheduler</code></td>
+<td align="left">调度器</td>
+<td align="left">COMBO</td>
+<td align="left">—</td>
+<td align="left">调度器</td>
+</tr>
+<tr>
+<td align="left"><code>decode_tiled</code></td>
+<td align="left">分块解码</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">开 = 分块解码（省显存）</td>
+</tr>
+<tr>
+<td align="left"><code>denoise</code></td>
+<td align="left">重绘幅度</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>1.0</code></td>
+<td align="left">重绘幅度（0 ~ 1，&lt;1 时保留原图结构）</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote dir="auto" class="pull-quote">
+<p>只接 <code>steps_chart</code> / <code>sigma_chart</code> 时，采样器自动生成对应的分步预览 / σ 曲线输出。</p>
+</blockquote>
+<hr>
+<h1 data-heading="柠檬采样器(多阶段)" dir="auto" data-anchor="section-48" id="section-48">柠檬采样器(多阶段)</h1>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：非常节点，付费节点。<br>
+多阶段版本：把「加载器 + 采样器」合并为一个节点，采样完成后把 模型、条件、VAE、Latent、提示词 等中间结果一并输出，适合需要分段控制或二次加工的进阶工作流。</p>
+</blockquote>
+<h2 data-heading="节点亮点" dir="auto" data-anchor="section-49" id="section-49">节点亮点</h2>
+<ul class="list-panel">
+<li dir="auto"><strong>加载采样一体</strong>：模型 / CLIP / VAE / LoRA / 提示词编码 / 去噪一条龙，无需另接「柠檬加载器」。</li>
+<li dir="auto"><strong>中间结果全输出</strong>：出图之外同时带出 <code>model</code> / <code>positive</code> / <code>negative</code> / <code>vae</code> / <code>latent</code> / <code>prompt</code>，可直接接二次采样或编辑节点。</li>
+<li dir="auto"><strong>多阶段步数编排</strong>：配合「步数控制(多阶采样器)」控制节点，可自定义本阶段在整条链路上的开始 / 结束步数。</li>
+<li dir="auto"><strong>局部重绘内建</strong>：接入 <code>mask</code> 自动注入噪声遮罩；<code>image</code> 与 <code>image_list</code> 同时接入时 <code>image</code> 成为图 1。</li>
+<li dir="auto"><strong>用完可卸载</strong>：<code>unload_models</code> 开 = 生成完成后自动释放显存（Soft Empty Cache）。</li>
+</ul>
+<h2 data-heading="怎么接线" dir="auto" data-anchor="section-50" id="section-50">怎么接线</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>Prompt</code> 提示词（必填）</td>
+<td align="left">加载模型 / CLIP / VAE + 挂载 LoRA</td>
+<td align="left"><code>images</code> 出图</td>
+</tr>
+<tr>
+<td align="left"><code>model</code> / <code>positive</code> / <code>negative</code> / <code>vae</code>（可选，连线优先）</td>
+<td align="left">编码条件 → 按步数区间去噪</td>
+<td align="left"><code>model</code> / <code>positive</code> / <code>negative</code> / <code>vae</code> 中间结果</td>
+</tr>
+<tr>
+<td align="left"><code>latent</code>（可选）</td>
+<td align="left"><code>mask</code> 接入时局部重绘</td>
+<td align="left"><code>latent</code> / <code>prompt</code> 中间结果</td>
+</tr>
+<tr>
+<td align="left"><code>image</code> / <code>image_list</code> / <code>prompt_prefix</code>（可选）</td>
+<td align="left">多阶段编排时按 Step 控制节点取步数区间</td>
+<td align="left"><code>steps_chart</code> / <code>sigma_chart</code> 预览</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="参数设置" dir="auto" data-anchor="section-51" id="section-51">参数设置</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>Prompt</code></td>
+<td align="left">正向提示词</td>
+<td align="left">STRING（多行）</td>
+<td align="left">—</td>
+<td align="left">正向提示词</td>
+</tr>
+<tr>
+<td align="left"><code>Negative</code></td>
+<td align="left">负面提示词</td>
+<td align="left">STRING（多行）</td>
+<td align="left">空</td>
+<td align="left">负面提示词（未接 negative 且 cfg≠1 时自动使用）</td>
+</tr>
+<tr>
+<td align="left"><code>seed</code></td>
+<td align="left">随机种子</td>
+<td align="left">INT</td>
+<td align="left"><code>100</code></td>
+<td align="left">随机种子</td>
+</tr>
+<tr>
+<td align="left"><code>steps</code></td>
+<td align="left">去噪步数</td>
+<td align="left">INT</td>
+<td align="left"><code>4</code></td>
+<td align="left">本阶段去噪步数</td>
+</tr>
+<tr>
+<td align="left"><code>cfg</code></td>
+<td align="left">CFG 引导比例</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>1.0</code></td>
+<td align="left">CFG 引导比例</td>
+</tr>
+<tr>
+<td align="left"><code>sampler_name</code> / <code>scheduler</code></td>
+<td align="left">采样算法 / 调度器</td>
+<td align="left">COMBO</td>
+<td align="left">—</td>
+<td align="left">采样算法 / 调度器</td>
+</tr>
+<tr>
+<td align="left"><code>ckpt_family</code> / <code>ckpt_name</code> / <code>clip_name</code> / <code>vae_name</code> / <code>clip_type</code> / <code>clip_name2</code></td>
+<td align="left">模型家族 / 模型文件 / 文本编码器 / VAE / CLIP类型 / 第二编码器</td>
+<td align="left">COMBO</td>
+<td align="left"><code>/</code></td>
+<td align="left">模型 / CLIP / VAE 选择（同「柠檬加载器」）</td>
+</tr>
+<tr>
+<td align="left"><code>edit_type</code></td>
+<td align="left">编辑编码方式</td>
+<td align="left">COMBO</td>
+<td align="left"><code>auto</code></td>
+<td align="left">图片编辑编码（auto / qwen_edit / qwen21_edit / krea2_edit）</td>
+</tr>
+<tr>
+<td align="left"><code>aura_flow</code></td>
+<td align="left">AuraFlow 位移</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>0</code></td>
+<td align="left">AuraFlow 采样位移</td>
+</tr>
+<tr>
+<td align="left"><code>lora_options</code> / <code>lora_count</code> / <code>lora_data</code> / <code>lora_clip</code></td>
+<td align="left">LoRA 文件 / 数量 / 列表 / 注入方式</td>
+<td align="left">—</td>
+<td align="left">—</td>
+<td align="left">LoRA 挂载（同「柠檬加载器」）</td>
+</tr>
+<tr>
+<td align="left"><code>unload_models</code></td>
+<td align="left">生成后卸载</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">生成完成后自动释放显存</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h1 data-heading="柠檬图像保存" dir="auto" data-anchor="section-52" id="section-52">柠檬图像保存</h1>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：非常节点，免费节点。<br>
+接收图像并保存到输出目录，同时在节点面板内直接预览；支持把生成参数 / 工作流写入文件元数据，方便回查。</p>
+</blockquote>
+<h2 data-heading="节点亮点" dir="auto" data-anchor="section-53" id="section-53">节点亮点</h2>
+<ul class="list-panel">
+<li dir="auto"><strong>内置 A/B 对比查看器</strong>：生成图（A 组）与参考图（B 组）可滑动卷帘对比 / 按住切换，支持九宫格多图预览与单图大图两种显示模式。</li>
+<li dir="auto"><strong>参数自动提取</strong>：自动收集模型、CLIP、VAE、LoRA、采样参数（seed/steps/cfg/sampler/denoise）、耗时与提示词，写入文件元数据，无需手动填。</li>
+<li dir="auto"><strong>多格式元数据</strong>：PNG 写入文本信息；JPG 写入注释；WebP 写入 EXIF——三种格式都能把参数带在文件里（含工作流 JSON）。</li>
+<li dir="auto"><strong>多种保存模式</strong>：<code>preview+save</code> 预览并存盘 / <code>preview_only</code> 仅预览（临时目录）/ <code>save_only</code> 仅存盘不预览。</li>
+<li dir="auto"><strong>智能批处理</strong>：连续模式可保持原文件名与原目录结构保存、同名自动加 <code>_1</code> <code>_2</code> 去重，跑完可自动关机。</li>
+<li dir="auto"><strong>保存前处理</strong>：可接「图像后期」控制节点做颜色校正（匹配参考图色调）与智能锐化。</li>
+</ul>
+<h2 data-heading="怎么接线" dir="auto" data-anchor="section-54" id="section-54">怎么接线</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>images</code> 生成图（必接）</td>
+<td align="left">按导出格式保存 + 写元数据</td>
+<td align="left"><code>images</code> 原样透传</td>
+</tr>
+<tr>
+<td align="left"><code>images_b</code> 参考图（可选，* 通配）</td>
+<td align="left">颜色校正（配合后期控制）、输出 B 组对比图</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>flash_image</code> 目标节点（可选）</td>
+<td align="left">一键把当前图「闪送」到指定节点、或作 Flash 对比图</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>auto_path</code> / <code>author</code> 保存设置</td>
+<td align="left">节点属性控制 格式 / 模式 / 命名</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="参数设置" dir="auto" data-anchor="section-55" id="section-55">参数设置</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>images</code></td>
+<td align="left">保存图像</td>
+<td align="left">IMAGE</td>
+<td align="left">—</td>
+<td align="left">要保存的图像</td>
+</tr>
+<tr>
+<td align="left"><code>flash_image</code></td>
+<td align="left">闪送目标节点</td>
+<td align="left">COMBO</td>
+<td align="left"><code>pass</code></td>
+<td align="left">闪送 / 对比目标节点（<code>#节点ID</code>，行内 🚀 闪送、💠 全屏浏览、⚔️/🕊️ 对比开关）</td>
+</tr>
+<tr>
+<td align="left"><code>metadata_mode</code></td>
+<td align="left">元数据内容</td>
+<td align="left">COMBO</td>
+<td align="left"><code>params + workflow</code></td>
+<td align="left">元数据内容：<code>pass</code> / <code>params</code> / <code>params + workflow</code> / <code>json</code> / <code>json + params</code> / <code>json + params + workflow</code></td>
+</tr>
+<tr>
+<td align="left"><code>images_b</code></td>
+<td align="left">B组参考图</td>
+<td align="left">*</td>
+<td align="left">—</td>
+<td align="left">B 组参考图（IMAGE 或列表，用于对比与颜色校正）</td>
+</tr>
+<tr>
+<td align="left"><code>auto_path</code></td>
+<td align="left">输出子目录</td>
+<td align="left">STRING</td>
+<td align="left"><code>日期</code></td>
+<td align="left">输出子目录：<code>日期</code> 自动替换为当天日期（如 20261006），可加子路径</td>
+</tr>
+<tr>
+<td align="left"><code>author</code></td>
+<td align="left">作者名</td>
+<td align="left">STRING</td>
+<td align="left">空</td>
+<td align="left">作者名（写入元数据）</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="节点属性（右键 Configure 面板）" dir="auto" data-anchor="section-56" id="section-56">节点属性（右键 Configure 面板）</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">可选值 / 默认</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>node_mode</code></td>
+<td align="left"><code>preview+save</code> / <code>preview_only</code> / <code>save_only</code></td>
+<td align="left">保存模式</td>
+</tr>
+<tr>
+<td align="left"><code>export_format</code></td>
+<td align="left"><code>jpg</code> / <code>webp</code> / <code>png</code> / <code>jpg+png</code> / <code>jpg+webp</code> / <code>png+webp</code> / <code>png+webp+jpg</code></td>
+<td align="left">导出格式（可多选）</td>
+</tr>
+<tr>
+<td align="left"><code>name_prefix</code></td>
+<td align="left">空</td>
+<td align="left">文件名前缀（支持 <code>日期</code> 占位）</td>
+</tr>
+<tr>
+<td align="left"><code>jpg_bg_color</code></td>
+<td align="left"><code>white</code></td>
+<td align="left">JPG 合成透明区域时的背景色</td>
+</tr>
+<tr>
+<td align="left"><code>display_mode</code></td>
+<td align="left"><code>grid</code>（九宫格）/ <code>gallery</code>（标签页）</td>
+<td align="left">面板显示方式</td>
+</tr>
+<tr>
+<td align="left"><code>comparer_mode</code></td>
+<td align="left"><code>slide</code>（滑动跟随）/ <code>click</code>（按住切换）</td>
+<td align="left">A/B 对比方式</td>
+</tr>
+<tr>
+<td align="left"><code>compare_cover</code></td>
+<td align="left"><code>a_cover</code> / <code>b_cover</code></td>
+<td align="left">对比时哪张作前景覆盖层</td>
+</tr>
+<tr>
+<td align="left"><code>pages_xy</code> / <code>overview_side</code> / <code>leave_buffer</code></td>
+<td align="left">—</td>
+<td align="left">大图页码位置 / 缩略图侧 / 鼠标甩出缓冲</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="操作与快捷键" dir="auto" data-anchor="section-57" id="section-57">操作与快捷键</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">按键 / 操作</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>X</code></td>
+<td align="left">切换显示模式：九宫格 ⇄ 单图大图</td>
+</tr>
+<tr>
+<td align="left"><code>C</code></td>
+<td align="left">切换对比方式：滑动跟随 ⇄ 点击切换</td>
+</tr>
+<tr>
+<td align="left"><code>V</code></td>
+<td align="left">切换对比覆盖层：A 图覆盖 ⇄ B 图覆盖</td>
+</tr>
+<tr>
+<td align="left"><code>B</code></td>
+<td align="left">一键开关 A/B 图片对比（关 = 仅显示 A 组）</td>
+</tr>
+<tr>
+<td align="left"><code>←</code> / <code>→</code></td>
+<td align="left">A 组上一张 / 下一张</td>
+</tr>
+<tr>
+<td align="left"><code>🖼️打开图片</code></td>
+<td align="left">系统打开当前图</td>
+</tr>
+<tr>
+<td align="left"><code>📋复制图片</code></td>
+<td align="left">复制到剪贴板</td>
+</tr>
+<tr>
+<td align="left"><code>📁打开目录</code></td>
+<td align="left">打开输出目录</td>
+</tr>
+<tr>
+<td align="left"><code>💠全屏浏览</code></td>
+<td align="left">全屏查看（A/B 可对比）</td>
+</tr>
+<tr>
+<td align="left">🚀 闪送</td>
+<td align="left">把当前图发送到 <code>flash_image</code> 选中节点（可弹窗改名）</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="使用提示" dir="auto" data-anchor="section-58" id="section-58">使用提示</h2>
+<ol class="list-panel">
+<li dir="auto">节点面板本身就是图库：九宫格点缩略图进大图，底部页码可点；大图区域左半区上一张、右半区下一张，<code>Shift</code> 点击可切 B 组。</li>
+<li dir="auto">想让生成图自动「闪送」回加载器继续迭代：<code>flash_image</code> 选目标节点，点 🚀 即可投送（默认会弹窗询问新文件名，可在系统设置关闭）。</li>
+<li dir="auto">元数据默认含工作流 JSON（PNG 的 itxt / JPG 的自定义块 / WebP 的 WFLW chunk），拖回 ComfyUI 可还原流程；只想留参数可把 <code>metadata_mode</code> 改为 <code>params</code>。</li>
+<li dir="auto">连续批量模式保存时会沿用原文件名与目录结构（同名自动 <code>_1</code> 递增），无需担心覆盖；循环结束可自动关机（默认 60 秒延迟，可在弹窗取消）。</li>
+</ol>
+<hr>
+<h1 data-heading="柠檬忽略多框" dir="auto" data-anchor="section-59" id="section-59">柠檬忽略多框</h1>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：非常工具，付费节点。<br>
+一个分组批量控制面板：不连线、不写节点，在面板里点一下就能把整组节点一键启用 / 忽略（Bypass），并支持分组跳转、独占聚焦、快捷键定位和批量配套建节点。</p>
+</blockquote>
+<h2 data-heading="节点亮点" dir="auto" data-anchor="section-60" id="section-60">节点亮点</h2>
+<ul class="list-panel">
+<li dir="auto"><strong>F1 唤回本体</strong>：无论画布滚到哪里，按 F1 一键把面板唤回眼前（支持"跳转视口 / 移动节点"两种模式）。</li>
+<li dir="auto"><strong>整组一键启停</strong>：每一行对应一个分组，点左侧圆点即可整组启用 / 忽略，状态实时刷新（全开 / 全关 / 部分开启一目了然）。</li>
+<li dir="auto"><strong>独占聚焦（Solo）</strong>：点行内文字或右侧箭头，点亮该组、其余组全部忽略，配合跳转直达，专注当前任务。</li>
+<li dir="auto"><strong>分组跳转</strong>：点击行尾箭头，视口跳到分组位置，面板自动跟随到分组左上角。</li>
+<li dir="auto"><strong>数字键全局定位</strong>：给分组绑定 1-9 任意数字，画布内随时按数字直达，不打断操作流。</li>
+<li dir="auto"><strong>组标题栏点击切换</strong>：直接点画布里的分组标题条，也能整组启停；按住 Shift 点击 = 独占该组。</li>
+<li dir="auto"><strong>硬停用保护</strong>：手动 Ctrl+B/M 停用的节点一律不碰（整套面板动不了它们），可一键「复位硬锁」恢复管理。</li>
+<li dir="auto"><strong>配套节点一键创建</strong>：面板上直接创建 尺寸 / 选图 / 模型 / 采样 / 存图 等配套节点。</li>
+</ul>
+<h2 data-heading="面板行内操作" dir="auto" data-anchor="section-61" id="section-61">面板行内操作</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">区域</th>
+<th align="left">操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">左侧圆点</td>
+<td align="left">切换整组启用 / 忽略（全开 → 全关 → 再点全开）</td>
+</tr>
+<tr>
+<td align="left">行首最左</td>
+<td align="left">设置别名标签（输入 <code>00</code> 清除）</td>
+</tr>
+<tr>
+<td align="left">行内文字</td>
+<td align="left">独占（Solo）：点亮本组，其余组全部忽略（被锁定的组除外）</td>
+</tr>
+<tr>
+<td align="left">右侧数字区</td>
+<td align="left">绑定 1-9 全局定位快捷键（输入 <code>00</code> 清除）</td>
+</tr>
+<tr>
+<td align="left">右侧小方块</td>
+<td align="left">锁定 / 解锁该组（锁定后批量操作会跳过它）</td>
+</tr>
+<tr>
+<td align="left">行尾箭头</td>
+<td align="left">独占该组并跳转到分组位置，面板跟随移动</td>
+</tr>
+</tbody>
+</table></div>
+<p dir="auto">列表支持按 显示名称 / 分组名称 / 节点数量 / 坐标 排序，并可按别名或分组名过滤。</p>
+<h2 data-heading="参数设置" dir="auto" data-anchor="section-62" id="section-62">参数设置</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>sort_by</code></td>
+<td align="left">排序方式</td>
+<td align="left">COMBO</td>
+<td align="left"><code>显示名称</code></td>
+<td align="left">分组列表排序：显示名称 / 分组名称 / 数量递增递减 / 按 X、Y 顶点（均含倒序）</td>
+</tr>
+<tr>
+<td align="left"><code>filter</code></td>
+<td align="left">关键字过滤</td>
+<td align="left">STRING</td>
+<td align="left">空</td>
+<td align="left">分组关键字过滤</td>
+</tr>
+<tr>
+<td align="left"><code>filter_range</code>（属性）</td>
+<td align="left">过滤范围</td>
+<td align="left">COMBO</td>
+<td align="left"><code>alias+group</code></td>
+<td align="left">过滤范围：<code>alias</code> 只按别名 / <code>group</code> 只按分组名 / <code>alias+group</code> 别名或分组名 / <code>alias&gt;group</code> 别名优先</td>
+</tr>
+<tr>
+<td align="left"><code>display_alias</code>（属性）</td>
+<td align="left">显示格式</td>
+<td align="left">COMBO</td>
+<td align="left"><code>alias(group)</code></td>
+<td align="left">显示格式：只显示别名，或 <code>别名 (分组名)</code></td>
+</tr>
+<tr>
+<td align="left"><code>hotkey_mode</code>（属性）</td>
+<td align="left">F1 唤回方式</td>
+<td align="left">COMBO</td>
+<td align="left"><code>move</code></td>
+<td align="left">F1 唤回方式：<code>jump</code> 视口跳转 / <code>move</code> 移动面板节点</td>
+</tr>
+<tr>
+<td align="left"><code>jump_offset</code>（属性）</td>
+<td align="left">跳转偏移量</td>
+<td align="left">INT</td>
+<td align="left"><code>52</code></td>
+<td align="left">分组跳转时视口横向偏移量（-2000 ~ 2000）</td>
+</tr>
+<tr>
+<td align="left"><code>column_gap</code> / <code>row_gap</code>（属性）</td>
+<td align="left">列距 / 行距</td>
+<td align="left">INT</td>
+<td align="left"><code>16</code> / <code>24</code></td>
+<td align="left">布局间距</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="底部按钮" dir="auto" data-anchor="section-63" id="section-63">底部按钮</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">按钮</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>📐尺寸</code> / <code>🖼️选图</code> / <code>⚙️模型</code> / <code>🎛️采样</code> / <code>💾存图</code></td>
+<td align="left">在画布上自动创建对应配套节点</td>
+</tr>
+<tr>
+<td align="left"><code>🧊虚拟分组</code></td>
+<td align="left">输入节点 ID 创建虚拟分组（支持 <code>2/5/8</code> 或 <code>2,5,8</code>）</td>
+</tr>
+<tr>
+<td align="left"><code>💤忽略所有</code></td>
+<td align="left">全部未锁定分组一键忽略（Bypass）</td>
+</tr>
+<tr>
+<td align="left"><code>⚡开启所有</code></td>
+<td align="left">全部未锁定分组一键开启</td>
+</tr>
+<tr>
+<td align="left"><code>🔓复位硬锁</code></td>
+<td align="left">把 Ctrl+B/M 手动硬停用的节点复位为可管理状态</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="全局快捷键" dir="auto" data-anchor="section-64" id="section-64">全局快捷键</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">按键</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>F1</code></td>
+<td align="left">唤回面板：<code>jump</code> 模式 = 视口跳回节点所在位置；<code>move</code> 模式 = 面板移到屏幕中央（3 秒内重复按回到上一次位置）</td>
+</tr>
+<tr>
+<td align="left"><code>1</code> ~ <code>9</code></td>
+<td align="left">跳转到绑定了该数字的分组 / 虚拟分组</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="分组标题栏（画布内）" dir="auto" data-anchor="section-65" id="section-65">分组标题栏（画布内）</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">操作</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">单击分组标题条</td>
+<td align="left">整组启用 / 忽略（同面板圆点）</td>
+</tr>
+<tr>
+<td align="left">Shift + 单击标题条</td>
+<td align="left">独占该组（含嵌套子组），其余组全部忽略</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="概念速查" dir="auto" data-anchor="section-66" id="section-66">概念速查</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">概念</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">普通分组</td>
+<td align="left">画布上的分组框（可嵌套），行内显示组名与节点数</td>
+</tr>
+<tr>
+<td align="left">虚拟分组</td>
+<td align="left">用节点 ID 临时归组的集合，不依赖画布分组框，可跨位置归组</td>
+</tr>
+<tr>
+<td align="left">未分组（Ungrouped）</td>
+<td align="left">画布上不属于任何分组的节点，固定在列表顶部</td>
+</tr>
+<tr>
+<td align="left">硬停用锁</td>
+<td align="left">用户手动 Ctrl+B/M 停用的节点，整套面板不触碰，需「复位硬锁」后恢复管理</td>
+</tr>
+<tr>
+<td align="left">安全锁（safe）</td>
+<td align="left">行内小方块锁定，锁定组在 忽略所有 / 开启所有 / 独占 时被跳过</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h1 data-heading="柠檬随机种子" dir="auto" data-anchor="section-67" id="section-67">柠檬随机种子</h1>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：非常工具，付费节点。<br>
+输出一个种子整数；点击状态按钮可在四种模式间循环，还可锚定常用种子、一键回到上一个值。</p>
+</blockquote>
+<h2 data-heading="节点亮点" dir="auto" data-anchor="section-68" id="section-68">节点亮点</h2>
+<ul class="list-panel">
+<li dir="auto"><strong>四态循环</strong>：<code>🔒固定</code> → <code>🍀随机</code> → <code>➕递增</code> → <code>➖递减</code>，点第一个按钮循环切换，当前状态直接显示在按钮上。</li>
+<li dir="auto"><strong>随机 / 步进自动化</strong>：随机每次运行时重新生成；递增每次 +1、递减每次 -1，到边界自动回绕，适合批量扫参。</li>
+<li dir="auto"><strong>锚点回位</strong>：<code>⚓</code> 按钮显示锚定种子值，点击立即恢复该值，反复调试同一画面很方便。</li>
+<li dir="auto"><strong>🧷上个</strong>：一键换回上一次的种子值（与当前值互换），对比前后两张图。</li>
+<li dir="auto"><strong>🎲换个</strong>：手动随机换一个，不改变当前状态模式。</li>
+<li dir="auto"><strong>上限可调</strong>：<code>max_seed</code> 属性设置随机范围上限（默认 1 亿，0 = 不设上限）；数值与状态模式都会随工作流一起保存。</li>
+</ul>
+<h2 data-heading="参数设置" dir="auto" data-anchor="section-69" id="section-69">参数设置</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>seed</code></td>
+<td align="left">随机种子</td>
+<td align="left">INT</td>
+<td align="left"><code>100</code></td>
+<td align="left">当前种子值（1 ~ 上限，可手动改）</td>
+</tr>
+<tr>
+<td align="left"><code>max_seed</code>（属性）</td>
+<td align="left">随机上限</td>
+<td align="left">number</td>
+<td align="left"><code>100000000</code></td>
+<td align="left">随机 / 递增 / 递减的范围上限（<code>0</code> = 不设上限）</td>
+</tr>
+<tr>
+<td align="left"><code>anchor_seed</code>（属性）</td>
+<td align="left">锚点种子</td>
+<td align="left">number</td>
+<td align="left"><code>100</code></td>
+<td align="left">锚点种子值（<code>⚓</code> 按钮恢复的目标值）</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="操作与状态" dir="auto" data-anchor="section-70" id="section-70">操作与状态</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">按钮</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>🔒固定</code> / <code>🍀随机</code> / <code>➕递增</code> / <code>➖递减</code></td>
+<td align="left">状态模式循环切换（第一个按钮）</td>
+</tr>
+<tr>
+<td align="left"><code>🎲换个</code></td>
+<td align="left">立即随机换一个种子</td>
+</tr>
+<tr>
+<td align="left"><code>🧷上个</code></td>
+<td align="left">回到上一个种子值</td>
+</tr>
+<tr>
+<td align="left"><code>⚓N</code></td>
+<td align="left">恢复到锚点种子 N</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote dir="auto" class="pull-quote">
+<p>状态说明：固定 = 保持当前值不变；随机 = 每次运行时重新随机；递增 / 递减 = 每次运行时 +1 / -1（超出上限回绕）。</p>
+</blockquote>
+<h2 data-heading="一键广播（📡）" dir="auto" data-anchor="section-71" id="section-71">一键广播（📡）</h2>
+<p dir="auto">标题栏右上角的 📡 图标可以让整个工作流共享本节点的种子值：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">操作</th>
+<th align="left">效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">点击标题栏 📡 图标</td>
+<td align="left">开启 / 关闭广播（未开启时图标半透明，开启后点亮）</td>
+</tr>
+<tr>
+<td align="left">开启广播后</td>
+<td align="left">工作流内所有带 <code>seed</code> / <code>noise_seed</code> 控件的节点统一使用本节点当前种子，无需逐节点接线</td>
+</tr>
+<tr>
+<td align="left">接收标记</td>
+<td align="left">有 seed 控件的节点在控件旁显示 🟢；未连线的 seed 输入口显示 🟡</td>
+</tr>
+<tr>
+<td align="left">删除本节点</td>
+<td align="left">广播自动关闭</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote dir="auto" class="pull-quote">
+<p>适用场景：多个采样器 / 加载器共用一个种子做批量复现；配合 <code>🍀随机</code> 模式可一次随机同步所有节点。广播在提交运行时生效，接收节点原有的 seed 控件值不再单独起作用。</p>
+</blockquote>
+<h2 data-heading="使用提示" dir="auto" data-anchor="section-72" id="section-72">使用提示</h2>
+<ol class="list-panel">
+<li dir="auto">种子状态会随工作流 JSON 保存，重开工作流后模式与数值都在；想固定复现同一张图，把状态切到 <code>🔒固定</code> 即可。</li>
+<li dir="auto"><code>🍀随机</code> 的真正随机发生在执行前，连点运行每次都是新种子；配合 <code>🧷上个</code> 可来回对比。</li>
+<li dir="auto">给批量扫参场景建议：随机配合 <code>max_seed</code> 限定范围，递增 / 递减适合按步长穷举。</li>
+</ol>
+<hr>
+<h1 data-heading="LoRA 分组" dir="auto" data-anchor="section-73" id="section-73">LoRA 分组</h1>
+<h2 data-heading="分组速览" dir="auto" data-anchor="section-74" id="section-74">分组速览</h2>
+<p dir="auto">LoRA 工具分为两个节点：<strong>柠檬LoRA加载器</strong> 负责把多组 LoRA 挂载到已加载的模型上（每组独立 启用 / 模型 / 强度，可选 CLIP 注入，输出挂载摘要）；<strong>柠檬LoRA管理器</strong> 负责 LoRA 素材库的管理（触发词、强度上下限、默认强度），两者配合使用。</p>
+<h2 data-heading="柠檬LoRA加载器" dir="auto" data-anchor="section-75" id="section-75">柠檬LoRA加载器</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：非常工具，付费节点。<br>
+在已加载的模型上挂载多组 LoRA，输出挂载结果摘要字符串。</p>
+</blockquote>
+<h3 data-heading="节点亮点" dir="auto" data-anchor="section-76" id="section-76">节点亮点</h3>
+<ul class="list-panel">
+<li dir="auto"><strong>多组叠加</strong>：列表式管理多组 LoRA，每组独立 启用 / 模型 / 强度。</li>
+<li dir="auto"><strong>CLIP 可选</strong>：不接 CLIP 时仅注入模型；接入后模型与 CLIP 同时注入（语义与风格）。</li>
+<li dir="auto"><strong>结果可读</strong>：<code>result</code> 端口输出实际加载摘要（如「真正加载了多组 Lora: 【模型: xxx, 强度: 1.00】」）。</li>
+</ul>
+<h3 data-heading="怎么接线" dir="auto" data-anchor="section-77" id="section-77">怎么接线</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>model</code> 模型（必接）</td>
+<td align="left">逐组挂载启用的 LoRA</td>
+<td align="left"><code>model</code> 挂载后的模型</td>
+</tr>
+<tr>
+<td align="left"><code>clip</code> 可选，接入后 CLIP 参与注入</td>
+<td align="left">按强度叠加模型 / CLIP 权重</td>
+<td align="left"><code>clip</code> 挂载后的 CLIP</td>
+</tr>
+<tr>
+<td align="left"><code>lora_options</code> / <code>lora_count</code> / <code>lora_data</code></td>
+<td align="left"></td>
+<td align="left"><code>result</code> 加载摘要文本</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-78" id="section-78">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>lora_options</code></td>
+<td align="left">LoRA 文件</td>
+<td align="left">COMBO</td>
+<td align="left"><code>lora_select</code></td>
+<td align="left">LoRA 文件（显示为 .stsr）</td>
+</tr>
+<tr>
+<td align="left"><code>lora_count</code></td>
+<td align="left">LoRA 数量</td>
+<td align="left">INT</td>
+<td align="left"><code>1</code></td>
+<td align="left">LoRA 数量（0 ~ 100）</td>
+</tr>
+<tr>
+<td align="left"><code>lora_data</code></td>
+<td align="left">LoRA 列表</td>
+<td align="left">自定义</td>
+<td align="left"><code>[{"enabled": true, "lora": "lora_select", "strength": 1.0}]</code></td>
+<td align="left">多组 LoRA 列表</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 data-heading="柠檬LoRA管理器" dir="auto" data-anchor="section-79" id="section-79">柠檬LoRA管理器</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：非常工具，付费节点。<br>
+LoRA 参数旁挂管理：把「触发词 + 强度范围 + 默认强度」写入 LoRA 文件名标签或同名 txt / json 旁挂文件，选中即自动带回参数，方便参数随模型走。</p>
+</blockquote>
+<h3 data-heading="节点亮点" dir="auto" data-anchor="section-80" id="section-80">节点亮点</h3>
+<ul class="list-panel">
+<li dir="auto"><strong>参数自动加载</strong>：选中 LoRA 时按「文件名 <code>[参数]</code> 标签 → 同名 txt 第一行 → 同名 json」顺序自动读取参数。</li>
+<li dir="auto"><strong>参数标签规范</strong>：文件名可带 <code>[触发词#最小-最大-默认强度]</code>，如 <code>[0.9]</code>、<code>[0-1-0.9]</code>、<code>[prompt#0-1-0.9]</code>。</li>
+<li dir="auto"><strong>旁挂文件</strong>：txt 保存只更新第一行（保留后续备注）；json 只更新参数字段（保留其他内容）。</li>
+<li dir="auto"><strong>安全重命名</strong>：只重命名模型文件与预览图，txt / json 旁挂文件不受影响（参数存在内容里）。</li>
+</ul>
+<h3 data-heading="怎么接线" dir="auto" data-anchor="section-81" id="section-81">怎么接线</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>ckpt_family</code> 家族</td>
+<td align="left">读取 / 更新 LoRA 参数旁挂文件</td>
+<td align="left"><code>status</code> 状态文本（如 <code>OK: lora名</code>）</td>
+</tr>
+<tr>
+<td align="left"><code>lora_name</code> 选择 LoRA</td>
+<td align="left">参数自动加载到下方输入框</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>trigger_prompt</code> / <code>min_val</code> / <code>max_val</code> / <code>strength</code></td>
+<td align="left">一键写入文件名或旁挂文件</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-82" id="section-82">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>ckpt_family</code></td>
+<td align="left">模型家族</td>
+<td align="left">COMBO</td>
+<td align="left"><code>All</code></td>
+<td align="left">LoRA 家族（loras 目录的一级子目录）过滤</td>
+</tr>
+<tr>
+<td align="left"><code>lora_name</code></td>
+<td align="left">LoRA 名称</td>
+<td align="left">COMBO</td>
+<td align="left"><code>/</code></td>
+<td align="left">选择 LoRA（选中自动加载其旁挂参数）</td>
+</tr>
+<tr>
+<td align="left"><code>trigger_prompt</code></td>
+<td align="left">触发词</td>
+<td align="left">STRING</td>
+<td align="left">空</td>
+<td align="left">触发词（写入参数标签 <code>触发词#…</code>）</td>
+</tr>
+<tr>
+<td align="left"><code>min_val</code></td>
+<td align="left">强度下限</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>0</code></td>
+<td align="left">强度范围下限（-10 ~ 10）</td>
+</tr>
+<tr>
+<td align="left"><code>max_val</code></td>
+<td align="left">强度上限</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>0</code></td>
+<td align="left">强度范围上限（-10 ~ 100）</td>
+</tr>
+<tr>
+<td align="left"><code>strength</code></td>
+<td align="left">默认强度</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>0</code></td>
+<td align="left">默认强度（-10 ~ 100）</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-heading="按钮" dir="auto" data-anchor="section-83" id="section-83">按钮</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">操作</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>✏️更新文件名</code></td>
+<td align="left">把当前参数写入文件名 <code>[参数]</code> 标签；已带标签则去除标签</td>
+</tr>
+<tr>
+<td align="left"><code>📄保存TXT</code></td>
+<td align="left">生成 / 更新同名 txt 旁挂文件（只改第一行）</td>
+</tr>
+<tr>
+<td align="left"><code>📄保存JSON</code></td>
+<td align="left">生成 / 更新同名 json 旁挂文件（只更新参数字段）</td>
+</tr>
+<tr>
+<td align="left"><code>🔄刷新列表</code></td>
+<td align="left">重新扫描 LoRA 列表</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h1 data-heading="柠檬箭头标签" dir="auto" data-anchor="section-84" id="section-84">柠檬箭头标签</h1>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：非常工具，免费节点。<br>
+在工作流画布上放置一段纯前端浮动文本，用于注释、说明与分组标记；不参与任何计算，保存 / 加载不丢失。</p>
+</blockquote>
+<h2 data-heading="节点亮点" dir="auto" data-anchor="section-85" id="section-85">节点亮点</h2>
+<ul class="list-panel">
+<li dir="auto"><strong>零侵入</strong>：节点本身透明、无标题栏、不参与计算，只是画布上的一行文字。</li>
+<li dir="auto"><strong>可带方向箭头</strong>：支持 8 个方向（上 / 下 / 左 / 右 / 四角），作注释标注或流程指向。</li>
+<li dir="auto"><strong>样式自由</strong>：字号、颜色、背景、内边距、圆角、旋转角度、字体、对齐方式均可调，自动按文字量调整节点尺寸。</li>
+<li dir="auto"><strong>固定穿透</strong>：右键「固定 (Pin)」后标签固定在画布上，鼠标点击可穿透到下方节点（双击仍可编辑）。</li>
+<li dir="auto"><strong>便捷编辑</strong>：双击打开属性面板，文本框 <code>Enter</code> 提交、<code>Shift+Enter</code> 换行，数值属性 <code>↑</code>/<code>↓</code> 微调（<code>Shift</code> ×10 步长）。</li>
+</ul>
+<h2 data-heading="参数设置（双击节点打开属性面板）" dir="auto" data-anchor="section-86" id="section-86">参数设置（双击节点打开属性面板）</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>textShow</code></td>
+<td align="left"><code>🍋柠檬箭头标签</code></td>
+<td align="left">显示文本（支持多行，<code>\n</code> 换行）</td>
+</tr>
+<tr>
+<td align="left"><code>fontSize</code></td>
+<td align="left"><code>12</code></td>
+<td align="left">字号（≥1）</td>
+</tr>
+<tr>
+<td align="left"><code>fontFamily</code></td>
+<td align="left"><code>Arial</code></td>
+<td align="left">字体</td>
+</tr>
+<tr>
+<td align="left"><code>fontColor</code></td>
+<td align="left"><code>#ffffff</code></td>
+<td align="left">文字颜色</td>
+</tr>
+<tr>
+<td align="left"><code>textAlign</code></td>
+<td align="left"><code>left</code></td>
+<td align="left">对齐：left / center / right</td>
+</tr>
+<tr>
+<td align="left"><code>backgroundColor</code></td>
+<td align="left"><code>transparent</code></td>
+<td align="left">背景色（transparent = 无背景）</td>
+</tr>
+<tr>
+<td align="left"><code>padding</code></td>
+<td align="left"><code>0</code></td>
+<td align="left">内边距</td>
+</tr>
+<tr>
+<td align="left"><code>borderRadius</code></td>
+<td align="left"><code>0</code></td>
+<td align="left">背景圆角</td>
+</tr>
+<tr>
+<td align="left"><code>arrowDirection</code></td>
+<td align="left"><code>none</code></td>
+<td align="left">箭头方向：none / up / down / left / right / 四角</td>
+</tr>
+<tr>
+<td align="left"><code>arrowColor</code></td>
+<td align="left"><code>fontColor</code></td>
+<td align="left">箭头颜色（默认跟随文字色）</td>
+</tr>
+<tr>
+<td align="left"><code>angle</code></td>
+<td align="left"><code>0</code></td>
+<td align="left">整块旋转角度</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote dir="auto" class="pull-quote">
+<p>颜色支持多种写法：<code>#fff</code> / <code>#ffffff88</code>（hex）、<code>red</code> / <code>blue</code>（颜色名）、<code>rgb() / rgba()</code>、逗号分隔 <code>255,0,0</code>。</p>
+</blockquote>
+<h2 data-heading="使用提示" dir="auto" data-anchor="section-87" id="section-87">使用提示</h2>
+<ol>
+<li dir="auto">标签节点固定后鼠标穿透，误触不到下方节点；要改文字随时双击打开面板。</li>
+<li dir="auto">颜色值支持多种写法，填颜色名（如 <code>red</code>）比记十六进制更省事。</li>
+</ol>
+<hr>
+<h1 data-heading="工作流提取" dir="auto" data-anchor="section-88" id="section-88">工作流提取</h1>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：非常工具，免费节点。<br>
+读取图片内嵌的生成元数据并输出为字符串：包括文件信息、生成参数与提示词，方便溯源复现。兼容 PNG、JPG/JPEG、WebP。</p>
+</blockquote>
+<h2 data-heading="节点亮点" dir="auto" data-anchor="section-89" id="section-89">节点亮点</h2>
+<ul class="list-panel">
+<li dir="auto"><strong>一站式溯源</strong>：一张图就能拿到它背后的参数、提示词与工作流信息。</li>
+<li dir="auto"><strong>多格式兼容</strong>：PNG 读 params / workflow / prompt 块；JPG、WebP 读注释与压缩的 JSON 元数据。</li>
+<li dir="auto"><strong>提示词智能提取</strong>：优先沿 KSampler → positive → CLIPTextEncode 连接链定位正向提示词，失败时再全量扫描并过滤负面词。</li>
+<li dir="auto"><strong>文件信息自动附带</strong>：输出内容含文件名、大小、尺寸、修改时间；非本插件生成的图片会如实注明。</li>
+</ul>
+<h2 data-heading="怎么接线" dir="auto" data-anchor="section-90" id="section-90">怎么接线</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>img</code> 图片文件</td>
+<td align="left">读取内嵌元数据并解析</td>
+<td align="left"><code>image_list</code> 图片列表</td>
+</tr>
+<tr>
+<td align="left"><code>image_list</code> 可选</td>
+<td align="left">输出提取到的参数文本</td>
+<td align="left"><code>image</code> 图片</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"><code>params</code> 文件信息 + 生成参数</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"><code>prompt</code> 提取到的提示词</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="参数设置" dir="auto" data-anchor="section-91" id="section-91">参数设置</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>img</code></td>
+<td align="left">图片文件</td>
+<td align="left">文件</td>
+<td align="left"><code>/</code></td>
+<td align="left">选择要提取元数据的图片</td>
+</tr>
+<tr>
+<td align="left"><code>size_align</code></td>
+<td align="left">尺寸对齐值</td>
+<td align="left">INT</td>
+<td align="left"><code>16</code></td>
+<td align="left">输出尺寸对齐值，范围 0 ~ 128、步进 8；<code>0</code> 为关闭</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote dir="auto" class="pull-quote">
+<p>插件还提供「复制提示词」「保存参数为 txt」「保存工作流为 json」等动作（保存到 output/meta/ 目录），具体入口以实际界面为准。</p>
+</blockquote>
+<hr>
+<h1 data-heading="节点路由器分组" dir="auto" data-anchor="section-92" id="section-92">节点路由器分组</h1>
+<h2 data-heading="分组速览" dir="auto" data-anchor="section-93" id="section-93">分组速览</h2>
+<p dir="auto">路由器家族负责画布上的「多路切换」：A(上游总控) 把一路输入分发到多个下游，B(下游汇总) 把多路输入汇聚成一路，C(上游分发) 按编号把上游多路分发下去，D(下游总控) 汇总多路后输出。切换路由时未选中的链路会被强制静音（省算力），支持子图穿透；输入口自动紧凑，最多 24 路。</p>
+<h2 data-heading="节点路由器A(上游总控)" dir="auto" data-anchor="section-94" id="section-94">节点路由器A(上游总控)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：非常工具，付费节点。</p>
+</blockquote>
+<h3 data-heading="节点亮点" dir="auto" data-anchor="section-95" id="section-95">节点亮点</h3>
+<ul class="list-panel">
+<li dir="auto"><strong>一键切换链路</strong>：<code>route</code> 选几路，输入就发往第几路；未选中的路下游节点自动静音（强制 Mute），运行只走选中链路。</li>
+<li dir="auto"><strong>输出口自动紧凑</strong>：只保留「有连接的口 + 1 个备用口」，画布不堆 24 个空口；最多 24 路。</li>
+<li dir="auto"><strong>自动配对</strong>：新建时自动在右侧生成配套的路由器B。</li>
+</ul>
+<h3 data-heading="怎么接线" dir="auto" data-anchor="section-96" id="section-96">怎么接线</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>input</code> 万能输入（可选）</td>
+<td align="left">按 <code>route</code> 数值转发</td>
+<td align="left"><code>route_1 ~ route_24</code>（未选中口输出空）</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-97" id="section-97">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>route</code></td>
+<td align="left">路由编号</td>
+<td align="left">INT</td>
+<td align="left"><code>1</code></td>
+<td align="left">选中的路由编号（上限 = 实际输出口数，最多 24）</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 data-heading="节点路由器B(下游汇总)" dir="auto" data-anchor="section-98" id="section-98">节点路由器B(下游汇总)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：非常工具，付费节点。<br>
+多路输入汇聚成一路：按 <code>route_N</code> 编号从小到大，取<strong>第一个有有效数据</strong>的口输出。 ｜ - 输入口自动紧凑（保留有连接的口 + 1 备用口，最多 24 路）。 ｜ - 典型用法：与路由器A配对做「多路输出再汇总」，或手工把多来源接到不同口取优先级。</p>
+</blockquote>
+<hr>
+<h2 data-heading="节点路由器C(上游分发)" dir="auto" data-anchor="section-99" id="section-99">节点路由器C(上游分发)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：非常工具，付费节点。<br>
+1 进 1 出透传（<code>input</code> → <code>output</code>），作为反向链路的「上游标记点」；新建时自动在右侧生成配套的路由器D。用于把「结果回送 / 反向数据流」的组织结构标出来。</p>
+</blockquote>
+<hr>
+<h2 data-heading="节点路由器D(下游总控)" dir="auto" data-anchor="section-100" id="section-100">节点路由器D(下游总控)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：非常工具，付费节点。</p>
+</blockquote>
+<h3 data-heading="节点亮点" dir="auto" data-anchor="section-101" id="section-101">节点亮点</h3>
+<ul>
+<li dir="auto"><strong>反向总控</strong>：多个输入口各接一路来源，<code>route</code> 选几路就只透传第几路的输入。</li>
+<li dir="auto"><strong>自动静音未选链路</strong>：切换 <code>route</code> 时反向追踪，选中路的上游全部激活，其它路上游强制静音，避免多余计算。</li>
+</ul>
+<h3 data-heading="怎么接线" dir="auto" data-anchor="section-102" id="section-102">怎么接线</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>route_1 ~ route_N</code>（万能输入）</td>
+<td align="left">按 <code>route</code> 只透传选中口</td>
+<td align="left"><code>output</code> 选中的输入</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-103" id="section-103">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>route</code></td>
+<td align="left">路由编号</td>
+<td align="left">INT</td>
+<td align="left"><code>1</code></td>
+<td align="left">选中的路由编号（上限 = 实际输入口数）</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-heading="使用提示（路由器家族通用）" dir="auto" data-anchor="section-104" id="section-104">使用提示（路由器家族通用）</h3>
+<ol>
+<li dir="auto">路由器切换后未选中的链路会被<strong>强制静音</strong>（节点名变灰），这不是故障，是省算力的设计；切回即恢复。</li>
+<li dir="auto">路由器A/B/C/D 支持放进子图（Subgraph）：链路追踪会穿透子图内部，子图内节点同样参与静音联动。</li>
+</ol>
+<hr>
+<h1 data-heading="功能补全分组" dir="auto" data-anchor="section-105" id="section-105">功能补全分组</h1>
+<h2 data-heading="控制节点怎么用" dir="auto" data-anchor="section-106" id="section-106">控制节点怎么用</h2>
+<p dir="auto">「功能补全」分组的节点统称<strong>控制节点</strong>：它们不直接产生图像，而是把参数「注入」到同一条工作流里的目标节点（加载器 / 采样器 / 保存器），用于补充目标节点面板上不常用的参数。</p>
+<ul class="list-panel">
+<li dir="auto"><strong>输出端无需连线</strong>：控制节点的输出口一般不用接线——同一条工作流内会自动找到目标节点并应用参数；如果直接连线，则优先使用连线的那个控制节点。</li>
+<li dir="auto"><strong>同类多个取一</strong>：同一片工作流里放了多个同类控制节点时，只取节点编号最大的那个生效。</li>
+<li dir="auto"><strong>停用即失效</strong>：把控制节点 Mute / Bypass 后，它的参数不再注入目标节点。</li>
+</ul>
+<hr>
+<h2 data-heading="多图批量任务(图片加载器)" dir="auto" data-anchor="section-107" id="section-107">多图批量任务(图片加载器)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：功能补全，付费节点。<br>
+批量跑图控制节点：指定一个目录，按轮次把目录里的图片逐张送进工作流（配合加载器节点），支持文件名过滤、子目录遍历、大图压缩与自动关机。</p>
+</blockquote>
+<h3 data-heading="节点亮点" dir="auto" data-anchor="section-108" id="section-108">节点亮点</h3>
+<ul class="list-panel">
+<li dir="auto"><strong>目录批量跑图</strong>：自动扫描目录内图片并按文件名排序，一轮轮逐张处理。</li>
+<li dir="auto"><strong>文件名过滤</strong>：只处理包含指定词的文件；词前加 <code>!</code> 则排除包含该词的文件。</li>
+<li dir="auto"><strong>大图压缩</strong>：超过指定百万像素的图片自动等比缩小，原图自动备份（前缀 / 后缀可切换）。</li>
+<li dir="auto"><strong>轮次与断点</strong>：可设置连续批量轮次与起始索引，配合 <code>original_name</code> 保持原文件名和目录结构。</li>
+<li dir="auto"><strong>可自动关机</strong>：全部跑完后自动关机（可选）。</li>
+</ul>
+<h3 data-heading="怎么接线" dir="auto" data-anchor="section-109" id="section-109">怎么接线</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>folder_path</code> 目录路径</td>
+<td align="left">扫描目录（可选含子目录），过滤、排序</td>
+<td align="left"><code>loop_control</code> 批量控制信号（需连接到工作流，未连线会提示跳过）</td>
+</tr>
+<tr>
+<td align="left"><code>loop_count</code> / <code>start_index</code> 轮次控制</td>
+<td align="left">逐张送入当前图片路径，可压缩大图</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>auto_shutdown</code></td>
+<td align="left">完成后自动关机</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-110" id="section-110">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>folder_path</code></td>
+<td align="left">批量目录</td>
+<td align="left">STRING</td>
+<td align="left">空</td>
+<td align="left">要批处理的图片目录</td>
+</tr>
+<tr>
+<td align="left"><code>filter_name</code></td>
+<td align="left">文件名过滤</td>
+<td align="left">STRING</td>
+<td align="left">空</td>
+<td align="left">文件名过滤：包含该词才处理；<code>!</code> 开头 = 排除包含该词的文件</td>
+</tr>
+<tr>
+<td align="left"><code>loop_count</code></td>
+<td align="left">批量轮次</td>
+<td align="left">INT</td>
+<td align="left"><code>1</code></td>
+<td align="left">批量轮次，1 ~ 999999</td>
+</tr>
+<tr>
+<td align="left"><code>start_index</code></td>
+<td align="left">起始索引</td>
+<td align="left">INT</td>
+<td align="left"><code>1</code></td>
+<td align="left">起始索引（从第几张开始）</td>
+</tr>
+<tr>
+<td align="left"><code>compress_mp</code></td>
+<td align="left">大图压缩上限</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>1</code></td>
+<td align="left">大图压缩上限（百万像素，0 = 关闭）；超出自动缩放并备份原图</td>
+</tr>
+<tr>
+<td align="left"><code>backup_pos</code></td>
+<td align="left">备份命名方式</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">备份文件名方式：<code>prefix</code> 前缀 / <code>suffix</code> 后缀</td>
+</tr>
+<tr>
+<td align="left"><code>sub_folder</code></td>
+<td align="left">子目录遍历</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">是否遍历扫描子目录</td>
+</tr>
+<tr>
+<td align="left"><code>original_name</code></td>
+<td align="left">原文件名保存</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">按原文件名且保持目录结构（否则自动规则命名）</td>
+</tr>
+<tr>
+<td align="left"><code>auto_shutdown</code></td>
+<td align="left">自动关机</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">跑完后自动关机</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote dir="auto" class="pull-quote">
+<p><strong>注意</strong>：必须得搭配 🍋柠檬图片加载器、🍋柠檬图像保存 节点才可以完成批量任务！<br>
+支持的文件格式：png / jpg / jpeg / webp / bmp / tiff；自动跳过 <code>_orig</code> 备份文件。</p>
+</blockquote>
+<hr>
+<h2 data-heading="反向/零化/内补(加载器)" dir="auto" data-anchor="section-111" id="section-111">反向/零化/内补(加载器)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：功能补全，付费节点。<br>
+「柠檬加载器」的配套控制节点：负责第二 CLIP、量化、提示词零化与内补设置，输出端无需连线，参数自动注入加载器。负面一路现归「柠檬采样器」读取：与本节点同孤岛、或直接连到采样器都算数。</p>
+</blockquote>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-112" id="section-112">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>Negative</code></td>
+<td align="left">负面提示词</td>
+<td align="left">STRING（多行）</td>
+<td align="left"><code>worst quality, low quality, bad anatomy, blurry, watermark, jpeg artifact</code></td>
+<td align="left">负面提示词，由「柠檬采样器」在 cfg ≠ 1 时读取：写了文本且未开零化 → 用它现编负面条件（压过全局「默认负面提示词」）；写了文本且开了零化 → 视为明确不要负面；留空 → 交给全局默认词</td>
+</tr>
+<tr>
+<td align="left"><code>clip_name2</code></td>
+<td align="left">第二文本编码器</td>
+<td align="left">COMBO</td>
+<td align="left"><code>/</code></td>
+<td align="left">第二文本编码器（接入双 CLIP 场景）</td>
+</tr>
+<tr>
+<td align="left"><code>clip_type</code></td>
+<td align="left">CLIP 类型</td>
+<td align="left">COMBO</td>
+<td align="left"><code>/</code></td>
+<td align="left">CLIP 类型（简化列表：sdxl / sd3 / flux / hunyuan_video / ltxv 等）</td>
+</tr>
+<tr>
+<td align="left"><code>edit_type</code></td>
+<td align="left">编辑编码方式</td>
+<td align="left">COMBO</td>
+<td align="left"><code>auto</code></td>
+<td align="left">图片编辑编码：<code>auto</code> 自动按模型选择 / <code>qwen_edit</code> / <code>qwen21_edit</code>（千问视觉）/ <code>krea2_edit</code>（Krea2Edit）</td>
+</tr>
+<tr>
+<td align="left"><code>quant_dtype</code></td>
+<td align="left">量化精度</td>
+<td align="left">COMBO</td>
+<td align="left"><code>default</code></td>
+<td align="left">模型量化精度：default / fp8_e4m3fn / fp8_e4m3fn_fast / fp8_e5m2</td>
+</tr>
+<tr>
+<td align="left"><code>negative_zero_out</code></td>
+<td align="left">提示词零化</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>True</code></td>
+<td align="left">开 = 负面提示词归零（即便 <code>Negative</code> 里写了文本）；关 = 采样器用 <code>Negative</code> 文本现编一份负面条件</td>
+</tr>
+<tr>
+<td align="left"><code>mask_noise</code></td>
+<td align="left">遮罩噪声</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>True</code></td>
+<td align="left">内补时对遮罩区域注入噪声</td>
+</tr>
+<tr>
+<td align="left"><code>differential_diffusion</code></td>
+<td align="left">差分扩散</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>True</code></td>
+<td align="left">差分扩散：按去噪进度自适应遮罩强度</td>
+</tr>
+<tr>
+<td align="left"><code>image_inpaint</code> / <code>mask_inpaint</code></td>
+<td align="left">内补图像 / 遮罩</td>
+<td align="left">IMAGE / MASK</td>
+<td align="left">—</td>
+<td align="left">可选，图内补全的图像与遮罩（传递到加载器）</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 data-heading="Image2.1选项(加载器)" dir="auto" data-anchor="section-113" id="section-113">Image2.1选项(加载器)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：功能补全，付费节点。<br>
+「柠檬加载器」的配套控制节点：为 Qwen-Image-2.1 模型设置 KV 缓存的位置与精度，输出端无需连线。</p>
+</blockquote>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-114" id="section-114">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>cache_device</code></td>
+<td align="left">KV缓存位置</td>
+<td align="left">COMBO</td>
+<td align="left"><code>auto</code></td>
+<td align="left">KV 缓存存放位置：auto 显存优先 / gpu 显存 / cpu 省显存 / off 关闭缓存</td>
+</tr>
+<tr>
+<td align="left"><code>cache_dtype</code></td>
+<td align="left">KV缓存精度</td>
+<td align="left">COMBO</td>
+<td align="left"><code>default</code></td>
+<td align="left">KV 缓存存储精度：default / int8 体积减半 / int4 体积减到 1/4</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 data-heading="Krea2Edit(加载器)" dir="auto" data-anchor="section-115" id="section-115">Krea2Edit(加载器)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：功能补全，免费节点。<br>
+「柠檬加载器」的配套控制节点：为 Krea2Edit 语义编码提供参考图保真度、增强区域与系统提示词设置，输出端无需连线。</p>
+</blockquote>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-116" id="section-116">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>krea2_type</code></td>
+<td align="left">编辑类型</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>krea2_edit</code></td>
+<td align="left"><code>krea2_edit</code> 和 <code>krea2_ostris</code> 编辑模式切换</td>
+</tr>
+<tr>
+<td align="left"><code>ref_boost_mask</code></td>
+<td align="left">增强区域遮罩</td>
+<td align="left">MASK</td>
+<td align="left">—</td>
+<td align="left"><code>krea2_edit</code>生效:（最后一张）参考图上的可选增强区域，例如人脸；留空 = 整张参考图</td>
+</tr>
+<tr>
+<td align="left"><code>system_prompt</code></td>
+<td align="left">系统提示词</td>
+<td align="left">STRING（多行）</td>
+<td align="left">空</td>
+<td align="left"><code>krea2_edit</code>生效: 高级选项：覆盖关联系统提示词（留空 = 训练默认值），引导视觉编码器关注的内容（如人脸身份细节）</td>
+</tr>
+<tr>
+<td align="left"><code>ref_boost</code></td>
+<td align="left">参考图保真度</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>4.0</code></td>
+<td align="left"><code>krea2_edit</code>生效: 参考图保真度：1.0 = 关闭；&gt;1 更强地拉向参考图外观，&lt;1 放松（作用于最后一张参考图 / 单参考图工作流中的唯一参考图）</td>
+</tr>
+<tr>
+<td align="left"><code>ref_boost_a</code></td>
+<td align="left">首图保真度</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>1.0</code></td>
+<td align="left"><code>krea2_edit</code>生效: 第一张参考图的保真度旋钮（双参考图工作流中为场景图；单参考图工作流无效），1.0 = 关闭</td>
+</tr>
+<tr>
+<td align="left"><code>grounding_px</code></td>
+<td align="left">视觉编码最长边</td>
+<td align="left">INT</td>
+<td align="left"><code>768</code></td>
+<td align="left"><code>krea2_edit</code>生效: 送入 Qwen3-VL 的最长边限制（0 = 原生尺寸）</td>
+</tr>
+<tr>
+<td align="left"><code>fit_mode</code></td>
+<td align="left">源图适配方式</td>
+<td align="left">COMBO</td>
+<td align="left"><code>fit</code></td>
+<td align="left"><code>krea2_edit</code>生效: 源图适配方式：<code>fit</code> 重采样到目标网格居中偏移（匹配训练方式，建议使用）/ <code>crop (legacy)</code> 中心裁剪后缩放（旧权重用）</td>
+</tr>
+<tr>
+<td align="left"><code>model_patch</code></td>
+<td align="left">编辑类型</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left"><code>krea2_ostris</code>生效: 模拟 <code>Krea2OstrisEditModelPatch</code> 节点是否接入工作流。</td>
+</tr>
+<tr>
+<td align="left"><code>kv_cache</code></td>
+<td align="left">编辑类型</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left"><code>krea2_ostris</code> 和 <code>model_patch</code>= Ture 时生效: 预计算参考 token 的注意力 K/V 并在每个去噪步骤复用</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote dir="auto" class="pull-quote">
+<p>model_patch = 模拟「Krea2OstrisEditModelPatch 节点是否接入工作流」：</p>
+<ul>
+<li dir="auto">开 = 接入：无条件 t=0 参考注入（ostring 官方节点行为），<br>
+kv_cache 仅控制是否预计算参考 K/V 缓存（OminiControl2 式省算力）。<br>
+该 t=0 注入范式需要 ai-toolkit 按 index_timestep_zero 训练的 Krea2 edit LoRA；无配套 LoRA 时画面会异常（脏/噪点），属官方依赖缺失的正常表现，非节点缺陷；</li>
+<li dir="auto">关（默认）= 不接入：纯 Qwen3-VL 看图编码（此时可以洗图生图）。</li>
+</ul>
+</blockquote>
+<hr>
+<h2 data-heading="SeedVR2放大(加载器)" dir="auto" data-anchor="section-117" id="section-117">SeedVR2放大(加载器)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：功能补全，付费节点。<br>
+「柠檬加载器」的配套控制节点：设置 SeedVR2 放大的倍率方式、多轮循环、颜色匹配与分块参数，输出端无需连线。</p>
+</blockquote>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-118" id="section-118">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>scale_mode</code></td>
+<td align="left">缩放方式</td>
+<td align="left">COMBO</td>
+<td align="left"><code>by_multiplier</code></td>
+<td align="left">放大方式：by_multiplier 倍率 / by_megapixel 目标像素 / by_longer 长边 / by_shorter 短边</td>
+</tr>
+<tr>
+<td align="left"><code>scale_value</code></td>
+<td align="left">放大目标值</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>2.0</code></td>
+<td align="left">放大目标值（0.3 ~ 8192）</td>
+</tr>
+<tr>
+<td align="left"><code>loop</code></td>
+<td align="left">放大轮数</td>
+<td align="left">INT</td>
+<td align="left"><code>1</code></td>
+<td align="left">多轮放大轮数：每轮以上一轮输出为输入继续处理（倍率模式下效果最明显）</td>
+</tr>
+<tr>
+<td align="left"><code>resample</code></td>
+<td align="left">重采样算法</td>
+<td align="left">COMBO</td>
+<td align="left"><code>lanczos</code></td>
+<td align="left">中间重采样算法</td>
+</tr>
+<tr>
+<td align="left"><code>color_correction_method</code></td>
+<td align="left">颜色匹配方式</td>
+<td align="left">COMBO</td>
+<td align="left"><code>adain</code></td>
+<td align="left">生成图颜色匹配到原图的方法：adain 还原度较高（多轮放大必须选它）/ lab 匹配后对比度增加 / wavelet 对比度与亮度增加 / none 跳过</td>
+</tr>
+<tr>
+<td align="left"><code>tile_size</code>（高级）</td>
+<td align="left">分块边长</td>
+<td align="left">INT</td>
+<td align="left"><code>512</code></td>
+<td align="left">分块边长</td>
+</tr>
+<tr>
+<td align="left"><code>overlap</code>（高级）</td>
+<td align="left">分块重叠</td>
+<td align="left">INT</td>
+<td align="left"><code>64</code></td>
+<td align="left">分块重叠</td>
+</tr>
+<tr>
+<td align="left"><code>temporal_size</code>（高级）</td>
+<td align="left">视频单次编码帧数</td>
+<td align="left">INT</td>
+<td align="left"><code>64</code></td>
+<td align="left">视频 VAE 单次编码帧数</td>
+</tr>
+<tr>
+<td align="left"><code>temporal_overlap</code>（高级）</td>
+<td align="left">视频帧重叠</td>
+<td align="left">INT</td>
+<td align="left"><code>8</code></td>
+<td align="left">视频 VAE 帧重叠数</td>
+</tr>
+<tr>
+<td align="left"><code>auto_save</code></td>
+<td align="left">自动保存格式</td>
+<td align="left">COMBO</td>
+<td align="left"><code>webp</code></td>
+<td align="left">每轮放大图自动保存：none / png / jpg / webp</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 data-heading="步数控制(多阶采样器)" dir="auto" data-anchor="section-119" id="section-119">步数控制(多阶采样器)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：功能补全，付费节点。<br>
+「柠檬采样器(多阶段)」的配套控制节点：自定义本阶段在整个多阶段链路中的开始 / 结束步数，输出端无需连线。</p>
+</blockquote>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-120" id="section-120">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>start_step</code></td>
+<td align="left">开始步数</td>
+<td align="left">INT</td>
+<td align="left"><code>0</code></td>
+<td align="left">自定义开始步数（0 ~ 10000）</td>
+</tr>
+<tr>
+<td align="left"><code>end_step</code></td>
+<td align="left">结束步数</td>
+<td align="left">INT</td>
+<td align="left"><code>20</code></td>
+<td align="left">自定义结束步数（0 ~ 10000）</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote dir="auto" class="pull-quote">
+<p>未接步数控制节点时，多阶段采样器按「上游各阶段步数之和」自动推算本阶段步数区间；接入后以自定义区间为准。</p>
+</blockquote>
+<hr>
+<h2 data-heading="批量快速抽卡(采样器)" dir="auto" data-anchor="section-121" id="section-121">批量快速抽卡(采样器)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：功能补全，付费节点。<br>
+「柠檬采样器」的配套控制节点：把一次采样展开成 行×列 的预览矩阵，适合批量对比参数效果，输出端无需连线。</p>
+</blockquote>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-122" id="section-122">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>step</code></td>
+<td align="left">预览步数</td>
+<td align="left">INT</td>
+<td align="left"><code>2</code></td>
+<td align="left">取到第几步的 latent 做快速预览图</td>
+</tr>
+<tr>
+<td align="left"><code>rows</code></td>
+<td align="left">矩阵行数</td>
+<td align="left">INT</td>
+<td align="left"><code>1</code></td>
+<td align="left">预览矩阵行数（1 ~ 64）</td>
+</tr>
+<tr>
+<td align="left"><code>columns</code></td>
+<td align="left">矩阵列数</td>
+<td align="left">INT</td>
+<td align="left"><code>1</code></td>
+<td align="left">预览矩阵列数（1 ~ 64）</td>
+</tr>
+<tr>
+<td align="left"><code>size_max</code></td>
+<td align="left">预览图长边</td>
+<td align="left">INT</td>
+<td align="left"><code>2048</code></td>
+<td align="left">每张预览图的长边像素，拼接前按此等比缩放；<code>0</code> = 使用完整出图尺寸不缩放</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote dir="auto" class="pull-quote">
+<p>行数 × 列数 &gt; 1 时，采样器改为输出矩阵预览图（<code>steps_chart</code> 口），适合扫参看趋势。</p>
+</blockquote>
+<hr>
+<h2 data-heading="FLS采样增强(采样器)" dir="auto" data-anchor="section-123" id="section-123">FLS采样增强(采样器)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：功能补全，免费节点。<br>
+「柠檬采样器」的配套控制节点：一键套用 FLS 采样增强预设（写实人物 / 动漫二次元 / 硬朗金属），或自定义中央凹强化、锐度与遮罩惯性，输出端无需连线。</p>
+</blockquote>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-124" id="section-124">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>FLS</code></td>
+<td align="left">FLS 预设</td>
+<td align="left">COMBO</td>
+<td align="left"><code>fls_pass</code></td>
+<td align="left">预设：fls_pass 关闭 / 自定义参数 / 写实人物 / 动漫二次元 / 硬朗金属</td>
+</tr>
+<tr>
+<td align="left"><code>fovea_strength</code></td>
+<td align="left">中央凹强化</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>0.0</code></td>
+<td align="left">中央凹强化强度（0 ~ 10，滑块）</td>
+</tr>
+<tr>
+<td align="left"><code>sharpness</code></td>
+<td align="left">锐度</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>0.0</code></td>
+<td align="left">锐度（0 ~ 3，滑块）</td>
+</tr>
+<tr>
+<td align="left"><code>mask_inertia</code></td>
+<td align="left">遮罩惯性</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>0.85</code></td>
+<td align="left">遮罩惯性（0 ~ 0.99，滑块）</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote dir="auto" class="pull-quote">
+<p>未接控制节点时采样器使用默认值 <code>fls_pass / 0 / 0 / 0.85</code>。</p>
+</blockquote>
+<hr>
+<h2 data-heading="精确裁切控制(裁切器)" dir="auto" data-anchor="section-125" id="section-125">精确裁切控制(裁切器)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：功能补全，付费节点。<br>
+用数值精确控制裁切（四边扩 / 裁量 + 旋转角度），与「单图加载器(裁切缩放)」的画布拖拽双向联动；输出端无需连线，参数自动传递到裁切节点。</p>
+</blockquote>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-126" id="section-126">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">范围</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>src_img_width / height</code></td>
+<td align="left">-8192 ~ 8192</td>
+<td align="left">源图尺寸，为 0 时按实际图片尺寸</td>
+</tr>
+<tr>
+<td align="left"><code>top / right / bottom / left</code></td>
+<td align="left">-8192 ~ 8192</td>
+<td align="left">四边扩（正） / 裁（负）量</td>
+</tr>
+<tr>
+<td align="left"><code>rot_deg</code></td>
+<td align="left">-360 ~ 360</td>
+<td align="left">旋转角度（度）</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 data-heading="图像后期(图像保存)" dir="auto" data-anchor="section-127" id="section-127">图像后期(图像保存)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：功能补全，免费节点。<br>
+「柠檬图像保存」的配套控制节点：输出端无需连线，参数自动注入保存节点，在存盘前完成颜色校正与锐化。</p>
+</blockquote>
+<h3 data-heading="怎么接线" dir="auto" data-anchor="section-128" id="section-128">怎么接线</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>color_match</code> 校正方式</td>
+<td align="left">保存前按参考图（<code>images_b</code> 首张）做颜色匹配</td>
+<td align="left"><code>image_edit_control</code>（参数注入保存节点）</td>
+</tr>
+<tr>
+<td align="left"><code>smart_sharpen</code> 智能锐化</td>
+<td align="left">双边滤波去噪 + 锐化按比例混合</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">各强度参数</td>
+<td align="left">仅在接入 <code>images_b</code> / 开启锐化时生效</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-129" id="section-129">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>color_match</code></td>
+<td align="left">颜色校正</td>
+<td align="left">COMBO</td>
+<td align="left"><code>adain</code></td>
+<td align="left">颜色校正：<code>adain</code> 匹配通道均值/标准差（最接近原图）/ <code>lab</code> CIELAB 传色 / <code>wavelet</code> 低频传色 / <code>none</code> 不校正（需接入 <code>images_b</code>）</td>
+</tr>
+<tr>
+<td align="left"><code>smart_sharpen</code></td>
+<td align="left">智能锐化</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">是否启用智能锐化</td>
+</tr>
+<tr>
+<td align="left"><code>noise_radius</code></td>
+<td align="left">去噪半径</td>
+<td align="left">INT</td>
+<td align="left"><code>7</code></td>
+<td align="left">去噪半径（1 ~ 25）</td>
+</tr>
+<tr>
+<td align="left"><code>preserve_edges</code></td>
+<td align="left">边缘保留度</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>0.75</code></td>
+<td align="left">边缘保留度（0 ~ 1）</td>
+</tr>
+<tr>
+<td align="left"><code>sharpen</code></td>
+<td align="left">锐化强度</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>5.0</code></td>
+<td align="left">锐化强度（0 ~ 25）</td>
+</tr>
+<tr>
+<td align="left"><code>ratio</code></td>
+<td align="left">混合比例</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>0.5</code></td>
+<td align="left">锐化与去噪的混合比例（0 ~ 1）</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h1 data-heading="文本推理分组" dir="auto" data-anchor="section-130" id="section-130">文本推理分组</h1>
+<h2 data-heading="分组速览" dir="auto" data-anchor="section-131" id="section-131">分组速览</h2>
+<p dir="auto">文本推理共有 7 个变体，按接入方式与深度区分：<strong>TASK</strong> 最常用（内置专家 + 双框高度模式），<strong>LLM</strong> 面向通用大模型，<strong>CLIP</strong> 轻量文本编码，<strong>RAW</strong> 暴露原始模型参数，<strong>HTTP</strong> 外接远程服务，<strong>高级参数</strong> 开放上下文 / 缓存 / 投机解码等底层选项，<strong>专家管理</strong> 用于自定义专家配置。内置 12 种专家：翻译、提示词扩写、图像编辑扩写、看图编辑扩写（图片）、图像反推、OCR、OCR 图表、摘要、关键词提取、JSON 提取、文字润色、语法纠错。</p>
+<h2 data-heading="文本推理(TASK)" dir="auto" data-anchor="section-132" id="section-132">文本推理(TASK)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：文本工具，付费节点。<br>
+专家任务一键执行：翻译 / 看图编辑扩写等任务由「系统提示词模板」驱动，节点标题栏点击即可切换专家，执行结果自动回填输出框。</p>
+</blockquote>
+<h3 data-heading="节点亮点" dir="auto" data-anchor="section-133" id="section-133">节点亮点</h3>
+<ul class="list-panel">
+<li dir="auto"><strong>标题栏切换专家</strong>：点击节点标题栏左侧弹出专家列表（🖼️ 图片专家 / 🍋 文本专家），选中即切换任务并联动显隐相关输入框。</li>
+<li dir="auto"><strong>所见即所得</strong>：执行结果自动回填 <code>text_out</code>，可直接手动编辑。</li>
+<li dir="auto"><strong>语言专家</strong>：<code>target_lang</code> 指定目标语言（auto = 中→英，非中→中）；语言专家才显示语言选项。</li>
+<li dir="auto"><strong>配置可扩展</strong>：官方模板只读，你的增删改存用户目录，升级不丢失（增删改在「文本推理(专家管理)」节点）。</li>
+</ul>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-134" id="section-134">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>task</code></td>
+<td align="left">任务类型</td>
+<td align="left">下拉（前端隐藏）</td>
+<td align="left">配置第一个专家</td>
+<td align="left">任务类型（面板上通过标题栏菜单切换）</td>
+</tr>
+<tr>
+<td align="left"><code>model_main</code></td>
+<td align="left">主模型</td>
+<td align="left">COMBO</td>
+<td align="left"><code>/</code></td>
+<td align="left">主模型（<code>models/LLM/</code>）</td>
+</tr>
+<tr>
+<td align="left"><code>model_mmproj</code></td>
+<td align="left">多模态投影模型</td>
+<td align="left">COMBO</td>
+<td align="left"><code>/</code></td>
+<td align="left">图片任务需选对应 mmproj；纯文本留 <code>/</code></td>
+</tr>
+<tr>
+<td align="left"><code>target_lang</code></td>
+<td align="left">目标语言</td>
+<td align="left">COMBO</td>
+<td align="left"><code>auto</code></td>
+<td align="left">目标语言（auto / 中文 / English / 日本語 / 한국어 / Français / Deutsch / Español / Русский）</td>
+</tr>
+<tr>
+<td align="left"><code>text_in</code></td>
+<td align="left">输入文本</td>
+<td align="left">STRING（多行）</td>
+<td align="left">空</td>
+<td align="left">文本任务填输入文本；图片任务填编辑意图</td>
+</tr>
+<tr>
+<td align="left"><code>text_out</code></td>
+<td align="left">输出文本</td>
+<td align="left">STRING（多行）</td>
+<td align="left">空</td>
+<td align="left">推理结果（前端自动回填，也可手动编辑）</td>
+</tr>
+<tr>
+<td align="left"><code>box_mode</code></td>
+<td align="left">双框高度模式</td>
+<td align="left">COMBO</td>
+<td align="left"><code>flex_bottom</code></td>
+<td align="left">双框高度模式（等高均分 / 自由弹性 / 上占满 / 下占满等 7 种）</td>
+</tr>
+<tr>
+<td align="left"><code>max_edge</code></td>
+<td align="left">图片长边上限</td>
+<td align="left">INT</td>
+<td align="left"><code>1024</code></td>
+<td align="left">图片长边上限（0 = 不压缩）</td>
+</tr>
+<tr>
+<td align="left"><code>seed</code></td>
+<td align="left">随机种子</td>
+<td align="left">INT</td>
+<td align="left"><code>100</code></td>
+<td align="left">随机种子</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-heading="内置专家类型" dir="auto" data-anchor="section-135" id="section-135">内置专家类型</h3>
+<p dir="auto">全部专家配置在 <code>llm_task_config.json</code> 中（唯一来源，随节点包提供）：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">专家</th>
+<th align="left">类型</th>
+<th align="left">语言选项</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">翻译</td>
+<td align="left">文本</td>
+<td align="left">✅</td>
+<td align="left">逐词直译到目标语言（默认中英互译），保留 Markdown 格式与排版</td>
+</tr>
+<tr>
+<td align="left">提示词扩写</td>
+<td align="left">文本</td>
+<td align="left">✅</td>
+<td align="left">把简短提示词扩写为结构化完整提示词（含构图/光影/材质/风格等）</td>
+</tr>
+<tr>
+<td align="left">图像编辑扩写</td>
+<td align="left">文本</td>
+<td align="left">✅</td>
+<td align="left">把简短编辑指令扩写为可执行编辑描述（动作/对象/效果/保留项）</td>
+</tr>
+<tr>
+<td align="left">看图编辑扩写</td>
+<td align="left">图片</td>
+<td align="left">✅</td>
+<td align="left">观察图片后结合编辑意图，扩写为贴合原图基调的编辑描述</td>
+</tr>
+<tr>
+<td align="left">图像反推</td>
+<td align="left">图片</td>
+<td align="left">✅</td>
+<td align="left">详细描述图片内容：主体、场景、动作、颜色、文字、风格</td>
+</tr>
+<tr>
+<td align="left">OCR</td>
+<td align="left">图片</td>
+<td align="left">—</td>
+<td align="left">逐行提取图中文字，保留原始排版，不翻译不改写</td>
+</tr>
+<tr>
+<td align="left">OCR图表</td>
+<td align="left">图片</td>
+<td align="left">—</td>
+<td align="left">提取图表数据，输出 Markdown 表格</td>
+</tr>
+<tr>
+<td align="left">摘要</td>
+<td align="left">文本</td>
+<td align="left">—</td>
+<td align="left">中文要点概括（3-5 条），保留关键结论与数据</td>
+</tr>
+<tr>
+<td align="left">关键词提取</td>
+<td align="left">文本</td>
+<td align="left">—</td>
+<td align="left">提取 5-10 个关键词 / 标签（逗号分隔）</td>
+</tr>
+<tr>
+<td align="left">JSON提取</td>
+<td align="left">文本</td>
+<td align="left">—</td>
+<td align="left">按指定字段提取结构化信息，输出严格 JSON</td>
+</tr>
+<tr>
+<td align="left">文字润色</td>
+<td align="left">文本</td>
+<td align="left">—</td>
+<td align="left">修正语病与啰嗦，保持原意与风格</td>
+</tr>
+<tr>
+<td align="left">语法纠错</td>
+<td align="left">文本</td>
+<td align="left">—</td>
+<td align="left">英文语法 / 拼写 / 标点纠错，只输出修正后文本</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote dir="auto" class="pull-quote">
+<p>图片专家需选 <code>model_mmproj</code> 并接入 <code>image</code> 输入；带语言选项的专家会显示目标语言下拉框。可自行增删改（见「文本推理(专家管理)」节点）。</p>
+</blockquote>
+<hr>
+<h2 data-heading="文本推理(LLM)" dir="auto" data-anchor="section-136" id="section-136">文本推理(LLM)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：文本工具，免费节点。<br>
+主力本地推理节点：llama.cpp 内核加载 GGUF 模型（<code>models/LLM/</code>），支持图片 / 多图 / 视频 / 音频多模态输入。</p>
+</blockquote>
+<h3 data-heading="节点亮点" dir="auto" data-anchor="section-137" id="section-137">节点亮点</h3>
+<ul class="list-panel">
+<li dir="auto"><strong>多模态输入</strong>：<code>image</code> 单图、<code>image_list</code> 多图、<code>audio</code> 音频，自动识别模式。</li>
+<li dir="auto"><strong>视频抽帧</strong>：多帧 IMAGE 输入自动按视频处理，均匀抽取 <code>max_frames</code> 帧一次性分析；面板开 <code>per_frame</code> 则逐帧独立推理。</li>
+<li dir="auto"><strong>思考模式</strong>：<code>think_enable</code> 开启模型思考链，输出拆分为 <code>thinking</code>（思考）+ <code>report</code>（正文）两个端口。</li>
+<li dir="auto"><strong>文本模式自动切换系统提示</strong>：无图无音频时自动换用文本专用系统提示词。</li>
+<li dir="auto"><strong>Qwen3.8 采样自动覆盖</strong>：按思考开关自动套用官方推荐采样参数。</li>
+<li dir="auto"><strong>用完可卸载</strong>：<code>unload_model</code> 开 = 运行后释放显存。</li>
+</ul>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-138" id="section-138">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>model_main</code></td>
+<td align="left">主模型</td>
+<td align="left">COMBO</td>
+<td align="left"><code>/</code></td>
+<td align="left">主模型（<code>models/LLM/</code>，分片只显示第一片）</td>
+</tr>
+<tr>
+<td align="left"><code>model_mmproj</code></td>
+<td align="left">多模态投影模型</td>
+<td align="left">COMBO</td>
+<td align="left"><code>/</code></td>
+<td align="left">多模态投影模型（看图任务必选；纯文本留 <code>/</code>）</td>
+</tr>
+<tr>
+<td align="left"><code>prompt_system</code></td>
+<td align="left">系统提示词</td>
+<td align="left">STRING（多行）</td>
+<td align="left">图片系统提示</td>
+<td align="left">系统提示词</td>
+</tr>
+<tr>
+<td align="left"><code>prompt_user</code></td>
+<td align="left">用户提示词</td>
+<td align="left">STRING（多行）</td>
+<td align="left">图片问答提示</td>
+<td align="left">用户提示词</td>
+</tr>
+<tr>
+<td align="left"><code>think_enable</code></td>
+<td align="left">思考链开关</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">开启模型思考链</td>
+</tr>
+<tr>
+<td align="left"><code>max_tokens</code></td>
+<td align="left">最大生成长度</td>
+<td align="left">INT</td>
+<td align="left"><code>1024</code></td>
+<td align="left">最大生成长度（20 ~ 8192）</td>
+</tr>
+<tr>
+<td align="left"><code>max_edge</code></td>
+<td align="left">图片长边上限</td>
+<td align="left">INT</td>
+<td align="left"><code>1024</code></td>
+<td align="left">图片长边上限，超出等比缩放；<code>0</code> = 不压缩</td>
+</tr>
+<tr>
+<td align="left"><code>max_frames</code></td>
+<td align="left">视频抽帧数</td>
+<td align="left">INT</td>
+<td align="left"><code>24</code></td>
+<td align="left">视频抽帧数（2 ~ 1024）</td>
+</tr>
+<tr>
+<td align="left"><code>temperature</code> / <code>top_p</code> / <code>top_k</code></td>
+<td align="left">温度 / 核采样 / Top-K</td>
+<td align="left">FLOAT/INT</td>
+<td align="left"><code>0.7</code> / 默认 / 默认</td>
+<td align="left">采样参数</td>
+</tr>
+<tr>
+<td align="left"><code>unload_model</code></td>
+<td align="left">运行后卸载</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">运行后卸载模型释放显存</td>
+</tr>
+<tr>
+<td align="left"><code>seed</code></td>
+<td align="left">随机种子</td>
+<td align="left">INT</td>
+<td align="left"><code>100</code></td>
+<td align="left">随机种子</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 data-heading="文本推理(CLIP)" dir="auto" data-anchor="section-139" id="section-139">文本推理(CLIP)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：文本工具，免费节点。<br>
+走 ComfyUI 原生 CLIP 文本生成内核（<code>models/text_encoders/</code>），与系统 Load CLIP 同一目录。</p>
+</blockquote>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-140" id="section-140">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>clip_name</code></td>
+<td align="left">文本编码器文件</td>
+<td align="left">COMBO</td>
+<td align="left"><code>/</code></td>
+<td align="left">文本编码器模型（<code>models/text_encoders/</code>）</td>
+</tr>
+<tr>
+<td align="left"><code>clip_type</code></td>
+<td align="left">CLIP 类型</td>
+<td align="left">COMBO</td>
+<td align="left"><code>qwen_image</code></td>
+<td align="left">模型类型（qwen_image=Qwen3.5/3.6 VL；joyimage=Qwen3-VL 8B 等）</td>
+</tr>
+<tr>
+<td align="left"><code>device</code></td>
+<td align="left">运行设备</td>
+<td align="left">COMBO</td>
+<td align="left"><code>default</code></td>
+<td align="left">运行设备（default / cpu）</td>
+</tr>
+<tr>
+<td align="left"><code>prompt_system</code> / <code>prompt_user</code></td>
+<td align="left">系统提示词 / 用户提示词</td>
+<td align="left">STRING</td>
+<td align="left">空</td>
+<td align="left">系统提示非空时覆盖预设；用户提示必填</td>
+</tr>
+<tr>
+<td align="left"><code>think_enable</code></td>
+<td align="left">思考链开关</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">支持思考模式的模型开启思考</td>
+</tr>
+<tr>
+<td align="left"><code>max_tokens</code></td>
+<td align="left">最大生成长度</td>
+<td align="left">INT</td>
+<td align="left"><code>1024</code></td>
+<td align="left">最大生成长度（1 ~ 32768）</td>
+</tr>
+<tr>
+<td align="left"><code>use_default_template</code></td>
+<td align="left">默认对话模板</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>True</code></td>
+<td align="left">使用模型自带系统提示 / 对话模板</td>
+</tr>
+<tr>
+<td align="left"><code>temperature</code> / <code>top_p</code> / <code>top_k</code></td>
+<td align="left">温度 / 核采样 / Top-K</td>
+<td align="left">FLOAT/INT</td>
+<td align="left"><code>0.7</code> / 默认 / 默认</td>
+<td align="left">采样参数（<code>do_sample</code>、MTP 投机解码由高级参数面板下发）</td>
+</tr>
+<tr>
+<td align="left"><code>seed</code></td>
+<td align="left">随机种子</td>
+<td align="left">INT</td>
+<td align="left"><code>100</code></td>
+<td align="left">随机种子</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 data-heading="文本推理(RAW)" dir="auto" data-anchor="section-141" id="section-141">文本推理(RAW)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：文本工具，免费节点。<br>
+transformers 直载 safetensors 权重推理（HF 模型目录放 <code>models/LLM/</code>，含 <code>config.json</code> + 权重），与 GGUF 内核互不干扰，两套缓存独立。</p>
+</blockquote>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-142" id="section-142">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>model_main</code></td>
+<td align="left">主模型</td>
+<td align="left">COMBO</td>
+<td align="left">—</td>
+<td align="left">HF 模型目录（<code>models/LLM/</code>）</td>
+</tr>
+<tr>
+<td align="left"><code>quantization</code></td>
+<td align="left">量化档位</td>
+<td align="left">COMBO</td>
+<td align="left"><code>None (FP16)</code></td>
+<td align="left">量化档位：None (FP16) / 4-bit / 8-bit（FP8 预量化模型自动识别并忽略此选项）</td>
+</tr>
+<tr>
+<td align="left"><code>attention_impl</code></td>
+<td align="left">注意力实现</td>
+<td align="left">COMBO</td>
+<td align="left"><code>flash_attention_2</code></td>
+<td align="left">注意力实现：flash-attn 最快（需已安装）/ sdpa PyTorch 原生 / eager 关闭加速（不可用时自动回退）</td>
+</tr>
+<tr>
+<td align="left"><code>prompt_system</code> / <code>prompt_user</code></td>
+<td align="left">系统提示词 / 用户提示词</td>
+<td align="left">STRING</td>
+<td align="left">图片预设</td>
+<td align="left">系统 / 用户提示词</td>
+</tr>
+<tr>
+<td align="left"><code>think_enable</code></td>
+<td align="left">思考链开关</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">Qwen3 系思考模式（非 Qwen3 模型自动忽略）</td>
+</tr>
+<tr>
+<td align="left"><code>max_tokens</code></td>
+<td align="left">最大生成长度</td>
+<td align="left">INT</td>
+<td align="left"><code>1024</code></td>
+<td align="left">最大生成长度（20 ~ 8192）</td>
+</tr>
+<tr>
+<td align="left"><code>max_edge</code> / <code>max_frames</code></td>
+<td align="left">图片长边上限 / 视频抽帧数</td>
+<td align="left">INT</td>
+<td align="left"><code>1024</code> / <code>24</code></td>
+<td align="left">图片压缩上限 / 视频抽帧数</td>
+</tr>
+<tr>
+<td align="left"><code>temperature</code> / <code>top_p</code> / <code>top_k</code></td>
+<td align="left">温度 / 核采样 / Top-K</td>
+<td align="left">FLOAT/INT</td>
+<td align="left"><code>0.7</code> / 默认 / 默认</td>
+<td align="left">采样参数</td>
+</tr>
+<tr>
+<td align="left"><code>unload_model</code></td>
+<td align="left">运行后卸载</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">运行后卸载模型</td>
+</tr>
+<tr>
+<td align="left"><code>seed</code></td>
+<td align="left">随机种子</td>
+<td align="left">INT</td>
+<td align="left"><code>100</code></td>
+<td align="left">随机种子</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote dir="auto" class="pull-quote">
+<p>4-bit / 8-bit 量化需要 <code>bitsandbytes</code>（CUDA 环境）；flash-attn 未安装时自动回退默认实现，无需手动改。</p>
+</blockquote>
+<hr>
+<h2 data-heading="文本推理(HTTP)" dir="auto" data-anchor="section-143" id="section-143">文本推理(HTTP)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：文本工具，免费节点。<br>
+不自带模型：连接已启动的 llama-server（OpenAI 兼容 <code>/v1/chat/completions</code>），适合模型在外部进程运行、或本节点只做调度的场景。</p>
+</blockquote>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-144" id="section-144">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>base_url</code></td>
+<td align="left">服务地址</td>
+<td align="left">STRING</td>
+<td align="left"><code>http://127.0.0.1:8085</code></td>
+<td align="left">llama-server 地址（不带末尾斜杠）</td>
+</tr>
+<tr>
+<td align="left"><code>prompt_system</code> / <code>prompt_user</code></td>
+<td align="left">系统提示词 / 用户提示词</td>
+<td align="left">STRING</td>
+<td align="left">空</td>
+<td align="left">系统 / 用户提示词</td>
+</tr>
+<tr>
+<td align="left"><code>think_enable</code></td>
+<td align="left">思考链开关</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">通过 <code>enable_thinking</code> 打开思考</td>
+</tr>
+<tr>
+<td align="left"><code>max_tokens</code></td>
+<td align="left">最大生成长度</td>
+<td align="left">INT</td>
+<td align="left"><code>1024</code></td>
+<td align="left">最大生成长度（1 ~ 32768）</td>
+</tr>
+<tr>
+<td align="left"><code>max_edge</code></td>
+<td align="left">图片长边上限</td>
+<td align="left">INT</td>
+<td align="left"><code>1024</code></td>
+<td align="left">图片长边上限（0 = 不压缩）</td>
+</tr>
+<tr>
+<td align="left"><code>timeout</code></td>
+<td align="left">请求超时</td>
+<td align="left">INT</td>
+<td align="left"><code>600</code></td>
+<td align="left">请求超时秒数（10 ~ 3600）</td>
+</tr>
+<tr>
+<td align="left"><code>temperature</code> / <code>top_p</code> / <code>top_k</code></td>
+<td align="left">温度 / 核采样 / Top-K</td>
+<td align="left">FLOAT/INT</td>
+<td align="left"><code>0.7</code> / 默认 / 默认</td>
+<td align="left">采样参数</td>
+</tr>
+<tr>
+<td align="left"><code>seed</code></td>
+<td align="left">随机种子</td>
+<td align="left">INT</td>
+<td align="left"><code>100</code></td>
+<td align="left">随机种子</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote dir="auto" class="pull-quote">
+<p>使用前先手动启动服务：<code>llama-server --model xxx.gguf --mmproj xxx-mmproj.gguf --port 8085</code>。停止词在高级参数面板 <code>stop</code> 设置（逗号分隔）。</p>
+</blockquote>
+<hr>
+<h2 data-heading="文本推理(高级参数)" dir="auto" data-anchor="section-145" id="section-145">文本推理(高级参数)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：文本工具，免费节点。<br>
+推理节点的「底层配置面板」：输出端无需连线，参数自动下发到同工作流中的 LLM / CLIP / HTTP / TASK 节点。</p>
+</blockquote>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-146" id="section-146">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>n_ctx</code></td>
+<td align="left">上下文长度</td>
+<td align="left">INT</td>
+<td align="left">默认</td>
+<td align="left">上下文长度（512 ~ 327680）</td>
+</tr>
+<tr>
+<td align="left"><code>n_batch</code></td>
+<td align="left">批处理窗口</td>
+<td align="left">INT</td>
+<td align="left">默认</td>
+<td align="left">prefill 批处理窗口（16 ~ 8192）</td>
+</tr>
+<tr>
+<td align="left"><code>flash_attn</code></td>
+<td align="left">注意力加速</td>
+<td align="left">COMBO</td>
+<td align="left">默认</td>
+<td align="left">不开启 = 保持 llama.cpp 默认；开启 / 关闭 = 指定 flash_attn 类型</td>
+</tr>
+<tr>
+<td align="left"><code>GPU_layers</code></td>
+<td align="left">GPU 层数</td>
+<td align="left">INT</td>
+<td align="left">默认</td>
+<td align="left">-1 = 尽量上 GPU；0 = 纯 CPU；正数 = 指定层数</td>
+</tr>
+<tr>
+<td align="left"><code>cache_type_k</code> / <code>cache_type_v</code></td>
+<td align="left">K缓存 / V缓存</td>
+<td align="left">COMBO</td>
+<td align="left">默认</td>
+<td align="left">KV 缓存类型</td>
+</tr>
+<tr>
+<td align="left"><code>min_p</code> / <code>penalty_repeat</code> / <code>penalty_presence</code> / <code>penalty_frequency</code></td>
+<td align="left">Min-P / 重复惩罚 / 存在惩罚 / 频率惩罚</td>
+<td align="left">FLOAT</td>
+<td align="left">默认</td>
+<td align="left">采样与惩罚参数</td>
+</tr>
+<tr>
+<td align="left"><code>do_sample</code></td>
+<td align="left">采样开关</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>True</code></td>
+<td align="left">CLIP 节点采样开关（关闭 = 贪心解码）</td>
+</tr>
+<tr>
+<td align="left"><code>mtp</code></td>
+<td align="left">投机解码</td>
+<td align="left">COMBO</td>
+<td align="left"><code>auto</code></td>
+<td align="left">CLIP 节点多 token 预测投机解码（无 MTP 权重时无效）</td>
+</tr>
+<tr>
+<td align="left"><code>stop</code></td>
+<td align="left">停止词</td>
+<td align="left">STRING</td>
+<td align="left">空</td>
+<td align="left">HTTP 节点停止词（英文逗号分隔）</td>
+</tr>
+<tr>
+<td align="left"><code>reasoning_budget</code></td>
+<td align="left">思考预算</td>
+<td align="left">INT</td>
+<td align="left">默认</td>
+<td align="left">Gemma4 思考预算（-1 = 不限）</td>
+</tr>
+<tr>
+<td align="left"><code>qwen38_reasoning_effort</code></td>
+<td align="left">推理强度</td>
+<td align="left">COMBO</td>
+<td align="left"><code>default</code></td>
+<td align="left">Qwen3.8 推理强度：xhigh 质量优先 / medium 均衡 / low 速度优先</td>
+</tr>
+<tr>
+<td align="left"><code>qwen38_mtp_enable</code> / <code>qwen38_mtp_draft_tokens</code> / <code>qwen38_mtp_draft_model</code></td>
+<td align="left">MTP 开关 / 草稿数 / 草稿模型</td>
+<td align="left">—</td>
+<td align="left">关 / 默认 / <code>/</code></td>
+<td align="left">Qwen3.8 内置 NextN/MTP 投机解码（视觉模式自动关闭）</td>
+</tr>
+<tr>
+<td align="left"><code>think_history</code></td>
+<td align="left">思考历史保留</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">Qwen3.5/3.6 保留历史轮次 <code>&lt;think&gt;</code></td>
+</tr>
+<tr>
+<td align="left"><code>external_audio_path</code> / <code>external_image_path</code></td>
+<td align="left">外部音频路径 / 图片路径</td>
+<td align="left">STRING</td>
+<td align="left">空</td>
+<td align="left">外部音频 / 图片路径（本地路径、http URL 或 data URI；对应输入口优先）</td>
+</tr>
+<tr>
+<td align="left"><code>per_frame</code></td>
+<td align="left">逐帧推理</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">多帧输入：开 = 逐帧独立推理；关 = 采样成视频一次性分析</td>
+</tr>
+<tr>
+<td align="left"><code>treat_as_video</code></td>
+<td align="left">视频序列编码</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">勾选后帧批次按视频序列编码（插入 <code>&lt;&amp;#124; video_pad&amp;#124; &gt;</code>）</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 data-heading="文本推理(专家管理)" dir="auto" data-anchor="section-147" id="section-147">文本推理(专家管理)</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：文本工具，付费节点。<br>
+任务专家的增删改查：下拉选中专家即回填表单（所见即所得），按钮栏一键新增 / 保存 / 删除；<code>report</code> 端口输出当前完整配置。</p>
+</blockquote>
+<h3 data-heading="按钮与参数" dir="auto" data-anchor="section-148" id="section-148">按钮与参数</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">按钮</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>🌡️ 标准</code> / <code>❄️ 确定性</code> / <code>🔥 高随机</code></td>
+<td align="left">一键填入常用采样参数模板（创意 / OCR 提取翻译 / 发散）</td>
+</tr>
+<tr>
+<td align="left"><code>🧹 格式化</code></td>
+<td align="left">美化当前 <code>llm_params</code> JSON（非法时提示）</td>
+</tr>
+<tr>
+<td align="left"><code>🔄 刷新列表</code></td>
+<td align="left">重新读取专家配置并同步下拉</td>
+</tr>
+<tr>
+<td align="left"><code>➕ 新增专家</code></td>
+<td align="left">弹窗输入英文专家 key，进入新增模式</td>
+</tr>
+<tr>
+<td align="left"><code>💾 保存专家</code></td>
+<td align="left">新增模式 = 新增；下拉选中 = 修改（保存前自动校验 params）</td>
+</tr>
+<tr>
+<td align="left"><code>🗑️ 删除专家</code></td>
+<td align="left">删除当前选中的专家</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>task</code></td>
+<td align="left">任务类型</td>
+<td align="left">COMBO</td>
+<td align="left">第一个专家</td>
+<td align="left">切换即回填下方表单</td>
+</tr>
+<tr>
+<td align="left"><code>task_name</code></td>
+<td align="left">显示名称</td>
+<td align="left">STRING</td>
+<td align="left">空</td>
+<td align="left">界面显示名（中文），留空用专家 key</td>
+</tr>
+<tr>
+<td align="left"><code>input_image</code></td>
+<td align="left">图片专家</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">是否图片专家（需 mmproj + image 输入）</td>
+</tr>
+<tr>
+<td align="left"><code>more_lang</code></td>
+<td align="left">语言专家</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">是否语言专家（显示目标语言选项）</td>
+</tr>
+<tr>
+<td align="left"><code>box_mode</code></td>
+<td align="left">双框高度模式</td>
+<td align="left">COMBO</td>
+<td align="left"><code>full_both</code></td>
+<td align="left">双框高度模式</td>
+</tr>
+<tr>
+<td align="left"><code>task_prompt</code></td>
+<td align="left">系统提示词</td>
+<td align="left">STRING（多行）</td>
+<td align="left">空</td>
+<td align="left">系统提示词（必填）</td>
+</tr>
+<tr>
+<td align="left"><code>llm_params</code></td>
+<td align="left">采样参数 JSON</td>
+<td align="left">STRING（多行）</td>
+<td align="left">空</td>
+<td align="left">采样参数 JSON 对象（非法标红；修改时留空保留原值）</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-heading="使用提示（文本推理系列通用）" dir="auto" data-anchor="section-149" id="section-149">使用提示（文本推理系列通用）</h3>
+<ol class="list-panel">
+<li dir="auto"><strong>四个推理节点怎么选</strong>：有 GGUF 用「文本推理(LLM)」（功能最全）；想用 ComfyUI 原生 CLIP 链路用「文本推理(CLIP)」；模型在外部 server 用「文本推理(HTTP)」；有 HF safetensors 目录用「文本推理(RAW)」。LLM 与 RAW 缓存相互独立，别同时挂两个大模型。</li>
+<li dir="auto"><strong>看图任务别忘 mmproj</strong>：LLM / TASK 节点接入图片时必须选 <code>model_mmproj</code>，否则报错；纯文本任务留 <code>/</code>。</li>
+<li dir="auto"><strong>系统提示词库</strong>：推理系列节点标题栏左侧点击弹出系统提示词库（选中即写入）；右键菜单可「添加到系统提示词库 / 保存到当前条目 / 删除当前条目」。</li>
+<li dir="auto"><strong>专家配置的存放</strong>：全部专家配置的唯一来源是 <code>llm_task_config.json</code>（官方文件只读、随包升级），你的改动存 <code>llm_task_config_user.json</code>；<code>_</code> 开头的键是元信息，专家 key 不能用 <code>_</code> 开头、不能以数字开头。</li>
+<li dir="auto"><strong>性能参考</strong>：<code>GPU_layers = -1</code> 尽量上 GPU；KV 缓存类型与 flash_attn 影响显存与速度；<code>n_ctx</code> 越大显存占用越高。</li>
+</ol>
+<hr>
+<h1 data-heading="提示词批量/多轮任务" dir="auto" data-anchor="section-150" id="section-150">提示词批量/多轮任务</h1>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：文本工具，付费节点。<br>
+把文本按分隔符切成多行并筛选。支持一次性列表输出，也支持每批单独生图、保存完成后自动处理下一批；支持结果回写与动态提示词语法。</p>
+</blockquote>
+<h2 data-heading="节点亮点" dir="auto" data-anchor="section-151" id="section-151">节点亮点</h2>
+<ul class="list-panel">
+<li dir="auto"><strong>整段 / 分切双模式</strong>：<code>line_task</code> 开启 = 分切并筛选多行；关闭 = 整段不分切，跳过行筛选与短行过滤，直接输出单条提示词。</li>
+<li dir="auto"><strong>任意分切符</strong>：<code>line_split</code> 可设任意字符（<code>\n</code> 换行、<code>\t</code> 制表符、<code>\r</code> 回车或自定义字符）。</li>
+<li dir="auto"><strong>行筛选</strong>：<code>line_case</code> 支持单行 / 范围 / 混合，如 <code>3</code>、<code>4-6</code>、<code>1-3,5,8-10</code>（1 基索引，中英文逗号均可）。</li>
+<li dir="auto"><strong>短行忽略</strong>：<code>line_miss</code> 忽略少于指定字符数的行。</li>
+<li dir="auto"><strong>外接文本拼接</strong>：<code>text_input</code> 用分切符与主文本框拼接（不再是"替代"关系）。</li>
+<li dir="auto"><strong>结果回写</strong>：<code>back_write</code> 开启时，执行后把筛选结果写回主文本框，并自动关闭开关。</li>
+<li dir="auto"><strong>列表 / 多轮模式</strong>：<code>loop_count=0</code> 时把所有筛选结果一次性作为列表输出；<code>loop_count=N</code> 时将全部筛选结果完整生图 N 轮，每轮内部按 <code>loop_batch</code> 分批，当前批保存完成后自动继续下一批，整轮完成后再开始下一轮。</li>
+<li dir="auto"><strong>每批提示词数量</strong>：<code>loop_batch</code> 默认 <code>1</code>，每批输出一行；设为 <code>N</code> 后每批输出最多 <code>N</code> 行，最后一批不足 <code>N</code> 行时按实际剩余数量输出。</li>
+<li dir="auto"><strong>保存后续批</strong>：多轮模式要求工作流启用「柠檬图像保存」节点。可点击节点上的“开始批量任务”，也可使用 ComfyUI 的 Queue Prompt / Ctrl+Enter 启动；按钮会在运行时切换为“停止批量任务”。停止请求会在当前批次结束后生效。</li>
+<li dir="auto"><strong>动态提示词</strong>：主文本框支持「动态提示词」语法。</li>
+<li dir="auto"><strong>参数联动</strong>：<code>line_task</code> 关闭时自动隐藏分切相关参数；<code>loop_count=0</code> 时隐藏 <code>loop_batch</code>、<code>auto_shutdown</code> 和批量任务按钮。头 / 主 / 尾三框弹性布局。</li>
+</ul>
+<h2 data-heading="怎么接线" dir="auto" data-anchor="section-152" id="section-152">怎么接线</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>prompt_task</code> 主文本框（+ <code>text_input</code> 外接可选）</td>
+<td align="left">拼接 → 按 <code>line_split</code> 分切 → 去空行 / 短行过滤 → <code>line_case</code> 行筛选</td>
+<td align="left"><code>prompts</code> 提示词列表（每行一条）</td>
+</tr>
+<tr>
+<td align="left"><code>line_task</code> 关闭</td>
+<td align="left">整段不分切，跳过全部预处理</td>
+<td align="left">单条提示词（头 + 整段 + 尾）</td>
+</tr>
+<tr>
+<td align="left"><code>loop_count=0</code></td>
+<td align="left">所有筛选结果一次性输出</td>
+<td align="left">完整提示词列表</td>
+</tr>
+<tr>
+<td align="left"><code>loop_count=N</code></td>
+<td align="left">完整执行全部筛选提示词 N 轮；每轮按 <code>loop_batch</code> 条输出，等待当前批保存完成后继续</td>
+<td align="left">当前批次提示词列表</td>
+</tr>
+<tr>
+<td align="left"><code>prompt_head</code> / <code>prompt_end</code> 前后缀</td>
+<td align="left">逐行拼接前后缀</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="参数设置" dir="auto" data-anchor="section-153" id="section-153">参数设置</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>text_input</code></td>
+<td align="left">外部文本</td>
+<td align="left">STRING</td>
+<td align="left">—</td>
+<td align="left">外接输入（可选），用分切符与主文本框拼接</td>
+</tr>
+<tr>
+<td align="left"><code>line_task</code></td>
+<td align="left">分切开关</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>True</code></td>
+<td align="left">开 = 文本分切成列表批量出图；关 = 整段不分切（跳过行筛选与短行过滤）</td>
+</tr>
+<tr>
+<td align="left"><code>line_split</code></td>
+<td align="left">分切符号</td>
+<td align="left">STRING</td>
+<td align="left"><code>\n</code></td>
+<td align="left">任意字符为分切符：<code>\n</code> 换行、<code>\t</code> 制表符、<code>\r</code> 回车</td>
+</tr>
+<tr>
+<td align="left"><code>line_case</code></td>
+<td align="left">行筛选</td>
+<td align="left">STRING</td>
+<td align="left">空</td>
+<td align="left">单行 <code>3</code>；范围 <code>4-6</code>；混合 <code>1-3,5,8-10</code>（1 基索引，支持中英文逗号）</td>
+</tr>
+<tr>
+<td align="left"><code>line_miss</code></td>
+<td align="left">忽略短行</td>
+<td align="left">INT</td>
+<td align="left"><code>0</code></td>
+<td align="left">少于多少字符的行忽略（0 = 不按长度过滤，仅去除空行）</td>
+</tr>
+<tr>
+<td align="left"><code>back_write</code></td>
+<td align="left">结果回写</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">开启后执行结果回写主文本框，并自动关闭开关</td>
+</tr>
+<tr>
+<td align="left"><code>prompt_head</code></td>
+<td align="left">头部拼接</td>
+<td align="left">STRING（多行）</td>
+<td align="left">空</td>
+<td align="left">每行输出的前缀</td>
+</tr>
+<tr>
+<td align="left"><code>prompt_task</code></td>
+<td align="left">批量文本</td>
+<td align="left">STRING（多行）</td>
+<td align="left">空</td>
+<td align="left">主文本，支持「动态提示词」语法</td>
+</tr>
+<tr>
+<td align="left"><code>prompt_end</code></td>
+<td align="left">尾部拼接</td>
+<td align="left">STRING（多行）</td>
+<td align="left">空</td>
+<td align="left">每行输出的后缀</td>
+</tr>
+<tr>
+<td align="left"><code>loop_count</code></td>
+<td align="left">列表/多轮次数</td>
+<td align="left">INT</td>
+<td align="left"><code>0</code></td>
+<td align="left"><code>0</code> = 一次性列表输出；大于 <code>0</code> = 完整执行全部筛选提示词指定轮数，例如 <code>2</code> 就生图两轮</td>
+</tr>
+<tr>
+<td align="left"><code>loop_batch</code></td>
+<td align="left">每轮并行提示词数</td>
+<td align="left">INT</td>
+<td align="left"><code>1</code></td>
+<td align="left">多轮模式每批输送的提示词数；<code>1</code> 为逐行，大于 <code>1</code> 为每批多行</td>
+</tr>
+<tr>
+<td align="left"><code>auto_shutdown</code></td>
+<td align="left">自动关机</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">当前 Prompt2List 多轮处理不使用此项；保留控件但不会因该选项自动关机</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="使用提示" dir="auto" data-anchor="section-154" id="section-154">使用提示</h2>
+<ol class="list-panel">
+<li dir="auto">普通列表模式输出所有筛选行；多轮模式要求启用「柠檬图像保存」节点，由保存节点完成后触发下一批。</li>
+<li dir="auto"><code>line_case</code> 存在无法解析或越界的片段时，会弹窗提示具体内容。</li>
+<li dir="auto">多轮模式每批的提示词会分别拼接 <code>prompt_head</code> / <code>prompt_end</code>；<code>back_write</code> 会在最后一批完成时将全部选中行（不含前后缀）回写，并自动关闭开关。</li>
+<li dir="auto">多轮模式不能与图片批量任务（<code>LM_LoopLemonCtrl</code>）同时启用。遇到错误时，已保存的批次会保留；可再次排队重试当前未完成批次。</li>
+</ol>
+<hr>
+<h1 data-heading="提示词路由器" dir="auto" data-anchor="section-155" id="section-155">提示词路由器</h1>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：文本工具，付费节点。<br>
+按 <code>line_split</code> 把多段候选文本分行，用 <code>select_case</code> 选中第 N 段，拼上头尾与外部输入，用于「多方案切换 / A-B 测试」式的工作流。</p>
+</blockquote>
+<h2 data-heading="怎么接线" dir="auto" data-anchor="section-156" id="section-156">怎么接线</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>prompt_case</code> 多段文本（按 <code>line_split</code> 分隔）</td>
+<td align="left">按 <code>select_case</code> 选中第 N 段</td>
+<td align="left"><code>文本</code> 最终提示词</td>
+</tr>
+<tr>
+<td align="left"><code>prompt_head</code> / <code>prompt_end</code> 头尾</td>
+<td align="left">头 + 选中段 + 尾拼接</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>text_input</code> 外部输入（可选）</td>
+<td align="left">拼在最终结果最前面</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>select_case</code> 序号</td>
+<td align="left"><code>remark_note</code> 仅作面板备注</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="参数设置" dir="auto" data-anchor="section-157" id="section-157">参数设置</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>select_case</code></td>
+<td align="left">选中段号</td>
+<td align="left">INT</td>
+<td align="left"><code>1</code></td>
+<td align="left">选中第几段（1 基索引；0 = 输出空；超出可选范围会报错）</td>
+</tr>
+<tr>
+<td align="left"><code>line_split</code></td>
+<td align="left">分切符号</td>
+<td align="left">STRING</td>
+<td align="left"><code>\n</code></td>
+<td align="left">多段文本分隔符：<code>\n</code> 换行、<code>\t</code> 制表符、<code>\r</code> 回车；留空 = 整段</td>
+</tr>
+<tr>
+<td align="left"><code>remark_note</code></td>
+<td align="left">面板备注</td>
+<td align="left">STRING（多行）</td>
+<td align="left">空</td>
+<td align="left">仅作备忘，不参与输出</td>
+</tr>
+<tr>
+<td align="left"><code>prompt_head</code></td>
+<td align="left">头部拼接</td>
+<td align="left">STRING（多行）</td>
+<td align="left">空</td>
+<td align="left">选中段前拼接的头部</td>
+</tr>
+<tr>
+<td align="left"><code>prompt_case</code></td>
+<td align="left">候选文本</td>
+<td align="left">STRING（多行）</td>
+<td align="left">空</td>
+<td align="left">候选文本，用 <code>line_split</code> 分隔多段；支持「动态提示词」语法</td>
+</tr>
+<tr>
+<td align="left"><code>prompt_end</code></td>
+<td align="left">尾部拼接</td>
+<td align="left">STRING（多行）</td>
+<td align="left">空</td>
+<td align="left">选中段后拼接的尾部</td>
+</tr>
+<tr>
+<td align="left"><code>text_input</code></td>
+<td align="left">外部文本</td>
+<td align="left">STRING</td>
+<td align="left">—</td>
+<td align="left">外接输入（可选），拼在最终结果最前面</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote dir="auto" class="pull-quote">
+<p>分隔符由 <code>line_split</code> 指定（默认换行），<code>select_case</code> 超出可选范围时会报错提示。</p>
+</blockquote>
+<hr>
+<h1 data-heading="多视角分组" dir="auto" data-anchor="section-158" id="section-158">多视角分组</h1>
+<h2 data-heading="分组速览" dir="auto" data-anchor="section-159" id="section-159">分组速览</h2>
+<p dir="auto">多视角提示词围绕三个词槽生成带视角的提示词：环绕角度（ANGLE）、俯仰高度（HEIGHT）、景别（SHOT）。<strong>多视角提示词</strong> 输出单个提示词模板；<strong>多视角批量组合</strong> 按角度（8 档）× 高度（4 档）× 景别（3 档）勾选组合，一键批量生成多条视角提示词。</p>
+<h2 data-heading="多视角提示词" dir="auto" data-anchor="section-160" id="section-160">多视角提示词</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：文本工具，免费节点。<br>
+从 8 种环绕角度、4 种俯仰高度、3 种景别中各选一项，生成一条规范视角提示词（适合人物 / 产品多视角出图）。</p>
+</blockquote>
+<h3 data-heading="怎么接线" dir="auto" data-anchor="section-161" id="section-161">怎么接线</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>Angle</code> / <code>Height</code> / <code>Shot</code> 三选</td>
+<td align="left">拼接为「角度 高度 景别」</td>
+<td align="left"><code>prompt</code> 提示词</td>
+</tr>
+<tr>
+<td align="left"><code>Prefix</code> 前缀（默认 <code>&lt;sks&gt;</code>）</td>
+<td align="left">前缀加在最前</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-162" id="section-162">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>Angle</code></td>
+<td align="left">环绕角度</td>
+<td align="left">COMBO</td>
+<td align="left"><code>front view</code></td>
+<td align="left">环绕角度（front / left / right / back 等 8 种）</td>
+</tr>
+<tr>
+<td align="left"><code>Height</code></td>
+<td align="left">俯仰高度</td>
+<td align="left">COMBO</td>
+<td align="left"><code>eye-level shot</code></td>
+<td align="left">俯仰高度（平视 / 俯视 / 高角度 / 低角度 4 种）</td>
+</tr>
+<tr>
+<td align="left"><code>Shot</code></td>
+<td align="left">景别</td>
+<td align="left">COMBO</td>
+<td align="left"><code>close up</code></td>
+<td align="left">景别（特写 / 中景 / 全景）</td>
+</tr>
+<tr>
+<td align="left"><code>Prefix</code></td>
+<td align="left">前置词</td>
+<td align="left">STRING（多行）</td>
+<td align="left"><code>&lt;sks&gt;</code></td>
+<td align="left">前置词（如主体标识符）</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 data-heading="多视角批量组合" dir="auto" data-anchor="section-163" id="section-163">多视角批量组合</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：文本工具，免费节点。<br>
+把「角度 × 高度 × 景别」勾选项做笛卡尔积，一次生成全部组合提示词（多行输出），省去手动排列。</p>
+</blockquote>
+<h3 data-heading="节点亮点" dir="auto" data-anchor="section-164" id="section-164">节点亮点</h3>
+<ul class="list-panel">
+<li dir="auto"><strong>勾选即组合</strong>：三个分组各勾选若干项，自动生成全部组合（如 3 角度 × 2 高度 × 2 景别 = 12 条）。</li>
+<li dir="auto"><strong>多行输出</strong>：组合结果以换行分隔，可直接接「批量提示词」展开批量出图。</li>
+<li dir="auto"><strong>未选组放行</strong>：某组全部不勾选时该维度视为任意（不参与组合，也不占位）。</li>
+</ul>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-165" id="section-165">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>Prefix</code></td>
+<td align="left">前置词</td>
+<td align="left">STRING</td>
+<td align="left"><code>&lt;sks&gt;</code></td>
+<td align="left">组合前缀</td>
+</tr>
+<tr>
+<td align="left"><code>ANGLE</code> 分组标题 + 8 个角度</td>
+<td align="left">环绕角度勾选</td>
+<td align="left">BOOLEAN</td>
+<td align="left">仅 <code>front view</code> 开</td>
+<td align="left">勾选要组合的环绕角度</td>
+</tr>
+<tr>
+<td align="left"><code>HEIGHT</code> 分组标题 + 4 个高度</td>
+<td align="left">俯仰高度勾选</td>
+<td align="left">BOOLEAN</td>
+<td align="left">仅 <code>eye-level shot</code> 开</td>
+<td align="left">勾选要组合的俯仰高度</td>
+</tr>
+<tr>
+<td align="left"><code>SHOT</code> 分组标题 + 3 个景别</td>
+<td align="left">景别勾选</td>
+<td align="left">BOOLEAN</td>
+<td align="left">仅 <code>close up</code> 开</td>
+<td align="left">勾选要组合的景别</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote dir="auto" class="pull-quote">
+<p>每条输出格式为「前缀 角度 高度 景别」，角度 / 高度 / 景别中的下划线会转成空格。</p>
+</blockquote>
+<hr>
+<h1 data-heading="抠图汇总&amp;对比热力图" dir="auto" data-anchor="section-166" id="section-166">抠图汇总&amp;对比热力图</h1>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：图像工具，免费节点（热力图输出为付费功能）。<br>
+一个节点同时运行多套抠图算法（RMBG / BEN2 / InSPyReNet / SAM3 / BiRefNet / FeyNobg），汇总输出透明图、遮罩、热力图对比与性能报告，方便选型与批量出图。</p>
+</blockquote>
+<h2 data-heading="节点亮点" dir="auto" data-anchor="section-167" id="section-167">节点亮点</h2>
+<ul class="list-panel">
+<li dir="auto"><strong>一节点多算法</strong>：同时启用多套抠图模型，一次运行对比效果，不用来回切换。</li>
+<li dir="auto"><strong>测评热力图</strong>：指定一个基准算法，其它算法与其逐像素对比，输出红绿差异图（含 IoU / MAE / 冲突像素占比与两端耗时标注）。</li>
+<li dir="auto"><strong>SAM3 语意抠图</strong>：输入英文物体词汇（如 <code>person</code>），按语意分割目标，支持透明物体。</li>
+<li dir="auto"><strong>前景精修</strong>：<code>refine_foreground</code> 对边缘做去杂色处理，抠玻璃、水等透明物体时建议关闭。</li>
+<li dir="auto"><strong>结果可控</strong>：阈值二值化、遮罩羽化、反相、换背景色一气呵成。</li>
+<li dir="auto"><strong>性能报告</strong>：<code>Report</code> 端口输出每个算法的加载 / 推理耗时，选型有依据。</li>
+</ul>
+<h2 data-heading="怎么接线" dir="auto" data-anchor="section-168" id="section-168">怎么接线</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>image</code> 原图（必接）</td>
+<td align="left">每个启用算法独立推理出遮罩</td>
+<td align="left"><code>image</code> 透明底 RGBA（多算法时按顺序堆叠）</td>
+</tr>
+<tr>
+<td align="left">各算法开关 / 模型选择</td>
+<td align="left">阈值 / 羽化 / 前景精修 / 反相</td>
+<td align="left"><code>mask</code> 遮罩（与 Alpha 对应）</td>
+</tr>
+<tr>
+<td align="left"><code>SAM3</code> 语意词</td>
+<td align="left">与基准算法逐像素对比</td>
+<td align="left"><code>heatmap</code> 差异热力图</td>
+</tr>
+<tr>
+<td align="left"><code>heatmap_target</code> 基准</td>
+<td align="left">汇总加载与推理耗时</td>
+<td align="left"><code>report</code> 性能文本</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="参数设置" dir="auto" data-anchor="section-169" id="section-169">参数设置</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>image</code></td>
+<td align="left">输入图像</td>
+<td align="left">IMAGE</td>
+<td align="left">—</td>
+<td align="left">输入图像</td>
+</tr>
+<tr>
+<td align="left"><code>RMBG14</code></td>
+<td align="left">RMBG-1.4 开关</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>True</code></td>
+<td align="left">启用 RMBG-1.4</td>
+</tr>
+<tr>
+<td align="left"><code>RMBG2</code></td>
+<td align="left">RMBG-2.0 开关</td>
+<td align="left">BOOLEAN</td>
+<td align="left">—</td>
+<td align="left">启用 RMBG-2.0</td>
+</tr>
+<tr>
+<td align="left"><code>BEN2</code></td>
+<td align="left">BEN2 开关</td>
+<td align="left">BOOLEAN</td>
+<td align="left">—</td>
+<td align="left">启用 BEN2</td>
+</tr>
+<tr>
+<td align="left"><code>InSPyReNet</code></td>
+<td align="left">InSPyReNet 开关</td>
+<td align="left">BOOLEAN</td>
+<td align="left">—</td>
+<td align="left">启用 InSPyReNet</td>
+</tr>
+<tr>
+<td align="left"><code>BiRefNet_1/2/3</code></td>
+<td align="left">BiRefNet 模型位</td>
+<td align="left">COMBO</td>
+<td align="left"><code>/</code></td>
+<td align="left">三个 BiRefNet 模型位（<code>background_removal</code> 目录，可各选不同模型）</td>
+</tr>
+<tr>
+<td align="left"><code>FeyNobg</code></td>
+<td align="left">FeyNobg 开关</td>
+<td align="left">BOOLEAN</td>
+<td align="left">—</td>
+<td align="left">启用 FeyNobg</td>
+</tr>
+<tr>
+<td align="left"><code>SAM3</code></td>
+<td align="left">语义抠图词</td>
+<td align="left">STRING</td>
+<td align="left"><code>person</code></td>
+<td align="left">被抠物体的英文语意词（输入 <code>/</code> 关闭 SAM3，模型放 checkpoints 目录）</td>
+</tr>
+<tr>
+<td align="left"><code>compare_target</code></td>
+<td align="left">测评基准</td>
+<td align="left">COMBO</td>
+<td align="left"><code>/</code></td>
+<td align="left">测评基准算法（选一个已启用的算法；<code>/</code> = 不测评）</td>
+</tr>
+<tr>
+<td align="left"><code>heatmap_style</code></td>
+<td align="left">热力图样式</td>
+<td align="left">COMBO</td>
+<td align="left"><code>Inter_White_RG</code></td>
+<td align="left">热力图样式：交集白色 + 差异红绿 / 纯红绿差异 / 绝对差伪彩</td>
+</tr>
+<tr>
+<td align="left"><code>background</code></td>
+<td align="left">输出背景</td>
+<td align="left">STRING</td>
+<td align="left"><code>Alpha</code></td>
+<td align="left">输出背景：<code>Alpha</code> 透明底，或填颜色（如 <code>white</code>、<code>#ffffff</code>）合成背景</td>
+</tr>
+<tr>
+<td align="left"><code>device</code></td>
+<td align="left">运行设备</td>
+<td align="left">COMBO</td>
+<td align="left"><code>auto</code></td>
+<td align="left">运行设备：auto / GPU / CPU</td>
+</tr>
+<tr>
+<td align="left"><code>process_res</code></td>
+<td align="left">推理分辨率</td>
+<td align="left">INT</td>
+<td align="left"><code>1024</code></td>
+<td align="left">推理分辨率（RMBG14 等使用，64 ~ 4096）</td>
+</tr>
+<tr>
+<td align="left"><code>threshold</code></td>
+<td align="left">二值化阈值</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>0.0</code></td>
+<td align="left">遮罩二值化阈值（0 ~ 1，0 = 不二值化）</td>
+</tr>
+<tr>
+<td align="left"><code>mask_blur</code></td>
+<td align="left">遮罩羽化</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>0.0</code></td>
+<td align="left">遮罩高斯羽化（0 ~ 64）</td>
+</tr>
+<tr>
+<td align="left"><code>refine_foreground</code></td>
+<td align="left">前景精修</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>True</code></td>
+<td align="left">前景边缘去杂色（抠透明物体时建议关闭）</td>
+</tr>
+<tr>
+<td align="left"><code>invert_output</code></td>
+<td align="left">遮罩反相</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">遮罩反相</td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-heading="热力图说明" dir="auto" data-anchor="section-170" id="section-170">热力图说明</h2>
+<p dir="auto"><span src="heatmap.jpg" class="internal-embed media-embed image-embed is-loaded"><img src="./images/heatmap.jpg" loading="lazy" decoding="async"></span></p>
+<h2 data-heading="使用提示" dir="auto" data-anchor="section-171" id="section-171">使用提示</h2>
+<ol class="list-panel">
+<li dir="auto">模型文件需要下载至 models \ RMBG 目录各自文件夹内。</li>
+<li dir="auto">SAM3  <code>sam3.1_multiplex_fp16.safetensors</code> 放置在 checkpoints 目录 或 models \ RMBG \ SAM3 目录都可使用。</li>
+<li dir="auto">一次勾选多个算法时，<code>Alpha_image</code> / <code>Mask</code> 会按启用顺序堆叠输出（每张原图对应 N 份结果），下游批量节点可直接消费。</li>
+<li dir="auto">想看两个算法差在哪：<code>heatmap_target</code> 选基准，热力图红绿通道分别代表「本算法多抠 / 少抠」的区域，数值行给出 IoU（越接近 100% 越一致），看热力图更要注意边缘部分的差异。</li>
+<li dir="auto">抠透明物体（玻璃、水、纱）时关掉 <code>refine_foreground</code>，避免边缘被错误压暗。</li>
+<li dir="auto">使用 RMBG 请遵循它的 CC BY-NC 4.0 协议。</li>
+</ol>
+<hr>
+<h1 data-heading="TTP 分组" dir="auto" data-anchor="section-172" id="section-172">TTP 分组</h1>
+<h2 data-heading="分组速览" dir="auto" data-anchor="section-173" id="section-173">分组速览</h2>
+<p dir="auto">TTP 分块管线专为大图与低显存场景设计：<strong>TTP分割</strong> 把大图切成带坐标的分块，<strong>TTP合并</strong> 按坐标拼回并做融合渐变，<strong>TTP解码</strong> 直接在潜空间分块后经 VAE 输出图像列表。配合任意逐块处理节点使用。</p>
+<h2 data-heading="TTP分割" dir="auto" data-anchor="section-174" id="section-174">TTP分割</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：图像工具，免费节点。<br>
+把大图按「分块 → 逐块处理 → 渐变融合」切碎再拼回，解决超分、重绘等场景下大图爆显存的问题。</p>
+</blockquote>
+<h3 data-heading="节点亮点" dir="auto" data-anchor="section-175" id="section-175">节点亮点</h3>
+<ul class="list-panel">
+<li dir="auto"><strong>四种分块平衡方案</strong>：缩小均分均等 / 定长边缘均分 / 定长边缘余切 / 定长靠边回弹，适配不同放大需求。</li>
+<li dir="auto"><strong>重叠防接缝</strong>：<code>overlap</code> 重叠区让相邻块的渐变融合有素材，拼回无接缝。</li>
+<li dir="auto"><strong>坐标对齐</strong>：<code>alignment</code> 保证分块坐标对齐模型要求（默认 64）；<code>scale</code> 放大输出坐标，配合放大链路。</li>
+</ul>
+<h3 data-heading="怎么接线" dir="auto" data-anchor="section-176" id="section-176">怎么接线</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>image</code> 大图</td>
+<td align="left">按 tile_edge 与 overlap 计算分块网格</td>
+<td align="left"><code>image_tiles</code> 分块列表（原图坐标裁剪）</td>
+</tr>
+<tr>
+<td align="left"><code>balance_type</code> 平衡方案</td>
+<td align="left">输出放大后的分块坐标</td>
+<td align="left"><code>positions</code> 坐标列表（放大倍率后）</td>
+</tr>
+<tr>
+<td align="left"><code>scale</code> 放大倍数</td>
+<td align="left"></td>
+<td align="left"><code>scale</code> 放大倍数</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-177" id="section-177">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>image</code></td>
+<td align="left">输入图像</td>
+<td align="left">IMAGE</td>
+<td align="left">—</td>
+<td align="left">输入图像</td>
+</tr>
+<tr>
+<td align="left"><code>scale</code></td>
+<td align="left">放大倍数</td>
+<td align="left">INT</td>
+<td align="left"><code>2</code></td>
+<td align="left">坐标放大倍数（1 ~ 32）</td>
+</tr>
+<tr>
+<td align="left"><code>tile_edge</code></td>
+<td align="left">分块边长</td>
+<td align="left">INT</td>
+<td align="left"><code>1024</code></td>
+<td align="left">分块边长（256 ~ 4096）</td>
+</tr>
+<tr>
+<td align="left"><code>overlap</code></td>
+<td align="left">分块重叠</td>
+<td align="left">INT</td>
+<td align="left"><code>128</code></td>
+<td align="left">分块重叠像素（0 ~ 1024）</td>
+</tr>
+<tr>
+<td align="left"><code>alignment</code></td>
+<td align="left">坐标对齐</td>
+<td align="left">INT</td>
+<td align="left"><code>64</code></td>
+<td align="left">分块坐标对齐（8 ~ 256）</td>
+</tr>
+<tr>
+<td align="left"><code>balance_type</code></td>
+<td align="left">分块方案</td>
+<td align="left">COMBO</td>
+<td align="left"><code>定长边缘均分</code></td>
+<td align="left">缩小均分均等 / 定长边缘均分 / 定长边缘余切 / 定长靠边回弹</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote dir="auto" class="pull-quote">
+<p>四种方案区别：① 缩小均分均等 = 缩小分块让全程均匀；② 定长边缘均分 = 固定分块大小、只把边缘段缩小均分；③ 定长边缘余切 = 固定分块、最后一段直接切到图边缘；④ 定长靠边回弹 = 固定分块、均匀步长靠边回弹。</p>
+</blockquote>
+<hr>
+<h2 data-heading="TTP合并" dir="auto" data-anchor="section-178" id="section-178">TTP合并</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：图像工具，免费节点。</p>
+</blockquote>
+<h3 data-heading="节点亮点" dir="auto" data-anchor="section-179" id="section-179">节点亮点</h3>
+<ul>
+<li dir="auto"><strong>逐格动态几何</strong>：重叠量按相邻块坐标差实时计算，兼容非对称切片（定长边缘均分切出的块），无接缝无鬼影。</li>
+<li dir="auto"><strong>渐变羽化</strong>：重叠区用渐变遮罩融合（<code>blur</code> 控制羽化强度，0 = 硬拼接）。</li>
+</ul>
+<h3 data-heading="怎么接线" dir="auto" data-anchor="section-180" id="section-180">怎么接线</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>image_tiles</code> 分块（来自 TTP分割）</td>
+<td align="left">横向逐行融合 → 纵向跨行融合</td>
+<td align="left"><code>image</code> 拼回的整图</td>
+</tr>
+<tr>
+<td align="left"><code>positions</code> 坐标（来自 TTP分割）</td>
+<td align="left">按坐标差算重叠量并渐变融合</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>blur</code> 羽化强度</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-181" id="section-181">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>image_tiles</code></td>
+<td align="left">分块列表</td>
+<td align="left">IMAGE（列表）</td>
+<td align="left">—</td>
+<td align="left">分块图像列表</td>
+</tr>
+<tr>
+<td align="left"><code>positions</code></td>
+<td align="left">分块坐标</td>
+<td align="left">LIST</td>
+<td align="left">—</td>
+<td align="left">分块坐标（与分割节点 <code>positions</code> 直连）</td>
+</tr>
+<tr>
+<td align="left"><code>blur</code></td>
+<td align="left">融合渐变强度</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>0.9</code></td>
+<td align="left">融合渐变强度（0 = 硬拼接，1 = 完全渐变）</td>
+</tr>
+<tr>
+<td align="left"><code>test</code></td>
+<td align="left">备用参数</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>0.9</code></td>
+<td align="left">备用参数（当前与 blur 同值传入融合）</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 data-heading="TTP解码" dir="auto" data-anchor="section-182" id="section-182">TTP解码</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：图像工具，免费节点。</p>
+</blockquote>
+<h3 data-heading="节点亮点" dir="auto" data-anchor="section-183" id="section-183">节点亮点</h3>
+<ul class="list-panel">
+<li dir="auto"><strong>防爆显存</strong>：Latent 层切成小块 → 逐块直接 VAE 解码 → 图像层渐变融合，大图 / 视频解码不再 OOM。</li>
+<li dir="auto"><strong>全兼容</strong>：兼容 4D 图像与 5D 视频 Latent；小于 <code>tile_size</code> 的图直接解码不分块。</li>
+<li dir="auto"><strong>对齐压缩比</strong>：分块坐标自动按 VAE 压缩比对齐，避免解码错位。</li>
+</ul>
+<h3 data-heading="怎么接线" dir="auto" data-anchor="section-184" id="section-184">怎么接线</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>samples</code> Latent（必接）</td>
+<td align="left">按 tile_size 切 latent 网格</td>
+<td align="left"><code>images</code> 解码后的图像（视频帧展开）</td>
+</tr>
+<tr>
+<td align="left"><code>vae</code> 解码器（必接）</td>
+<td align="left">逐块解码 + 渐变融合</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>tile_size</code> / <code>overlap</code> / <code>blur</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-185" id="section-185">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>samples</code></td>
+<td align="left">潜空间图像</td>
+<td align="left">LATENT</td>
+<td align="left">—</td>
+<td align="left">潜空间图像或视频</td>
+</tr>
+<tr>
+<td align="left"><code>vae</code></td>
+<td align="left">解码器</td>
+<td align="left">VAE</td>
+<td align="left">—</td>
+<td align="left">解码用 VAE</td>
+</tr>
+<tr>
+<td align="left"><code>tile_size</code></td>
+<td align="left">分块边长</td>
+<td align="left">INT</td>
+<td align="left"><code>1024</code></td>
+<td align="left">分块边长（小于此尺寸直接解码）</td>
+</tr>
+<tr>
+<td align="left"><code>overlap</code></td>
+<td align="left">分块重叠</td>
+<td align="left">INT</td>
+<td align="left"><code>128</code></td>
+<td align="left">分块重叠（越大接缝越自然，计算量增加）</td>
+</tr>
+<tr>
+<td align="left"><code>blur</code></td>
+<td align="left">融合渐变强度</td>
+<td align="left">FLOAT</td>
+<td align="left"><code>0.9</code></td>
+<td align="left">融合渐变强度</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h1 data-heading="最小边长" dir="auto" data-anchor="section-186" id="section-186">最小边长</h1>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：图像工具，免费节点。<br>
+输出输入图的长边与短边（可按 <code>scale</code> 放大），供下游尺寸计算用。</p>
+</blockquote>
+<h2 data-heading="参数设置" dir="auto" data-anchor="section-187" id="section-187">参数设置</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>image</code></td>
+<td align="left">输入图像</td>
+<td align="left">IMAGE</td>
+<td align="left">—</td>
+<td align="left">输入图像</td>
+</tr>
+<tr>
+<td align="left"><code>scale</code></td>
+<td align="left">放大倍数</td>
+<td align="left">INT</td>
+<td align="left"><code>1</code></td>
+<td align="left">输出边长放大倍数</td>
+</tr>
+</tbody>
+</table></div>
+<p dir="auto">输出：<code>width</code> / <code>height</code>（原尺寸）、<code>min_side</code> / <code>max_side</code>（短边 / 长边 × scale）。</p>
+<h2 data-heading="使用提示（TTP 系列通用）" dir="auto" data-anchor="section-188" id="section-188">使用提示（TTP 系列通用）</h2>
+<ol class="list-panel">
+<li dir="auto">经典链路：大图 → TTP分割 →（逐块放大 / 重绘）→ TTP合并；<code>positions</code> 与 <code>image_tiles</code> 顺序一一对应，务必直连配对。</li>
+<li dir="auto">放大场景建议 <code>scale</code> 与放大倍数一致，<code>positions</code> 输出的就是放大后坐标；合并时按坐标差算重叠，无需手动对齐。</li>
+<li dir="auto">大图出图爆显存时，把 VAE 解码换成 TTP解码（<code>tile_size=1024</code>、<code>overlap=128</code> 起步），效果接近整图解码。</li>
+<li dir="auto">缝合边缘有轻微断层时调大 <code>blur</code>；出现内容重叠错位则检查 <code>alignment</code> 与 VAE 压缩比（如 SD1.x 为 8）是否匹配。</li>
+</ol>
+<hr>
+<h1 data-heading="列表工具分组" dir="auto" data-anchor="section-189" id="section-189">列表工具分组</h1>
+<h2 data-heading="分组速览" dir="auto" data-anchor="section-190" id="section-190">分组速览</h2>
+<p dir="auto">列表工具是批量流程的桥梁：<strong>图像转入列表</strong> 把多图转成列表，<strong>列表提取图像</strong> 按索引取出并可移除，<strong>原生多图转列表 / 列表转原生多图</strong> 与原生多图输出互转，<strong>图片列表参考器</strong> 按索引取图并直接输出 clip / vae / text 供采样器参考。</p>
+<h2 data-heading="图像转入列表" dir="auto" data-anchor="section-191" id="section-191">图像转入列表</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：列表工具，免费节点。<br>
+把 1~3 张单图并入一个列表：<code>prepend</code> 开 = 插到列表开头，关 = 追加到列表尾；列表可选（不接则新建）。需要接更多图可以多节点相连接。</p>
+</blockquote>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-192" id="section-192">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>image_list</code></td>
+<td align="left">图像列表</td>
+<td align="left">IMAGE_LIST</td>
+<td align="left">—</td>
+<td align="left">原列表（可选）</td>
+</tr>
+<tr>
+<td align="left"><code>image_1/2/3</code></td>
+<td align="left">加入的图片</td>
+<td align="left">IMAGE</td>
+<td align="left">—</td>
+<td align="left">要加入的单图</td>
+</tr>
+<tr>
+<td align="left"><code>prepend</code></td>
+<td align="left">插入位置</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">插到列表开头 / 追加到列表尾</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 data-heading="列表提取图像" dir="auto" data-anchor="section-193" id="section-193">列表提取图像</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：列表工具，免费节点。<br>
+按索引从列表中取出一张图，同时输出剩余列表；<code>remove</code> 开 = 提取后从列表移除。</p>
+</blockquote>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-194" id="section-194">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>image_list</code></td>
+<td align="left">图像列表</td>
+<td align="left">IMAGE_LIST</td>
+<td align="left">—</td>
+<td align="left">输入列表</td>
+</tr>
+<tr>
+<td align="left"><code>index</code></td>
+<td align="left">提取索引</td>
+<td align="left">INT</td>
+<td align="left"><code>0</code></td>
+<td align="left">提取索引（越界自动收拢到边界）</td>
+</tr>
+<tr>
+<td align="left"><code>remove</code></td>
+<td align="left">提取后移除</td>
+<td align="left">BOOLEAN</td>
+<td align="left"><code>False</code></td>
+<td align="left">提取后是否从列表移除</td>
+</tr>
+</tbody>
+</table></div>
+<p dir="auto">输出：<code>image_list</code>（剩余 / 原列表）、<code>image</code>（提取的单张）。</p>
+<hr>
+<h2 data-heading="原生多图转列表" dir="auto" data-anchor="section-195" id="section-195">原生多图转列表</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：列表工具，免费节点。<br>
+把原生批量图像（单端口多张）转成列表类型，供列表类节点消费。输入 <code>images</code>、输出 <code>image_list</code>。</p>
+</blockquote>
+<hr>
+<h2 data-heading="图片列表参考器" dir="auto" data-anchor="section-196" id="section-196">图片列表参考器</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：列表工具，免费节点。</p>
+</blockquote>
+<h3 data-heading="节点亮点" dir="auto" data-anchor="section-197" id="section-197">节点亮点</h3>
+<ul>
+<li dir="auto"><strong>多图参考融合</strong>：把列表中的每张图 VAE 编码后以 <code>reference_latents</code> 追加到文本条件，一次吃多张参考图。</li>
+<li dir="auto"><strong>零化条件</strong>：<code>zero_conditioning</code> 输出零化版本（负面参考），适合参考图风格的负向表达。</li>
+</ul>
+<h3 data-heading="怎么接线" dir="auto" data-anchor="section-198" id="section-198">怎么接线</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">输入</th>
+<th align="left">处理</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>text</code> 文本 + <code>clip</code></td>
+<td align="left">文本编码为基础条件</td>
+<td align="left"><code>conditioning</code> 融合条件</td>
+</tr>
+<tr>
+<td align="left"><code>image_list</code> 多张参考图 + <code>vae</code></td>
+<td align="left">逐张编码为参考 Latent 追加</td>
+<td align="left"><code>zero_conditioning</code> 零化条件</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-heading="参数设置" dir="auto" data-anchor="section-199" id="section-199">参数设置</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">中文名</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>image_list</code></td>
+<td align="left">图像列表</td>
+<td align="left">IMAGE_LIST</td>
+<td align="left">—</td>
+<td align="left">参考图列表</td>
+</tr>
+<tr>
+<td align="left"><code>clip</code></td>
+<td align="left">文本编码器</td>
+<td align="left">CLIP</td>
+<td align="left">—</td>
+<td align="left">文本编码器</td>
+</tr>
+<tr>
+<td align="left"><code>vae</code></td>
+<td align="left">解码器</td>
+<td align="left">VAE</td>
+<td align="left">—</td>
+<td align="left">图像编码器</td>
+</tr>
+<tr>
+<td align="left"><code>text</code></td>
+<td align="left">提示词</td>
+<td align="left">STRING（多行）</td>
+<td align="left">空</td>
+<td align="left">提示词（支持动态提示词）</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-heading="使用提示" dir="auto" data-anchor="section-200" id="section-200">使用提示</h3>
+<ol>
+<li dir="auto">参考器适合「多图风格参考 + 文本」一起注入，参考图数量增加时 Conditioning 会相应变长。</li>
+<li dir="auto">列表类节点常与图片加载器家族（<code>image_list</code> 输出）配合。</li>
+</ol>
+<hr>
+<h2 data-heading="列表转原生多图" dir="auto" data-anchor="section-201" id="section-201">列表转原生多图</h2>
+<blockquote dir="auto" class="pull-quote">
+<p>所属分组：列表工具，免费节点。<br>
+把列表转回原生批量图像（输出为列表展开）。输入 <code>image_list</code>、输出 <code>images</code>。</p>
+</blockquote>
+<blockquote dir="auto" class="pull-quote">
+<p>注意：输出是展开列表，直接接普通 IMAGE 口即可。</p>
+</blockquote></article>
+  </main>
+  <button class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">⬆︎</button>
+  <script>(function(){
+var MAX_SPAN = 6;
+function countTextLines(link) {
+  const range = link.ownerDocument.createRange();
+  range.selectNodeContents(link);
+  const rects = range.getClientRects();
+  const tops = new Set();
+  for (let i = 0; i < rects.length; i++) {
+    if (rects[i].height > 0) tops.add(Math.round(rects[i].top));
+  }
+  return tops.size;
+}
+function clearSpans(link) {
+  for (let i = 2; i <= MAX_SPAN; i++) link.classList.remove(`toc-span-${i}`);
+}
+var applyTocAutoSpan = function applyTocAutoSpan(doc) {
+  const win = doc && doc.defaultView;
+  if (!win || typeof doc.querySelectorAll !== "function") return;
+  /* 每个 H1 分组的 .toc-items 是独立网格，分别计算列数与跨格；
+   * 组头 .toc-h1 内的链接不在 .toc-items 内，天然不参与。 */
+  doc.querySelectorAll(".toc-items").forEach((grid) => {
+    const links = Array.from(grid.querySelectorAll("a"));
+    if (!links.length) return;
+    links.forEach(clearSpans);
+    // gridTemplateColumns 形如 "184px 184px 184px"，列数即空格数+1。
+    const columnCount = win
+      .getComputedStyle(grid)
+      .gridTemplateColumns.split(" ")
+      .filter(Boolean).length;
+    if (columnCount <= 1) return;
+    links.forEach((link) => {
+      const lines = countTextLines(link);
+      if (lines < 2) return;
+      // 文本折 N 行说明单格装不下，需要约 N 格才能一行放下；封顶到总列数，
+      // 列数即整行，效果等于"超过一行宽度才硬换行"。
+      const span = Math.min(lines, columnCount, MAX_SPAN);
+      if (span >= 2) link.classList.add(`toc-span-${span}`);
+    });
+  });
+};
+function run(){ applyTocAutoSpan(document); }
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", run);
+} else {
+  run();
+}
+window.addEventListener("resize", run);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(run);
+})();</script>
+  <script>(function(){
+function updateBackToTop(win, doc) {
+  const btn = doc.querySelector(".back-to-top");
+  if (!btn) return;
+  btn.classList.toggle("visible", (win.scrollY || 0) > 320);
+}
+function bindBackToTop(doc) {
+  const win = doc && doc.defaultView;
+  const btn = doc && doc.querySelector(".back-to-top");
+  if (!win || !btn) return;
+  btn.addEventListener("click", () => {
+    win.scrollTo(0, 0); /* 一步到位回顶，无平滑滚动动画 */
+  });
+  win.addEventListener("scroll", () => updateBackToTop(win, doc), { passive: true });
+  updateBackToTop(win, doc);
+}
+function run(){ bindBackToTop(document); }
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", run);
+} else {
+  run();
+}
+})();</script>
+  <script>
+function bindCopyCodeButtons(doc) {
+  if (!doc) return;
+  const buttons = doc.querySelectorAll(".copy-code-button");
+  buttons.forEach((btn) => {
+    if (btn.dataset.copyBound) return;
+    btn.dataset.copyBound = "1";
+    btn.addEventListener("click", () => {
+      const pre = btn.parentElement;
+      if (!pre) return;
+      const code = pre.querySelector("code");
+      const text = (code || pre).textContent || "";
+      const win = doc.defaultView;
+      const clipboard = win && win.navigator && win.navigator.clipboard;
+      const done = () => {
+        btn.classList.add("copied");
+        setTimeout(() => btn.classList.remove("copied"), 1200);
+      };
+      if (clipboard && clipboard.writeText) {
+        clipboard.writeText(text).then(done, () => fallbackCopy(doc, text, done));
+      } else {
+        fallbackCopy(doc, text, done);
+      }
+    });
+  });
+}
+function fallbackCopy(doc, text, done) {
+  const ta = doc.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed";
+  ta.style.opacity = "0";
+  doc.body.appendChild(ta);
+  ta.select();
+  try {
+    doc.execCommand("copy");
+  } catch (err) {
+    /* 忽略，尽力而为 */
+  }
+  doc.body.removeChild(ta);
+  done();
+}
+function run(){ bindCopyCodeButtons(document); }
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", run);
+} else {
+  run();
+}
+</script>
+</body>
+</html>
